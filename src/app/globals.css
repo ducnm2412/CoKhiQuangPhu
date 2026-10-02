@@ -1,26 +1,226 @@
 @import "tailwindcss";
 
+@theme {
+  --color-night: #111112;
+  --color-night-2: #18181a;
+  --color-night-3: #0b0b0c;
+  --color-tile: #1e1e21;
+  --color-rule: #2c2c30;
+  --color-bone: #ecebe6;
+  --color-ash: #9a9a96;
+  --color-signal: #d52b1e;
+  --color-signal-deep: #b02016;
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-head);
+  --font-mono: var(--font-code);
+}
+
+/* Chế độ sáng: ghi đè biến màu khi <html data-theme="light"> (mặc định là tối) */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --grid-line: rgb(255 255 255 / 0.035);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --grid-line: rgb(22 22 22 / 0.05);
+  --color-night: #f4f4f0;
+  --color-night-2: #eaeae4;
+  --color-night-3: #fafaf7;
+  --color-tile: #e1e1da;
+  --color-rule: #d2d2ca;
+  --color-bone: #161616;
+  --color-ash: #5c5c57;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-night);
+  color: var(--color-bone);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 72;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* Đủ chỗ cho dấu tiếng Việt chồng lên nhau giữa hai dòng (dấu nặng dòng trên, dấu hỏi dòng dưới) */
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+}
+
+.label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sheet-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Lưới bản vẽ mờ phía sau bản vẽ khối xe ở hero */
+.blueprint {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dải ảnh chạy ngang: track chứa 2 bản giống nhau, chạy hết 1 bản (-50%) rồi lặp lại */
+.marquee-row {
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  padding-right: 1rem; /* bù gap cuối để vòng lặp không bị giật */
+  animation: marquee 60s linear infinite;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+.marquee-row:hover .marquee-track,
+.marquee-row:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hiệu ứng khi cuộn (xem components/ScrollReveal.tsx) */
+.reveal-ready [data-reveal] {
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease),
+    clip-path 1.1s var(--ease);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.reveal-ready [data-reveal="left"] {
+  transform: translateX(-36px);
+}
+.reveal-ready [data-reveal="right"] {
+  transform: translateX(36px);
+}
+.reveal-ready [data-reveal="fade"] {
+  transform: none;
+}
+/* Ảnh lộ ra từ trên xuống, ảnh bên trong thu về đúng cỡ */
+.reveal-ready [data-reveal="wipe"] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+}
+.reveal-ready [data-reveal="wipe"] img {
+  transform: scale(1.12);
+  transition: transform 1.6s var(--ease);
+}
+/* Đường kẻ chạy từ trái sang */
+.reveal-ready [data-reveal="line"] {
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition-duration: 1.2s;
+}
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* Chỉ ảnh "wipe" mới cắt khung; áp cho chữ sẽ cắt mất dấu tiếng Việt nhô lên trên */
+.reveal-ready [data-reveal="wipe"].is-visible {
+  clip-path: inset(0);
+}
+.reveal-ready [data-reveal="wipe"].is-visible img {
+  transform: none;
+}
+
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+/* Khoảnh khắc chuyển động duy nhất: bản vẽ hero tự vẽ nét */
+.draw [pathLength] {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.6s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+.draw .reveal {
+  opacity: 0;
+  animation: fade 0.5s ease forwards;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Chim Lạc trên bản vẽ hero: bản bay khi được phép chuyển động, bản đứng yên khi không */
+.bird-static {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birds {
+    display: none;
+  }
+  .bird-static {
+    display: inline;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .draw [pathLength],
+  .draw .reveal {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  /* Không chạy dải ảnh: cho vuốt ngang và bỏ bản lặp */
+  .marquee-row {
+    overflow-x: auto;
+    padding-inline: 1.25rem;
+  }
+  .marquee-track {
+    animation: none;
+    padding-right: 0;
+  }
+  .marquee-copy {
+    display: none;
+  }
 }
