@@ -51,7 +51,7 @@ body {
 
 .display {
   font-family: var(--font-display);
-  font-variation-settings: "wdth" 72;
+  /* Font tiêu đề đã được cắt cố định ở độ rộng 72 (src/fonts/archivo-condensed-*.woff2) */
   font-weight: 800;
   text-transform: uppercase;
   /* Đủ chỗ cho dấu tiếng Việt chồng lên nhau giữa hai dòng (dấu nặng dòng trên, dấu hỏi dòng dưới) */

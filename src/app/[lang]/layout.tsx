@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { FloatingContact } from "@/components/FloatingContact";
@@ -10,26 +10,35 @@ import { contact, getContent } from "@/lib/content";
 import { alternatesFor, hasLocale, locales, siteUrl } from "@/lib/i18n";
 import "../globals.css";
 
-const head = Archivo({
+// Font tự cắt gọn (src/fonts): mỗi độ đậm là một file duy nhất chứa đủ chữ Latin và tiếng Việt,
+// thay cho 3 file/độ đậm của Google Fonts. Archivo được cố định ở độ rộng 72 (kiểu chữ tiêu đề).
+const head = localFont({
   variable: "--font-head",
-  subsets: ["latin", "vietnamese"],
-  axes: ["wdth"],
+  src: [
+    { path: "../../fonts/archivo-condensed-600.woff2", weight: "600" },
+    { path: "../../fonts/archivo-condensed-800.woff2", weight: "800" },
+  ],
+  display: "swap",
 });
 
-const body = Be_Vietnam_Pro({
+const body = localFont({
   variable: "--font-body",
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600"],
-  // Không tải trước: CSS đã nhúng trong HTML nên trình duyệt vẫn tìm thấy font sớm;
-  // nhường băng thông tải trước cho font tiêu đề (Archivo) và ảnh lớn đầu trang.
+  src: [
+    { path: "../../fonts/be-vietnam-pro-400.woff2", weight: "400" },
+    { path: "../../fonts/be-vietnam-pro-500.woff2", weight: "500" },
+    { path: "../../fonts/be-vietnam-pro-600.woff2", weight: "600" },
+  ],
+  display: "swap",
+  // Không tải trước: CSS đã nhúng trong HTML nên trình duyệt vẫn tìm thấy font sớm
   preload: false,
 });
 
-const code = JetBrains_Mono({
+const code = localFont({
   variable: "--font-code",
-  subsets: ["latin", "vietnamese"],
-  weight: ["400"],
-  // Chỉ dùng cho nhãn chữ nhỏ: không tải trước để nhường băng thông cho font tiêu đề và nội dung
+  src: "../../fonts/jetbrains-mono-400.woff2",
+  weight: "400",
+  display: "swap",
+  // Chỉ dùng cho nhãn chữ nhỏ
   preload: false,
 });
 
