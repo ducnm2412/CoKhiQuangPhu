@@ -122,7 +122,7 @@ export function Header({ lang, nav, ui, services }: Props) {
             hrefLang={otherLocale(lang)}
             aria-label={ui.switchLang}
             title={ui.switchLang}
-            className="grid h-10 min-w-10 place-items-center border border-rule px-2 font-mono text-xs font-medium text-bone/80 transition-colors hover:border-bone/50 hover:text-bone"
+            className="grid h-10 min-w-10 place-items-center border border-rule px-2 font-mono text-xs text-bone/80 transition-colors hover:border-bone/50 hover:text-bone"
           >
             {ui.switchLangShort}
           </a>

@@ -10,6 +10,7 @@
   --color-ash: #9a9a96;
   --color-signal: #d52b1e;
   --color-signal-deep: #b02016;
+  --color-bronze: #c9a25c;
 
   --font-sans: var(--font-body);
   --font-display: var(--font-head);
@@ -22,6 +23,7 @@
 :root {
   color-scheme: dark;
   --grid-line: rgb(255 255 255 / 0.035);
+  --drum: rgb(201 162 92 / 0.2);
 }
 :root[data-theme="light"] {
   color-scheme: light;
@@ -33,6 +35,8 @@
   --color-rule: #d2d2ca;
   --color-bone: #161616;
   --color-ash: #5c5c57;
+  --color-bronze: #94692a;
+  --drum: rgb(148 105 42 / 0.16);
 }
 
 html {
@@ -190,6 +194,19 @@ body {
   }
 }
 
+/* Mặt trống đồng xoay chậm làm nền (ảnh trongdong đã tách nền thành mặt nạ, tô màu bằng --drum) */
+.drum {
+  -webkit-mask: url("/images/trongdong-mask.webp") center / contain no-repeat;
+  mask: url("/images/trongdong-mask.webp") center / contain no-repeat;
+  background-color: var(--drum);
+  animation: drum-spin 140s linear infinite;
+}
+@keyframes drum-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Chim Lạc trên bản vẽ hero: bản bay khi được phép chuyển động, bản đứng yên khi không */
 .bird-static {
   display: none;
@@ -198,6 +215,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .birds {
     display: none;
+  }
+  .drum {
+    animation: none;
   }
   .bird-static {
     display: inline;

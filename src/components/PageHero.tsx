@@ -4,13 +4,11 @@ import { localePath, type Locale } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
-// Khối mở đầu cho các trang con: đường dẫn, nhãn bản vẽ, tiêu đề lớn, đoạn giới thiệu.
+// Khối mở đầu gọn cho các trang con: đường dẫn, tiêu đề, một câu giới thiệu.
 export function PageHero({
   lang,
   crumb,
   parent,
-  sheet,
-  topic,
   title,
   lead,
   aside,
@@ -18,8 +16,6 @@ export function PageHero({
   lang: Locale;
   crumb: string;
   parent?: { href: string; label: string };
-  sheet: string;
-  topic: string;
   title: string;
   lead: React.ReactNode;
   aside?: React.ReactNode;
@@ -27,7 +23,7 @@ export function PageHero({
   const t = getContent(lang);
   return (
     <section className="blueprint border-b border-rule/60">
-      <div className={`${wrap} pt-10 pb-12 md:pt-14 md:pb-16`}>
+      <div className={`${wrap} pt-8 pb-10 md:pt-10 md:pb-14`}>
         <nav aria-label={t.ui.breadcrumb} className="text-sm text-ash">
           <ol className="flex flex-wrap gap-2">
             <li>
@@ -46,16 +42,13 @@ export function PageHero({
           </ol>
         </nav>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end lg:gap-16">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end lg:gap-16">
           <div data-reveal-group="up">
-            <p className="sheet-label text-signal">
-              {t.ui.sheet} {sheet} · {topic}
-            </p>
-            <h1 className="display mt-8 text-[3.4rem] leading-[1.08] sm:text-7xl lg:text-[6.2rem]">
+            <h1 className="display text-[2.8rem] leading-[1.08] sm:text-6xl lg:text-[4.6rem]">
               {title}
               <span className="text-signal">.</span>
             </h1>
-            <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-ash">{lead}</p>
+            <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ash">{lead}</p>
           </div>
           {aside && <div data-reveal="up">{aside}</div>}
         </div>

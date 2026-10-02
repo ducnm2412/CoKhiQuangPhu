@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { ProjectBrowser } from "@/components/ProjectBrowser";
 import { SheetHead } from "@/components/SheetHead";
 import { getContent } from "@/lib/content";
-import { hasLocale } from "@/lib/i18n";
+import { alternatesFor, hasLocale } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/du-an">): 
   return {
     title: t.metaTitle,
     description: t.metaDescription,
-    alternates: { languages: { vi: "/vi/du-an", en: "/en/du-an" } },
+    alternates: alternatesFor(lang, "/du-an"),
   };
 }
 
@@ -31,8 +31,6 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
       <PageHero
         lang={lang}
         crumb={c.nav.projects}
-        sheet="01"
-        topic={c.nav.projects}
         title={t.title}
         lead={t.lead}
         aside={
@@ -56,7 +54,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
       {/* Dòng thời gian đại lễ */}
       <section className="blueprint border-b border-rule bg-night-2 py-16 md:py-20">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="02" topic={t.ceremoniesTopic}>
+          <SheetHead lang={lang} sheet="01" topic={t.ceremoniesTopic}>
             {t.ceremoniesTitle}
           </SheetHead>
           <ol className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5" data-reveal-group="up">
@@ -78,14 +76,14 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
       {/* Danh sách dự án */}
       <section className="py-16 md:py-24">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="03" topic={t.listTopic}>
+          <SheetHead lang={lang} sheet="02" topic={t.listTopic}>
             {t.listTitle}
           </SheetHead>
           <ProjectBrowser projects={c.projects} categories={c.projectCategories} t={t} />
         </div>
       </section>
 
-      <ContactSection lang={lang} sheet="04" />
+      <ContactSection lang={lang} sheet="03" />
     </main>
   );
 }

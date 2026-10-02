@@ -63,8 +63,15 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </section>
 
       {/* Về chúng tôi */}
-      <section id="ve-chung-toi" className="overflow-x-clip py-16 md:py-24">
-        <div className={`${wrap} grid items-center gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:gap-16`}>
+      <section id="ve-chung-toi" className="relative overflow-hidden py-16 md:py-24">
+        {/* Mặt trống đồng lớn xoay chậm phía sau, tràn khỏi mép phải */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-1/2 -right-[45%] aspect-square w-[150vw] -translate-y-1/2 md:-right-[14%] md:w-[min(1050px,78vw)]"
+        >
+          <div className="drum h-full w-full" />
+        </div>
+        <div className={`${wrap} relative grid items-center gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:gap-16`}>
           {/* Chim Lạc bay vòng quanh ảnh; lớp chim nằm ngoài khối "wipe" để không bị cắt theo khung ảnh */}
           <div className="relative">
             <div data-reveal="wipe">
@@ -73,7 +80,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <BirdsAroundPhoto />
           </div>
           <div data-reveal-group="up">
-            <p className="label text-ash">Quảng Phú</p>
+            <p className="label flex items-center gap-3 text-bronze">
+              <span aria-hidden="true" className="h-px w-8 bg-bronze" />
+              Quảng Phú
+            </p>
             <h2 className="display mt-4 text-5xl md:text-[4.2rem]">
               {t.homeAbout.title1}
               <br />

@@ -8,7 +8,7 @@ import { QuoteLink } from "@/components/QuoteLink";
 import { SheetHead } from "@/components/SheetHead";
 import { ImagePlaceholder, Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
-import { hasLocale, localePath, locales, routes } from "@/lib/i18n";
+import { alternatesFor, hasLocale, localePath, locales, routes } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/dich-vu/[i
   return {
     title: `${p.name} — Quảng Phú`,
     description: `${p.summary} ${p.body}`.slice(0, 160),
-    alternates: { languages: { vi: `/vi/dich-vu/${id}`, en: `/en/dich-vu/${id}` } },
+    alternates: alternatesFor(lang, `/dich-vu/${id}`),
   };
 }
 
@@ -43,7 +43,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
 
   const [main, ...more] = p.images;
   const others = c.products.filter((x) => x.id !== p.id);
-  const num = String(index + 1).padStart(2, "0");
 
   return (
     <main>
@@ -51,8 +50,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
         lang={lang}
         parent={{ href: routes.services, label: c.nav.services }}
         crumb={p.name}
-        sheet="01"
-        topic={`${c.ui.detail} ${num}`}
         title={p.name}
         lead={p.summary}
         aside={
@@ -124,7 +121,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
       {/* Dịch vụ khác */}
       <section className="blueprint border-y border-rule bg-night-3 py-16 md:py-24">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="02" topic={t.otherTopic}>
+          <SheetHead lang={lang} sheet="01" topic={t.otherTopic}>
             {t.otherTitle}
           </SheetHead>
           <div className="grid gap-5 md:grid-cols-3" data-reveal-group="up">
@@ -135,7 +132,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
         </div>
       </section>
 
-      <ContactSection lang={lang} sheet="03" product={p.name} />
+      <ContactSection lang={lang} sheet="02" product={p.name} />
     </main>
   );
 }

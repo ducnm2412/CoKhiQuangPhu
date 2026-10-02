@@ -5,7 +5,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { NewsCard } from "@/components/NewsCard";
 import { Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
-import { hasLocale, localePath, locales, routes } from "@/lib/i18n";
+import { alternatesFor, hasLocale, localePath, locales, routes } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/tin-tuc/[s
   return {
     title: `${item.title} — Quảng Phú`,
     description: item.summary,
-    alternates: { languages: { vi: `/vi/tin-tuc/${slug}`, en: `/en/tin-tuc/${slug}` } },
+    alternates: alternatesFor(lang, `/tin-tuc/${slug}`),
   };
 }
 
@@ -90,7 +90,7 @@ export default async function NewsArticlePage({ params }: PageProps<"/[lang]/tin
         </div>
       </section>
 
-      <ContactSection lang={lang} sheet="02" />
+      <ContactSection lang={lang} sheet="01" />
     </main>
   );
 }

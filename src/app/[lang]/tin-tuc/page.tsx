@@ -4,7 +4,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { NewsCard } from "@/components/NewsCard";
 import { PageHero } from "@/components/PageHero";
 import { getContent } from "@/lib/content";
-import { hasLocale } from "@/lib/i18n";
+import { alternatesFor, hasLocale } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/tin-tuc">)
   return {
     title: t.metaTitle,
     description: t.metaDescription,
-    alternates: { languages: { vi: "/vi/tin-tuc", en: "/en/tin-tuc" } },
+    alternates: alternatesFor(lang, "/tin-tuc"),
   };
 }
 
@@ -28,7 +28,7 @@ export default async function NewsPage({ params }: PageProps<"/[lang]/tin-tuc">)
 
   return (
     <main>
-      <PageHero lang={lang} crumb={c.nav.news} sheet="01" topic={t.title} title={t.title} lead={t.lead} />
+      <PageHero lang={lang} crumb={c.nav.news} title={t.title} lead={t.lead} />
 
       <section className="py-16 md:py-24">
         <div className={wrap}>
@@ -43,7 +43,7 @@ export default async function NewsPage({ params }: PageProps<"/[lang]/tin-tuc">)
         </div>
       </section>
 
-      <ContactSection lang={lang} sheet="02" />
+      <ContactSection lang={lang} sheet="01" />
     </main>
   );
 }

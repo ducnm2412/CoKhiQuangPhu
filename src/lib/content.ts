@@ -150,7 +150,7 @@ const vi = {
     metaDescription:
       "Quảng Phú thiết kế và chế tác trọn gói khối xe nghi trượng đại lễ, tượng Chủ tịch Hồ Chí Minh, tượng chân dung thờ, quà tặng và mỹ thuật trang trí.",
     title: "Dịch vụ",
-    lead: "Bốn dòng chế tác chính, cùng một quy trình trọn gói: thiết kế, duyệt mẫu, đúc và chế tác cơ khí, hoàn thiện, bàn giao tận nơi.",
+    lead: "Bốn dòng chế tác, một quy trình trọn gói.",
     processTopic: "Quy trình đặt hàng",
     processTitle: "Trọn gói từ thiết kế đến bàn giao",
     faqTopic: "Câu hỏi thường gặp",
@@ -301,7 +301,7 @@ const vi = {
     metaDescription:
       "Các dự án Quảng Phú đã thực hiện: khối xe nghi trượng cho Đại lễ A80, A50, lễ kỷ niệm Chiến thắng Điện Biên Phủ, tượng Chủ tịch Hồ Chí Minh, tượng đài và phù điêu.",
     title: "Dự án đã thực hiện",
-    lead: "Khối xe nghi trượng cho các kỳ đại lễ quốc gia, tượng Chủ tịch Hồ Chí Minh, tượng đài và phù điêu — những công trình Quảng Phú đã thiết kế, chế tác và bàn giao.",
+    lead: "Khối xe đại lễ, tượng Bác Hồ và tượng đài đã bàn giao.",
     statProjects: "Dự án tiêu biểu",
     statCeremonies: "Kỳ đại lễ",
     statCategories: "Hạng mục",
@@ -417,7 +417,7 @@ const vi = {
     metaTitle: "Tin tức — Quảng Phú, cơ khí mỹ thuật",
     metaDescription: "Tin tức từ xưởng cơ khí mỹ thuật Quảng Phú: năng lực sản xuất, kỹ thuật chế tác, dự án đã bàn giao.",
     title: "Tin tức",
-    lead: "Chuyện ở xưởng: năng lực mới, cách chúng tôi làm và những công trình vừa bàn giao.",
+    lead: "Chuyện ở xưởng và công trình mới.",
     readMore: "Đọc tiếp",
     more: "Tin khác",
     all: "Tất cả tin tức",
@@ -477,7 +477,7 @@ const vi = {
       "Giới thiệu Công ty TNHH Cơ khí Mỹ thuật Quảng Phú: năng lực sản xuất khối xe nghi trượng đại lễ A05–A80, ban lãnh đạo và đội ngũ nghệ nhân, kỹ thuật.",
     topic: "Giới thiệu",
     title: "Về Quảng Phú",
-    lead: "Công ty TNHH Cơ khí Mỹ thuật Quảng Phú là xưởng cơ khí mỹ thuật tại Lương Tài, Bắc Ninh. Chúng tôi thiết kế và chế tác khối xe nghi trượng cho các kỳ đại lễ quốc gia, tượng Chủ tịch Hồ Chí Minh, tượng chân dung thờ và quà tặng mỹ thuật — từ bản vẽ đầu tiên đến ngày bàn giao.",
+    lead: "Xưởng cơ khí mỹ thuật tại Lương Tài, Bắc Ninh — từ bản vẽ đến ngày bàn giao.",
     capabilityTopic: "Năng lực",
     capabilityTitle: "Xưởng cơ khí mỹ thuật đã qua thử thách cấp quốc gia",
     capabilityBody:
@@ -674,7 +674,7 @@ const en: Content = {
     metaDescription:
       "Quang Phu designs and fabricates ceremonial parade floats, statues of President Ho Chi Minh, ancestral portrait statues, gifts and decorative art — end to end.",
     title: "Services",
-    lead: "Four core lines of work, one end-to-end process: design, model approval, casting and metal fabrication, finishing and on-site delivery.",
+    lead: "Four lines of work, one end-to-end process.",
     processTopic: "How we work",
     processTitle: "End to end, from design to delivery",
     faqTopic: "FAQ",
@@ -820,7 +820,7 @@ const en: Content = {
     metaDescription:
       "Projects by Quang Phu: ceremonial floats for the A80 and A50 celebrations and the Dien Bien Phu anniversaries, statues of President Ho Chi Minh, monuments and reliefs.",
     title: "Completed projects",
-    lead: "Ceremonial floats for national celebrations, statues of President Ho Chi Minh, monuments and reliefs — works Quang Phu has designed, built and delivered.",
+    lead: "Celebration floats, Ho Chi Minh statues and monuments we have delivered.",
     statProjects: "Featured projects",
     statCeremonies: "National celebrations",
     statCategories: "Categories",
@@ -934,7 +934,7 @@ const en: Content = {
     metaTitle: "News — Quang Phu, art metalwork",
     metaDescription: "News from the Quang Phu art metalwork studio: new capacity, craft techniques and recently delivered projects.",
     title: "News",
-    lead: "From the workshop: new capacity, how we work and projects we have just delivered.",
+    lead: "Workshop news and recent works.",
     readMore: "Read more",
     more: "More news",
     all: "All news",
@@ -993,7 +993,7 @@ const en: Content = {
       "About Quang Phu Art Mechanics Co., Ltd.: our capacity for ceremonial floats for national celebrations A05–A80, our leadership and our team of artisans and engineers.",
     topic: "Introduction",
     title: "About Quang Phu",
-    lead: "Quang Phu Art Mechanics Co., Ltd. is an art metalwork studio in Luong Tai, Bac Ninh. We design and build ceremonial floats for Vietnam's national celebrations, statues of President Ho Chi Minh, ancestral portrait statues and art gifts — from the first drawing to the day of delivery.",
+    lead: "An art metalwork studio in Luong Tai, Bac Ninh — from first drawing to delivery.",
     capabilityTopic: "Capability",
     capabilityTitle: "An art metalwork studio proven at national scale",
     capabilityBody:

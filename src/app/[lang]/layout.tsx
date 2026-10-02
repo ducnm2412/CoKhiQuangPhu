@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { contact, getContent } from "@/lib/content";
-import { hasLocale, locales } from "@/lib/i18n";
+import { alternatesFor, hasLocale, locales, siteUrl } from "@/lib/i18n";
 import "../globals.css";
 
 const head = Archivo({
@@ -19,13 +19,18 @@ const head = Archivo({
 const body = Be_Vietnam_Pro({
   variable: "--font-body",
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
+  // Không tải trước: CSS đã nhúng trong HTML nên trình duyệt vẫn tìm thấy font sớm;
+  // nhường băng thông tải trước cho font tiêu đề (Archivo) và ảnh lớn đầu trang.
+  preload: false,
 });
 
 const code = JetBrains_Mono({
   variable: "--font-code",
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500"],
+  weight: ["400"],
+  // Chỉ dùng cho nhãn chữ nhỏ: không tải trước để nhường băng thông cho font tiêu đề và nội dung
+  preload: false,
 });
 
 export function generateStaticParams() {
@@ -42,7 +47,8 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   return {
     title: t.meta.title,
     description: t.meta.description,
-    alternates: { languages: { vi: "/vi", en: "/en" } },
+    metadataBase: new URL(siteUrl),
+    alternates: alternatesFor(lang, "/"),
   };
 }
 

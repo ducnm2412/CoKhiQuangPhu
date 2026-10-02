@@ -17,6 +17,18 @@ export function stripLocale(pathname: string) {
   return rest === "" ? "/" : rest;
 }
 
+// Địa chỉ gốc của website (đặt NEXT_PUBLIC_SITE_URL khi đổi tên miền) — dùng cho URL tuyệt đối trong thẻ SEO.
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://co-khi-quang-phu.vercel.app";
+
+// Thẻ canonical + hreflang cho một trang: ("en", "/du-an") → canonical /en/du-an, kèm bản vi, en và x-default.
+export function alternatesFor(lang: Locale, path: string) {
+  const p = path === "/" ? "" : path;
+  return {
+    canonical: `/${lang}${p}`,
+    languages: { vi: `/vi${p}`, en: `/en${p}`, "x-default": `/vi${p}` },
+  };
+}
+
 export const otherLocale = (lang: Locale): Locale => (lang === "vi" ? "en" : "vi");
 
 // Đường dẫn các trang (giống nhau cho cả hai ngôn ngữ)
