@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ContactSection } from "@/components/ContactSection";
 import { PageHero } from "@/components/PageHero";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductGallery } from "@/components/ProductGallery";
 import { QuoteLink } from "@/components/QuoteLink";
 import { SheetHead } from "@/components/SheetHead";
-import { ImagePlaceholder, Photo } from "@/components/ui";
+import { ImagePlaceholder } from "@/components/ui";
 import { getContent } from "@/lib/content";
 import { alternatesFor, hasLocale, localePath, locales, routes } from "@/lib/i18n";
 
@@ -41,7 +41,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
   if (index === -1) notFound();
   const p = c.products[index];
 
-  const [main, ...more] = p.images;
   const others = c.products.filter((x) => x.id !== p.id);
 
   return (
@@ -64,27 +63,11 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
       {/* Mô tả + ảnh */}
       <section className="py-16 md:py-24">
         <div className={`${wrap} grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16`}>
-          <div>
-            {main ? (
-              <div data-reveal="wipe">
-                <Photo image={main} sizes="(min-width: 1024px) 620px, 100vw" className="aspect-[4/3]" />
-              </div>
-            ) : (
-              <ImagePlaceholder label={c.ui.imagePending} className="aspect-[4/3]" />
-            )}
-            {more.length > 0 && (
-              <div className={`mt-4 grid gap-4 ${more.length > 1 ? "grid-cols-2" : ""}`} data-reveal-group="fade">
-                {more.map((img) => (
-                  <Photo
-                    key={img.src}
-                    image={img}
-                    sizes="(min-width: 1024px) 300px, 50vw"
-                    className={more.length > 1 ? "aspect-[3/2]" : "aspect-[16/7]"}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
+          {p.images.length > 0 ? (
+            <ProductGallery images={p.images} />
+          ) : (
+            <ImagePlaceholder label={c.ui.imagePending} className="aspect-[4/3]" />
+          )}
 
           <div data-reveal-group="up">
             <h2 className="display text-4xl md:text-5xl">{t.whatWeDo}</h2>
@@ -102,7 +85,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
 
             <div className="mt-8 flex flex-wrap gap-3">
               <QuoteLink
-                product={p.name}
                 className="bg-signal px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-signal-deep"
               >
                 {t.requestQuote}
@@ -131,8 +113,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
           </div>
         </div>
       </section>
-
-      <ContactSection lang={lang} sheet="02" product={p.name} />
     </main>
   );
 }

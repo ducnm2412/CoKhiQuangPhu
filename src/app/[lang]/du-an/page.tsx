@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ContactSection } from "@/components/ContactSection";
 import { PageHero } from "@/components/PageHero";
 import { ProjectBrowser } from "@/components/ProjectBrowser";
 import { SheetHead } from "@/components/SheetHead";
@@ -82,8 +81,6 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
           <ProjectBrowser projects={c.projects} categories={c.projectCategories} t={t} />
         </div>
       </section>
-
-      <ContactSection lang={lang} sheet="03" />
     </main>
   );
 }

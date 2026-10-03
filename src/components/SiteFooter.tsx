@@ -1,23 +1,15 @@
 import Link from "next/link";
 import { contact, getContent } from "@/lib/content";
-import { localePath, routes, type Locale } from "@/lib/i18n";
+import { localePath, type Locale } from "@/lib/i18n";
 import { Logo } from "./Logo";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
 export function SiteFooter({ lang }: { lang: Locale }) {
   const t = getContent(lang);
-  const items = [
-    { href: routes.home, label: t.nav.home },
-    { href: routes.about, label: t.nav.about },
-    { href: routes.services, label: t.nav.services },
-    { href: routes.projects, label: t.nav.projects },
-    { href: routes.news, label: t.nav.news },
-    { href: routes.contact, label: t.nav.contact },
-  ];
 
   return (
-    <footer className="border-t border-rule bg-night">
+    <footer id="lien-he" className="border-t border-rule bg-night">
       <div className={`${wrap} grid gap-8 py-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] md:items-stretch md:gap-14`}>
         <div className="flex flex-col">
           <Link href={localePath(lang, "/")} className="flex w-fit items-center gap-2.5" aria-label={t.ui.homeAria}>
@@ -26,15 +18,12 @@ export function SiteFooter({ lang }: { lang: Locale }) {
           </Link>
           <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-ash">{t.company.address}</p>
 
-          <nav aria-label={t.footer.sitemap} className="mt-6">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              {items.map((item) => (
-                <li key={item.href}>
-                  <Link href={localePath(lang, item.href)} className="hover:text-signal">{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <a
+            href={`mailto:${contact.email}`}
+            className="mt-7 w-fit border-b-2 border-signal pb-1 text-[clamp(1.6rem,3.4vw,2.6rem)] leading-tight font-semibold tracking-tight break-all transition-colors hover:text-signal"
+          >
+            {contact.email}
+          </a>
 
           <ul className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-6 text-sm text-ash">
             <li>

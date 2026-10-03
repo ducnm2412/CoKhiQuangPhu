@@ -9,6 +9,7 @@ export type Img = { src: string; alt: string; position?: string };
 // Thông tin không phụ thuộc ngôn ngữ
 export const contact = {
   taxCode: "2300987654", // TODO: xác minh
+  email: "contact@gmail.com", // TODO: thay bằng email thật của công ty
   phone: "0961 031 318",
   phoneHref: "tel:0961031318",
   zaloHref: "https://zalo.me/0961031318",
@@ -74,6 +75,7 @@ const vi = {
     showServices: "Hiện danh sách dịch vụ",
     hideServices: "Ẩn danh sách dịch vụ",
     allServices: "Xem tất cả dịch vụ",
+    allProjects: "Xem tất cả dự án",
     theme: "Đổi giao diện sáng / tối",
     switchLang: "English",
     switchLangShort: "EN",
@@ -124,24 +126,6 @@ const vi = {
     "Trung ương Đoàn TNCS Hồ Chí Minh",
     "Hội Liên hiệp Thanh niên Việt Nam",
   ],
-  quote: {
-    topic: "Báo giá",
-    title1: "Gửi yêu cầu,",
-    title2: "nhận báo giá.",
-    orCall: "Hoặc gọi",
-    name: "Họ tên",
-    phone: "Số điện thoại / Zalo",
-    phoneHint: "Nhập số điện thoại 9–15 chữ số",
-    service: "Dịch vụ",
-    other: "Hạng mục khác",
-    submit: "Nhận báo giá",
-    sending: "Đang gửi…",
-    sent: "Đã gửi yêu cầu.",
-    sentNote: "Quảng Phú sẽ gọi lại cho bạn sớm.",
-    again: "Gửi yêu cầu khác",
-    error: "Chưa gửi được yêu cầu.",
-    errorTail: "Thử lại hoặc gọi",
-  },
   footer: { sitemap: "Sơ đồ trang", maps: "Google Maps", mapTitle: "Bản đồ khu vực xưởng sản xuất Quảng Phú, Lương Tài, Bắc Ninh" },
 
   // ——— Dịch vụ ———
@@ -187,6 +171,8 @@ const vi = {
         img("a80NewEra", "Khối xe Việt Nam kỷ nguyên phát triển mới trong Đại lễ A80"),
         img("a50", "Khối xe biểu trưng 50 năm giữa rừng cờ"),
         img("dbp70Emblem2", "Khối xe Quốc huy lễ kỷ niệm 70 năm Điện Biên Phủ"),
+        img("a80Night", "Khối xe số 80 trong buổi tổng duyệt đêm"),
+        img("dbp60", "Khối xe Quốc huy 60 năm Điện Biên Phủ"),
       ],
     },
     {
@@ -207,6 +193,8 @@ const vi = {
         img("hoStanding", "Tượng Bác Hồ toàn thân phủ nhũ vàng"),
         img("hoBust", "Tượng bán thân Bác Hồ trong hội trường"),
         img("a80Mausoleum", "Tượng Bác Hồ trên khối xe trước Lăng Bác"),
+        img("hoStage", "Tượng Bác Hồ phủ nhũ vàng trên sân khấu lễ kỷ niệm"),
+        img("a80Statue", "Tượng Bác Hồ trên khối xe Đại lễ A80"),
       ],
     },
     {
@@ -223,7 +211,12 @@ const vi = {
       ],
       materials: ["Đồng đúc", "Composite giả đồng", "Đá"],
       sizes: "Bán thân 30–60 cm; toàn thân ngồi 50–90 cm",
-      images: [] as Img[], // TODO: thêm ảnh tượng chân dung thờ đã làm
+      // Ảnh tạm: tượng bán thân Bác Hồ. TODO: thay bằng ảnh tượng chân dung thờ đã làm
+      images: [
+        img("hoBust", "Tượng chân dung bán thân Chủ tịch Hồ Chí Minh"),
+        img("hoStanding", "Tượng chân dung toàn thân phủ nhũ vàng"),
+        img("hoStage", "Tượng chân dung đặt trên sân khấu lễ kỷ niệm"),
+      ],
     },
     {
       id: "qua-tang-my-thuat",
@@ -242,6 +235,8 @@ const vi = {
       images: [
         img("flag", "Tác phẩm lá cờ đỏ sao vàng được cẩu lắp đặt"),
         img("relief", "Phù điêu và cụm tượng chiến sĩ trên khối xe"),
+        img("dbp70Soldiers", "Cụm tượng chiến sĩ giả đồng"),
+        img("dbp70Emblem", "Biểu trưng Quốc huy trên khối xe"),
       ],
     },
   ],
@@ -600,6 +595,7 @@ const en: Content = {
     showServices: "Show services",
     hideServices: "Hide services",
     allServices: "All services",
+    allProjects: "All projects",
     theme: "Switch light / dark mode",
     switchLang: "Tiếng Việt",
     switchLangShort: "VI",
@@ -649,24 +645,6 @@ const en: Content = {
     "Ho Chi Minh Communist Youth Union",
     "Vietnam Youth Federation",
   ],
-  quote: {
-    topic: "Quote",
-    title1: "Send a request,",
-    title2: "get a quote.",
-    orCall: "Or call",
-    name: "Name",
-    phone: "Phone / Zalo",
-    phoneHint: "Enter a phone number of 9–15 digits",
-    service: "Service",
-    other: "Something else",
-    submit: "Get a quote",
-    sending: "Sending…",
-    sent: "Request sent.",
-    sentNote: "Quang Phu will call you back shortly.",
-    again: "Send another request",
-    error: "Your request could not be sent.",
-    errorTail: "Try again or call",
-  },
   footer: { sitemap: "Site map", maps: "Google Maps", mapTitle: "Map of the Quang Phu workshop area, Luong Tai, Bac Ninh" },
 
   servicesPage: {
@@ -710,6 +688,8 @@ const en: Content = {
         img("a80NewEra", "The 'Vietnam, a new era of development' float at the A80 celebration"),
         img("a50", "The 50th-anniversary float among a sea of flags"),
         img("dbp70Emblem2", "National emblem float at the 70th anniversary of Dien Bien Phu"),
+        img("a80Night", "The number-80 float during a night rehearsal"),
+        img("dbp60", "National emblem float, 60th anniversary of Dien Bien Phu"),
       ],
     },
     {
@@ -730,6 +710,8 @@ const en: Content = {
         img("hoStanding", "Gilded full-length statue of Ho Chi Minh"),
         img("hoBust", "Bust of Ho Chi Minh in an assembly hall"),
         img("a80Mausoleum", "Ho Chi Minh statue on a float in front of the Mausoleum"),
+        img("hoStage", "Gilded Ho Chi Minh statue on the anniversary stage"),
+        img("a80Statue", "Ho Chi Minh statue on the A80 float"),
       ],
     },
     {
@@ -746,7 +728,11 @@ const en: Content = {
       ],
       materials: ["Cast bronze", "Bronze-effect composite", "Stone"],
       sizes: "Busts 30–60 cm; seated full-length 50–90 cm",
-      images: [] as Img[],
+      images: [
+        img("hoBust", "Bust portrait statue of President Ho Chi Minh"),
+        img("hoStanding", "Gilded full-length portrait statue"),
+        img("hoStage", "Portrait statue on an anniversary stage"),
+      ],
     },
     {
       id: "qua-tang-my-thuat",
@@ -765,6 +751,8 @@ const en: Content = {
       images: [
         img("flag", "A red-flag installation being lifted into place by crane"),
         img("relief", "Relief and soldier sculptures on a float"),
+        img("dbp70Soldiers", "Bronze-effect soldier sculptures"),
+        img("dbp70Emblem", "National emblem on a float"),
       ],
     },
   ],

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ContactSection } from "@/components/ContactSection";
 import { CountUp } from "@/components/CountUp";
 import { BirdsAroundPhoto } from "@/components/FlyingBirds";
 import { Gallery } from "@/components/Gallery";
@@ -165,8 +164,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <PartnerLogos lang={lang} />
         </div>
       </section>
-
-      <ContactSection lang={lang} sheet="06" />
     </main>
   );
 }

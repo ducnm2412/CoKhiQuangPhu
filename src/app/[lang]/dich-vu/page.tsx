@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ContactSection } from "@/components/ContactSection";
 import { PageHero } from "@/components/PageHero";
 import { ProductCard } from "@/components/ProductCard";
 import { SheetHead } from "@/components/SheetHead";
@@ -83,8 +82,6 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/dich-v
           </div>
         </div>
       </section>
-
-      <ContactSection lang={lang} sheet="03" />
     </main>
   );
 }

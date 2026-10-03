@@ -96,7 +96,9 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
           {themeScript}
         </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <Header lang={lang} nav={t.nav} ui={t.ui} services={t.products.map((p) => ({ id: p.id, name: p.name }))} />
+        <Header lang={lang} nav={t.nav} ui={t.ui} services={t.products.map((p) => ({ id: p.id, name: p.name }))}
+          projectCategories={t.projectCategories}
+        />
         {children}
         <SiteFooter lang={lang} />
         <FloatingContact callLabel={t.ui.callNow} zaloLabel={t.ui.zaloChat} />

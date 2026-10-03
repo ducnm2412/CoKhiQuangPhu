@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ContactSection } from "@/components/ContactSection";
 import { NewsCard } from "@/components/NewsCard";
 import { Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
@@ -89,8 +88,6 @@ export default async function NewsArticlePage({ params }: PageProps<"/[lang]/tin
           </div>
         </div>
       </section>
-
-      <ContactSection lang={lang} sheet="01" />
     </main>
   );
 }

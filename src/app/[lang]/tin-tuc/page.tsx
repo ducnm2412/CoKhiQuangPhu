@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ContactSection } from "@/components/ContactSection";
 import { NewsCard } from "@/components/NewsCard";
 import { PageHero } from "@/components/PageHero";
 import { getContent } from "@/lib/content";
@@ -42,8 +41,6 @@ export default async function NewsPage({ params }: PageProps<"/[lang]/tin-tuc">)
           </div>
         </div>
       </section>
-
-      <ContactSection lang={lang} sheet="01" />
     </main>
   );
 }

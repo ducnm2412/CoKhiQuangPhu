@@ -59,7 +59,7 @@ export function ProductCard({
             {t.servicesPage.viewDetail}
           </Link>
           {!compact && (
-            <QuoteLink product={p.name} className="text-sm font-semibold text-signal hover:underline">
+            <QuoteLink className="text-sm font-semibold text-signal hover:underline">
               {t.servicesPage.requestQuote}
             </QuoteLink>
           )}

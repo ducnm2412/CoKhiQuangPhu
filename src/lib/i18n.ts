@@ -31,6 +31,9 @@ export function alternatesFor(lang: Locale, path: string) {
 
 export const otherLocale = (lang: Locale): Locale => (lang === "vi" ? "en" : "vi");
 
+// Mã các loại dự án, cùng thứ tự với `projectCategories` trong content.ts (dùng cho /du-an#mã)
+export const projectCategorySlugs = ["xe-nghi-truong", "tuong-bac-ho", "tuong-dai-phu-dieu"];
+
 // Đường dẫn các trang (giống nhau cho cả hai ngôn ngữ)
 export const routes = {
   home: "/",
