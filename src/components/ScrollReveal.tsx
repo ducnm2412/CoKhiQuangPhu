@@ -6,10 +6,9 @@ import { useEffect } from "react";
 // - data-reveal="up|left|right|fade|wipe|line" trên một phần tử.
 // - data-reveal-group="up|..." trên phần tử cha: các con hiện so le nhau.
 // Chỉ ẩn nội dung sau khi script chạy (class .reveal-ready), nên không có JS vẫn xem được.
+// Máy bật "giảm chuyển động" vẫn có hiệu ứng, nhưng chỉ hiện dần (CSS bỏ phần trượt/cắt khung).
 export function ScrollReveal() {
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
     const root = document.documentElement;
     // Phần tử được theo dõi → các phần tử sẽ hiện khi nó lọt vào màn hình.
     const targets = new Map<Element, HTMLElement[]>();
