@@ -66,7 +66,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         {/* Mặt trống đồng lớn xoay chậm phía sau, tràn khỏi mép phải */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 -right-[45%] aspect-square w-[150vw] -translate-y-1/2 md:-right-[14%] md:w-[min(1050px,78vw)]"
+          data-loop
+          className="pointer-events-none absolute top-1/2 -right-[35%] aspect-square w-[110vw] -translate-y-1/2 md:-right-[14%] md:w-[min(1050px,78vw)]"
         >
           <div className="drum h-full w-full" />
         </div>

@@ -48,7 +48,7 @@ export function Gallery({ rows: gallery, t }: { rows: Img[][]; t: Content["works
         {gallery.map((row, r) => {
           const start = rowStarts[r];
           return (
-            <div key={r} className="marquee-row no-scrollbar">
+            <div key={r} data-loop className="marquee-row no-scrollbar">
               <ul className={`marquee-track ${r % 2 ? "marquee-reverse" : ""}`}>
                 {/* Lặp 2 lần để dải ảnh chạy liền mạch; bản lặp ẩn với trình đọc màn hình */}
                 {[0, 1].map((copy) =>
@@ -56,7 +56,7 @@ export function Gallery({ rows: gallery, t }: { rows: Img[][]; t: Content["works
                     <li
                       key={`${copy}-${img.src}`}
                       aria-hidden={copy === 1 || undefined}
-                      className={`w-[72vw] shrink-0 sm:w-[44vw] lg:w-[27vw] ${copy === 1 ? "marquee-copy" : ""}`}
+                      className={`w-[72vw] shrink-0 sm:w-[44vw] lg:w-[27vw]`}
                     >
                       <button
                         type="button"

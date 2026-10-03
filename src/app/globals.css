@@ -116,38 +116,34 @@ body {
 .reveal-ready [data-reveal] {
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(16px);
   transition:
-    opacity 0.8s var(--ease),
-    transform 0.8s var(--ease),
-    clip-path 1.1s var(--ease);
-  transition-delay: calc(var(--i, 0) * 90ms);
+    opacity 0.55s var(--ease),
+    transform 0.55s var(--ease),
+    clip-path 0.8s var(--ease);
+  transition-delay: calc(var(--i, 0) * 60ms);
 }
 .reveal-ready [data-reveal="left"] {
-  transform: translateX(-36px);
+  transform: translateX(-20px);
 }
 .reveal-ready [data-reveal="right"] {
-  transform: translateX(36px);
+  transform: translateX(20px);
 }
 .reveal-ready [data-reveal="fade"] {
   transform: none;
 }
-/* Ảnh lộ ra từ trên xuống, ảnh bên trong thu về đúng cỡ */
+/* Ảnh lộ ra từ trên xuống */
 .reveal-ready [data-reveal="wipe"] {
   opacity: 1;
   transform: none;
   clip-path: inset(0 0 100% 0);
-}
-.reveal-ready [data-reveal="wipe"] img {
-  transform: scale(1.12);
-  transition: transform 1.6s var(--ease);
 }
 /* Đường kẻ chạy từ trái sang */
 .reveal-ready [data-reveal="line"] {
   opacity: 1;
   transform: scaleX(0);
   transform-origin: left;
-  transition-duration: 1.2s;
+  transition-duration: 0.9s;
 }
 .reveal-ready [data-reveal].is-visible {
   opacity: 1;
@@ -156,9 +152,6 @@ body {
 /* Chỉ ảnh "wipe" mới cắt khung; áp cho chữ sẽ cắt mất dấu tiếng Việt nhô lên trên */
 .reveal-ready [data-reveal="wipe"].is-visible {
   clip-path: inset(0);
-}
-.reveal-ready [data-reveal="wipe"].is-visible img {
-  transform: none;
 }
 
 .lightbox[open] {
@@ -175,7 +168,7 @@ body {
 .draw [pathLength] {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: draw 1.6s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+  animation: draw 1.2s cubic-bezier(0.6, 0, 0.2, 1) forwards;
   animation-delay: calc(var(--d, 0) * 1ms);
 }
 .draw .reveal {
@@ -207,54 +200,9 @@ body {
   }
 }
 
-/* Chim Lạc trên bản vẽ hero: bản bay khi được phép chuyển động, bản đứng yên khi không */
-.bird-static {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  /* Giảm chứ không tắt hẳn: nội dung vẫn hiện dần khi cuộn, nhưng không trượt, không cắt khung */
-  .reveal-ready [data-reveal] {
-    opacity: 0;
-    transform: none !important;
-    clip-path: none !important;
-    transition: opacity 0.6s ease;
-    transition-delay: 0s;
-  }
-  .reveal-ready [data-reveal] img {
-    transform: none !important;
-  }
-  .reveal-ready [data-reveal].is-visible {
-    opacity: 1;
-  }
-  .birds {
-    display: none;
-  }
-  .drum {
-    animation: none;
-  }
-  .bird-static {
-    display: inline;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-  .draw [pathLength],
-  .draw .reveal {
-    animation: none;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  /* Không chạy dải ảnh: cho vuốt ngang và bỏ bản lặp */
-  .marquee-row {
-    overflow-x: auto;
-    padding-inline: 1.25rem;
-  }
-  .marquee-track {
-    animation: none;
-    padding-right: 0;
-  }
-  .marquee-copy {
-    display: none;
-  }
+/* Tạm dừng hiệu ứng lặp khi phần tử nằm ngoài màn hình (ScrollReveal gắn class này) để máy yếu đỡ tải */
+.anim-paused,
+.anim-paused .marquee-track,
+.anim-paused .drum {
+  animation-play-state: paused !important;
 }

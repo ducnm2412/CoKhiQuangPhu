@@ -6,7 +6,7 @@ import { useEffect } from "react";
 // - data-reveal="up|left|right|fade|wipe|line" trên một phần tử.
 // - data-reveal-group="up|..." trên phần tử cha: các con hiện so le nhau.
 // Chỉ ẩn nội dung sau khi script chạy (class .reveal-ready), nên không có JS vẫn xem được.
-// Máy bật "giảm chuyển động" vẫn có hiệu ứng, nhưng chỉ hiện dần (CSS bỏ phần trượt/cắt khung).
+// Hiệu ứng chạy trên mọi máy; các hiệu ứng lặp (data-loop) tự tạm dừng khi ra khỏi màn hình.
 export function ScrollReveal() {
   useEffect(() => {
     const root = document.documentElement;
@@ -58,12 +58,30 @@ export function ScrollReveal() {
     root.classList.add("reveal-ready");
 
     // Nội dung thêm sau (ví dụ bấm "Tất cả dự án") cũng có hiệu ứng.
+    // Hiệu ứng lặp (dải ảnh, trống đồng, chim): chỉ chạy khi đang nằm trong màn hình
+    const pauser = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          e.target.classList.toggle("anim-paused", !e.isIntersecting);
+          if (e.target instanceof SVGSVGElement) {
+            if (e.isIntersecting) e.target.unpauseAnimations();
+            else e.target.pauseAnimations();
+          }
+        }
+      },
+      { rootMargin: "100px" },
+    );
+    const watchLoops = (scope: ParentNode) =>
+      scope.querySelectorAll("[data-loop]").forEach((el) => pauser.observe(el));
+    watchLoops(document);
+
     const mo = new MutationObserver((records) => {
       for (const r of records) {
         r.addedNodes.forEach((n) => {
           if (n instanceof HTMLElement) {
             if (n.matches("[data-reveal]:not(.is-visible)")) watch(n);
             prepare(n, false);
+            watchLoops(n);
           }
         });
       }
@@ -72,6 +90,7 @@ export function ScrollReveal() {
 
     return () => {
       io.disconnect();
+      pauser.disconnect();
       mo.disconnect();
       root.classList.remove("reveal-ready");
     };

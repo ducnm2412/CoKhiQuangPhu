@@ -12,7 +12,7 @@ export function CountUp({ value, duration = 1400 }: { value: string; duration?: 
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!match || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!match) return;
     const el = ref.current;
     if (!el) return;
     let raf = 0;

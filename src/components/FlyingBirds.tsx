@@ -45,6 +45,7 @@ export function BirdsAroundPhoto() {
     <svg
       viewBox="0 0 500 400"
       aria-hidden="true"
+      data-loop
       className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
     >
       <defs>
@@ -55,10 +56,6 @@ export function BirdsAroundPhoto() {
       <g className="birds">
         <Bird orbit="photo-orbit-1" dur={18} begin={-3} scale={1} />
         <Bird orbit="photo-orbit-2" dur={18} begin={-12} scale={0.7} />
-      </g>
-      {/* Khi người xem giảm chuyển động: một con chim đứng yên ở góc trên ảnh */}
-      <g className="bird-static" transform="translate(440 -18) scale(0.85)">
-        <BirdImage />
       </g>
     </svg>
   );

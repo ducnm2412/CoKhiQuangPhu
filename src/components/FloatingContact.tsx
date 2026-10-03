@@ -26,8 +26,8 @@ export function FloatingContact({ callLabel, zaloLabel }: { callLabel: string; z
         title={`${callLabel} ${contact.phone}`}
         className="relative grid size-12 place-items-center rounded-full bg-signal text-white shadow-lg shadow-black/30 transition-transform hover:scale-105"
       >
-        {/* Vòng lan tỏa nhẹ để gợi ý bấm gọi; tắt khi người xem giảm chuyển động */}
-        <span aria-hidden="true" className="absolute inset-0 animate-ping rounded-full bg-signal/50 motion-reduce:hidden" style={{ animationDuration: "2s" }} />
+        {/* Vòng lan tỏa nhẹ để gợi ý bấm gọi */}
+        <span aria-hidden="true" className="absolute inset-0 animate-ping rounded-full bg-signal/50" style={{ animationDuration: "2s" }} />
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" className="relative">
           <path
             d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"
