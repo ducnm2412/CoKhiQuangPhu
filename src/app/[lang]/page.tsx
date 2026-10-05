@@ -24,7 +24,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     <main>
       {/* Hero: ảnh công trình thật làm nền, phủ tối dần về phía chữ. Khối này luôn nền tối ở cả hai giao diện. */}
       <section className="relative isolate overflow-hidden border-b border-rule/60 bg-[#0d0d0d] text-white">
-        {/* Di động: ảnh là một dải phía trên, chữ nằm dưới. Màn hình lớn: ảnh phủ bên phải, chữ đè lên phần tối. */}
+        {/* Di động: ảnh là một dải phía trên, chữ nằm dưới. Màn hình lớn: ảnh phủ 70% bên phải để khối xe
+            (nằm giữa ảnh) không bị tiêu đề che; phần bên trái hòa vào nền tối. */}
         <div className="absolute inset-x-0 top-0 -z-10 h-[300px] sm:h-[420px] lg:inset-y-0 lg:left-[30%] lg:h-auto">
           <Image
             src={t.hero.photo.src}
