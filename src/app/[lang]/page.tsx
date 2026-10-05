@@ -1,9 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CountUp } from "@/components/CountUp";
 import { BirdsAroundPhoto } from "@/components/FlyingBirds";
 import { Gallery } from "@/components/Gallery";
-import { HeroDrawing } from "@/components/HeroDrawing";
 import { PartnerLogos } from "@/components/PartnerLogos";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { SheetHead } from "@/components/SheetHead";
@@ -12,6 +12,7 @@ import { getContent } from "@/lib/content";
 import { hasLocale, localePath, routes } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
+const brand = "Quảng Phú";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -21,42 +22,65 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <main>
-      {/* Hero */}
-      <section className="blueprint border-b border-rule/60">
-        <div className={`${wrap} pt-12 pb-10 md:pt-16`}>
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)]">
-            <div>
-              <h1 className="display">
-                <span className="block text-4xl font-semibold text-ash md:text-6xl">{t.hero.weAre}</span>
-                <span className="mt-2 block text-[4.1rem] leading-[0.92] whitespace-nowrap sm:text-[7rem] lg:text-[7.4rem] xl:text-[8.6rem]">
-                  Quảng Phú<span className="text-signal">.</span>
-                </span>
-              </h1>
-              <p className="mt-6 flex max-w-[40ch] gap-4 text-lg leading-snug font-medium md:text-[1.4rem]">
-                <span aria-hidden="true" className="mt-[0.7em] h-px w-10 shrink-0 bg-signal" />
-                {t.hero.tagline}
-              </p>
-            </div>
-            <HeroDrawing label={t.hero.drawingLabel} title={t.hero.drawingTitle} />
-          </div>
+      {/* Hero: ảnh công trình thật làm nền, phủ tối dần về phía chữ. Khối này luôn nền tối ở cả hai giao diện. */}
+      <section className="relative isolate overflow-hidden border-b border-rule/60 bg-[#0d0d0d] text-white">
+        {/* Di động: ảnh là một dải phía trên, chữ nằm dưới. Màn hình lớn: ảnh phủ bên phải, chữ đè lên phần tối. */}
+        <div className="absolute inset-x-0 top-0 -z-10 h-[300px] sm:h-[420px] lg:inset-y-0 lg:left-[30%] lg:h-auto">
+          <Image
+            src={t.hero.photo.src}
+            alt={t.hero.photo.alt}
+            fill
+            sizes="(min-width: 1024px) 70vw, 100vw"
+            loading="eager"
+            fetchPriority="high"
+            className="object-cover"
+            style={{ objectPosition: t.hero.photo.position }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/15 to-transparent lg:bg-gradient-to-r lg:via-[#0d0d0d]/45 lg:to-transparent"
+          />
+          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 hidden h-2/5 bg-gradient-to-t from-[#0d0d0d]/85 to-transparent lg:block" />
+        </div>
 
-          <div className="mt-10 flex flex-wrap items-end justify-between gap-8 md:mt-12">
+        <div className={`${wrap} flex flex-col pt-[250px] pb-10 sm:pt-[350px] lg:min-h-[calc(100dvh-4rem)] lg:justify-center lg:pt-16`}>
+          <h1 className="display">
+            <span className="hero-in block text-4xl font-semibold text-white/60 md:text-6xl">{t.hero.weAre}</span>
+            {/* Tên công ty hiện từng chữ cái; trình đọc màn hình đọc bản chữ liền ở dưới */}
+            <span aria-hidden="true" className="mt-2 block text-[4.1rem] leading-[0.92] whitespace-nowrap sm:text-[7rem] lg:text-[6.2rem] xl:text-[7.8rem]">
+              {[...brand].map((ch, i) => (
+                <span key={i} className="hero-in inline-block whitespace-pre" style={{ "--d": 200 + i * 55 } as React.CSSProperties}>
+                  {ch}
+                </span>
+              ))}
+              <span className="hero-dot inline-block text-signal" style={{ "--d": 200 + brand.length * 55 + 150 } as React.CSSProperties}>
+                .
+              </span>
+            </span>
+            <span className="sr-only">{brand}.</span>
+          </h1>
+          <p className="mt-6 flex max-w-[40ch] gap-4 text-lg leading-snug font-medium md:text-[1.4rem]">
+            <span aria-hidden="true" className="hero-line mt-[0.7em] h-px w-10 shrink-0 bg-signal" style={{ "--d": 900 } as React.CSSProperties} />
+            <span className="hero-in" style={{ "--d": 1000 } as React.CSSProperties}>
+              {t.hero.tagline}
+            </span>
+          </p>
+
+          <div className="hero-in mt-10 flex flex-wrap items-end justify-between gap-8 md:mt-14" style={{ "--d": 1250 } as React.CSSProperties}>
             <dl className="flex flex-wrap gap-x-14 gap-y-6">
               {t.stats.map((s) => (
                 <div key={s.label} className="flex flex-col-reverse">
-                  <dt className="mt-1.5 text-sm text-ash">{s.label}</dt>
+                  <dt className="mt-1.5 text-sm text-white/65">{s.label}</dt>
                   <dd className="display text-5xl md:text-6xl">
                     <CountUp value={s.value} />
                   </dd>
                 </div>
               ))}
             </dl>
-            <a href="#ve-chung-toi" className="label hidden items-center gap-3 text-ash transition-colors hover:text-bone sm:flex">
-              {t.hero.scroll}
-              <svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true">
-                <path d="M6 0v14M1 9l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.4" />
-              </svg>
-            </a>
+            <p className="sheet-label hidden items-center gap-3 text-white/75 sm:flex">
+              <span aria-hidden="true" className="h-px w-8 bg-signal" />
+              {t.hero.photoLabel}
+            </p>
           </div>
         </div>
       </section>

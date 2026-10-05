@@ -73,7 +73,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: t.company.name,
-    telephone: "+84961031318",
+    telephone: "+842223867318",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Thôn Quảng Bố, Xã Quảng Phú",

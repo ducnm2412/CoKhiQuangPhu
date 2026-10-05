@@ -8,10 +8,10 @@ export type Img = { src: string; alt: string; position?: string };
 
 // Thông tin không phụ thuộc ngôn ngữ
 export const contact = {
-  taxCode: "2300987654", // TODO: xác minh
+  taxCode: "2300233337",
   email: "contact@gmail.com", // TODO: thay bằng email thật của công ty
-  phone: "0961 031 318",
-  phoneHref: "tel:0961031318",
+  phone: "0222 3867 318",
+  phoneHref: "tel:02223867318",
   zaloHref: "https://zalo.me/0961031318",
   facebookHref: "#", // TODO: thay bằng link Fanpage
   mapsHref: "https://maps.app.goo.gl/3jSzaGFSzLRdym8LA",
@@ -22,9 +22,13 @@ export const contact = {
 // Đường dẫn ảnh dùng chung cho cả hai ngôn ngữ
 const P = {
   a80Night: { src: "/images/a80-khoi-xe-dem.webp" },
+  // Cùng ảnh trên, canh vào khối xe để làm ảnh nền đầu trang chủ
+  a80Hero: { src: "/images/a80-khoi-xe-dem.webp", position: "48% 62%" },
   a80NewEra: { src: "/images/a80-khoi-xe-ky-nguyen-moi.webp" },
   a80Statue: { src: "/images/a80-tuong-bac-khoi-xe.webp" },
   a80Mausoleum: { src: "/images/a80-tuong-bac-lang.webp", position: "50% 35%" },
+  // Cùng ảnh trên nhưng lấy phần khối xe và tượng Bác (bỏ bớt phần Lăng phía trên)
+  a80Float: { src: "/images/a80-tuong-bac-lang.webp", position: "50% 80%" },
   a50: { src: "/images/a50-khoi-xe.webp" },
   dbp60: { src: "/images/dbp60-khoi-xe-quoc-huy.webp" },
   dbp70Emblem: { src: "/images/dbp70-khoi-xe-quoc-huy.webp" },
@@ -91,13 +95,13 @@ const vi = {
     weAre: "Chúng tôi là",
     tagline: "Xưởng cơ khí mỹ thuật chế tác xe nghi trượng đại lễ, tượng đài và tượng chân dung.",
     scroll: "Cuộn xuống",
-    drawingLabel: "KHỐI XE NGHI TRƯỢNG · SƠ ĐỒ MINH HỌA",
-    drawingTitle: "Sơ đồ minh họa hình chiếu đứng của một khối xe nghi trượng với các kích thước L, H, B",
+    photoLabel: "Khối xe đại lễ A80 · Hà Nội 2025",
+    photo: img("a80Hero", "Khối xe số 80 tiến trên đại lộ trong buổi tổng duyệt đêm"),
   },
   // TODO: xác minh
   stats: [
     { value: "120+", label: "dự án, công trình đã hoàn thành" },
-    { value: "15 năm", label: "chế tác cơ khí mỹ thuật" },
+    { value: "25 năm", label: "chế tác cơ khí mỹ thuật" },
   ],
   homeAbout: {
     title1: "Tạo nên",
@@ -105,7 +109,7 @@ const vi = {
     body: "Quảng Phú là xưởng cơ khí mỹ thuật tại Bắc Ninh, trực tiếp sản xuất các khối xe nghi trượng trong những kỳ đại lễ quốc gia từ A05 đến A80, cùng tượng Chủ tịch Hồ Chí Minh, tượng chân dung thờ và quà tặng mỹ thuật.",
     quote: "Nhận báo giá",
     more: "Về Quảng Phú",
-    image: img("a80Mausoleum", "Tượng Chủ tịch Hồ Chí Minh trên khối xe đại lễ, phía sau là Lăng Bác"),
+    image: img("a80Float", "Tượng Chủ tịch Hồ Chí Minh trên khối xe đại lễ, phía sau là Lăng Bác"),
   },
   works: {
     kicker: "Một thoáng",
@@ -517,7 +521,7 @@ const vi = {
       photo: img("director", "Chân dung giám đốc Công ty Cơ khí Mỹ thuật Quảng Phú") as Img | null,
       credentials: [
         "Kỹ sư Cơ khí chế tạo máy",
-        "Hơn 15 năm thiết kế và thi công khối xe nghi trượng, công trình mỹ thuật",
+        "Hơn 25 năm thiết kế và thi công khối xe nghi trượng, công trình mỹ thuật",
         "Trực tiếp chỉ đạo sản xuất các khối xe cho Đại lễ A50, A80 và lễ kỷ niệm 70 năm Chiến thắng Điện Biên Phủ",
         "Sáng lập xưởng Quảng Phú tại Lương Tài, Bắc Ninh năm 2011",
       ],
@@ -611,12 +615,12 @@ const en: Content = {
     weAre: "We are",
     tagline: "An art metalwork studio building ceremonial floats, monuments and portrait statues.",
     scroll: "Scroll down",
-    drawingLabel: "CEREMONIAL FLOAT · ILLUSTRATIVE DIAGRAM",
-    drawingTitle: "Illustrative front elevation of a ceremonial float with dimensions L, H and B",
+    photoLabel: "A80 parade float · Hanoi 2025",
+    photo: img("a80Hero", "The number-80 float advancing along the boulevard at a night rehearsal"),
   },
   stats: [
     { value: "120+", label: "projects and works completed" },
-    { value: "15 years", label: "of art metalwork" },
+    { value: "25 years", label: "of art metalwork" },
   ],
   homeAbout: {
     title1: "Building",
@@ -624,7 +628,7 @@ const en: Content = {
     body: "Quang Phu is an art metalwork studio in Bac Ninh. We build ceremonial floats for Vietnam's national celebrations from A05 to A80, as well as statues of President Ho Chi Minh, ancestral portrait statues and art gifts.",
     quote: "Get a quote",
     more: "About Quang Phu",
-    image: img("a80Mausoleum", "Statue of President Ho Chi Minh on a ceremonial float, with the Mausoleum behind"),
+    image: img("a80Float", "Statue of President Ho Chi Minh on a ceremonial float, with the Mausoleum behind"),
   },
   works: {
     kicker: "A glimpse of",
@@ -1023,7 +1027,7 @@ const en: Content = {
       photo: img("director", "Portrait of the director of Quang Phu Art Mechanics") as Img | null,
       credentials: [
         "Mechanical engineer (machine manufacturing)",
-        "15+ years designing and building ceremonial floats and art installations",
+        "25+ years designing and building ceremonial floats and art installations",
         "Directed float production for the A50 and A80 celebrations and the 70th anniversary of Dien Bien Phu",
         "Founded the Quang Phu workshop in Luong Tai, Bac Ninh in 2011",
       ],
