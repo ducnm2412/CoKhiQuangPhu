@@ -34,14 +34,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             sizes="(min-width: 1024px) 70vw, 100vw"
             loading="eager"
             fetchPriority="high"
-            className="object-cover"
+            className="object-cover brightness-[1.12]"
             style={{ objectPosition: t.hero.photo.position }}
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/15 to-transparent lg:bg-gradient-to-r lg:via-[#0d0d0d]/45 lg:to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/15 to-transparent lg:bg-gradient-to-r lg:via-[#0d0d0d]/20 lg:to-transparent"
           />
-          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 hidden h-2/5 bg-gradient-to-t from-[#0d0d0d]/85 to-transparent lg:block" />
+          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 hidden h-1/3 bg-gradient-to-t from-[#0d0d0d]/60 to-transparent lg:block" />
         </div>
 
         <div className={`${wrap} flex flex-col pt-[250px] pb-10 sm:pt-[350px] lg:min-h-[calc(100dvh-4rem)] lg:justify-center lg:pt-16`}>
@@ -78,7 +78,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 </div>
               ))}
             </dl>
-            <p className="sheet-label hidden items-center gap-3 text-white/75 sm:flex">
+            <p className="sheet-label hidden items-center gap-3 text-white [text-shadow:0_1px_6px_rgb(0_0_0/0.95)] sm:flex">
               <span aria-hidden="true" className="h-px w-8 bg-signal" />
               {t.hero.photoLabel}
             </p>

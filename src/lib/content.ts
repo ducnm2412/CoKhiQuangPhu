@@ -94,7 +94,6 @@ const vi = {
   hero: {
     weAre: "Chúng tôi là",
     tagline: "Xưởng cơ khí mỹ thuật chế tác xe nghi trượng đại lễ, tượng đài và tượng chân dung.",
-    scroll: "Cuộn xuống",
     photoLabel: "Khối xe đại lễ A80 · Hà Nội 2025",
     photo: img("a80Hero", "Khối xe số 80 tiến trên đại lộ trong buổi tổng duyệt đêm"),
   },
@@ -614,7 +613,6 @@ const en: Content = {
   hero: {
     weAre: "We are",
     tagline: "An art metalwork studio building ceremonial floats, monuments and portrait statues.",
-    scroll: "Scroll down",
     photoLabel: "A80 parade float · Hanoi 2025",
     photo: img("a80Hero", "The number-80 float advancing along the boulevard at a night rehearsal"),
   },
