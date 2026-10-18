@@ -54,7 +54,18 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
             <div>
               <p className="max-w-[52ch] leading-relaxed text-ash" data-reveal="up">
-                {t.capabilityBody}
+                {t.founded}
+              </p>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2" data-reveal-group="up">
+                {t.fields.map((f) => (
+                  <li key={f.title} className="border border-rule bg-night-3/60 px-4 py-3">
+                    <h3 className="display text-lg">{f.title}</h3>
+                    <p className="mt-1 text-sm leading-snug text-ash">{f.body}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 max-w-[52ch] leading-relaxed text-ash" data-reveal="up">
+                {t.team}
               </p>
               <figure className="mt-8">
                 <div data-reveal="wipe">
@@ -75,6 +86,26 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
                 </li>
               ))}
             </ol>
+          </div>
+
+          {/* Phương châm */}
+          <div className="mt-14 grid gap-8 border-t border-rule pt-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16" data-reveal="up">
+            <div>
+              <p className="sheet-label text-signal">{t.mottoTitle}</p>
+              <p className="display mt-3 text-3xl leading-tight md:text-4xl">
+                {t.mottoSlogan.map((w, i) => (
+                  <span key={w}>
+                    {i > 0 && <span className="mx-2 text-signal">–</span>}
+                    {w}
+                  </span>
+                ))}
+              </p>
+            </div>
+            <div className="space-y-4 text-[1.05rem] leading-relaxed text-bone/85">
+              {t.mottoBody.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>

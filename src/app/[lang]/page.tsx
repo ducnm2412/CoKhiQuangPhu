@@ -44,11 +44,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div aria-hidden="true" className="absolute inset-x-0 bottom-0 hidden h-1/3 bg-gradient-to-t from-[#0d0d0d]/60 to-transparent lg:block" />
         </div>
 
-        <div className={`${wrap} flex flex-col pt-[250px] pb-10 sm:pt-[350px] lg:min-h-[calc(100dvh-4rem)] lg:justify-center lg:pt-16`}>
+        <div className={`${wrap} flex flex-col pt-[250px] pb-10 sm:pt-[350px] lg:min-h-[calc(100dvh-4rem)] lg:justify-center lg:pt-10 lg:pb-8`}>
           <h1 className="display">
-            <span className="hero-in block text-4xl font-semibold text-white/60 md:text-6xl">{t.hero.weAre}</span>
+            <span className="hero-in block text-3xl font-semibold text-white/60 md:text-4xl xl:text-5xl">{t.hero.weAre}</span>
             {/* Tên công ty hiện từng chữ cái; trình đọc màn hình đọc bản chữ liền ở dưới */}
-            <span aria-hidden="true" className="mt-2 block text-[4.1rem] leading-[0.92] whitespace-nowrap sm:text-[7rem] lg:text-[6.2rem] xl:text-[7.8rem]">
+            <span aria-hidden="true" className="mt-2 block text-[4.1rem] leading-[0.92] whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
               {[...brand].map((ch, i) => (
                 <span key={i} className="hero-in inline-block whitespace-pre" style={{ "--d": 200 + i * 55 } as React.CSSProperties}>
                   {ch}
@@ -60,19 +60,27 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </span>
             <span className="sr-only">{brand}.</span>
           </h1>
-          <p className="mt-6 flex max-w-[40ch] gap-4 text-lg leading-snug font-medium md:text-[1.4rem]">
+          <p className="mt-5 flex max-w-[44ch] gap-4 text-lg leading-snug font-medium md:text-[1.25rem]">
             <span aria-hidden="true" className="hero-line mt-[0.7em] h-px w-10 shrink-0 bg-signal" style={{ "--d": 900 } as React.CSSProperties} />
             <span className="hero-in" style={{ "--d": 1000 } as React.CSSProperties}>
               {t.hero.tagline}
             </span>
           </p>
+          <ul className="hero-in mt-3 max-w-[60ch] space-y-1 pl-14 text-sm leading-snug text-white/80 md:text-[0.95rem]" style={{ "--d": 1100 } as React.CSSProperties}>
+            {t.hero.bullets.map((b) => (
+              <li key={b} className="flex gap-2">
+                <span aria-hidden="true" className="mt-[0.55em] h-1.5 w-1.5 shrink-0 bg-signal" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
 
-          <div className="hero-in mt-10 flex flex-wrap items-end justify-between gap-8 md:mt-14" style={{ "--d": 1250 } as React.CSSProperties}>
+          <div className="hero-in mt-8 flex flex-wrap items-end justify-between gap-8 md:mt-10" style={{ "--d": 1250 } as React.CSSProperties}>
             <dl className="flex flex-wrap gap-x-14 gap-y-6">
               {t.stats.map((s) => (
                 <div key={s.label} className="flex flex-col-reverse">
                   <dt className="mt-1.5 text-sm text-white/65">{s.label}</dt>
-                  <dd className="display text-5xl md:text-6xl">
+                  <dd className="display text-5xl md:text-[3.4rem]">
                     <CountUp value={s.value} />
                   </dd>
                 </div>
