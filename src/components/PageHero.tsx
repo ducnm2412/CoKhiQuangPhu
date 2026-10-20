@@ -12,6 +12,9 @@ export function PageHero({
   title,
   lead,
   aside,
+  stacked = false,
+  asideTop = false,
+  compactTitle = false,
 }: {
   lang: Locale;
   crumb: string;
@@ -19,6 +22,9 @@ export function PageHero({
   title: string;
   lead: React.ReactNode;
   aside?: React.ReactNode;
+  stacked?: boolean; // true: tiêu đề chạy hết chiều rộng, khối aside nằm bên dưới (dùng cho tiêu đề dài)
+  asideTop?: boolean; // true: khối aside canh lên trên thay vì canh đáy với tiêu đề
+  compactTitle?: boolean; // true: tiêu đề cỡ nhỏ hơn, dùng cho tên dự án dài
 }) {
   const t = getContent(lang);
   return (
@@ -42,15 +48,15 @@ export function PageHero({
           </ol>
         </nav>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end lg:gap-16">
+        <div className={`mt-8 grid gap-8 ${stacked ? "" : "lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-16"} ${asideTop ? "lg:items-start" : "lg:items-end"}`}>
           <div data-reveal-group="up">
-            <h1 className="display text-[2.8rem] leading-[1.08] sm:text-6xl lg:text-[4.6rem]">
+            <h1 className={`display leading-[1.08] ${compactTitle ? "text-[2.2rem] sm:text-4xl lg:text-[2.9rem]" : stacked ? "max-w-[22ch] text-[2.6rem] sm:text-5xl lg:text-[3.8rem]" : "text-[2.8rem] sm:text-6xl lg:text-[4.6rem]"}`}>
               {title}
               <span className="text-signal">.</span>
             </h1>
             <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ash">{lead}</p>
           </div>
-          {aside && <div data-reveal="up">{aside}</div>}
+          {aside && <div data-reveal="up" className={stacked ? "lg:max-w-[640px]" : ""}>{aside}</div>}
         </div>
       </div>
     </section>

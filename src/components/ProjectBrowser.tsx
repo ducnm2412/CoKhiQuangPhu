@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import type { Content, Project } from "@/lib/content";
-import { projectCategorySlugs } from "@/lib/i18n";
+import { projectCategorySlugs, type Locale } from "@/lib/i18n";
 import { ProjectGrid } from "./ProjectGrid";
 
 const ALL = -1;
@@ -19,10 +19,12 @@ export function ProjectBrowser({
   projects,
   categories,
   t,
+  lang,
 }: {
   projects: Project[];
   categories: string[];
   t: Content["projectsPage"];
+  lang: Locale;
 }) {
   const hash = useSyncExternalStore(subscribe, readHash, () => "");
   const filter = projectCategorySlugs.indexOf(hash); // -1 = tất cả
@@ -54,7 +56,7 @@ export function ProjectBrowser({
         </p>
       </div>
 
-      <ProjectGrid key={filter} projects={shown} categories={categories} />
+      <ProjectGrid key={filter} projects={shown} categories={categories} lang={lang} viewDetail={t.viewDetail} />
     </>
   );
 }

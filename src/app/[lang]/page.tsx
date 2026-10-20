@@ -46,9 +46,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
         <div className={`${wrap} flex flex-col pt-[250px] pb-10 sm:pt-[350px] lg:min-h-[calc(100dvh-4rem)] lg:justify-center lg:pt-10 lg:pb-8`}>
           <h1 className="display">
-            <span className="hero-in block text-3xl font-semibold text-white/60 md:text-4xl xl:text-5xl">{t.hero.weAre}</span>
+            <span className="hero-in block text-[clamp(1.35rem,6.2vw,1.875rem)] font-semibold text-white/60 md:text-4xl xl:text-5xl">{t.hero.weAre}</span>
             {/* Tên công ty hiện từng chữ cái; trình đọc màn hình đọc bản chữ liền ở dưới */}
-            <span aria-hidden="true" className="mt-2 block text-[4.1rem] leading-[0.92] whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
+            <span aria-hidden="true" className="mt-2 block text-[clamp(2.8rem,13.5vw,4.1rem)] leading-[0.92] whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
               {[...brand].map((ch, i) => (
                 <span key={i} className="hero-in inline-block whitespace-pre" style={{ "--d": 200 + i * 55 } as React.CSSProperties}>
                   {ch}
@@ -60,13 +60,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </span>
             <span className="sr-only">{brand}.</span>
           </h1>
-          <p className="mt-5 flex max-w-[44ch] gap-4 text-lg leading-snug font-medium md:text-[1.25rem]">
+          <p className="mt-5 flex max-w-[44ch] gap-4 text-base leading-snug font-medium sm:text-lg md:text-[1.25rem]">
             <span aria-hidden="true" className="hero-line mt-[0.7em] h-px w-10 shrink-0 bg-signal" style={{ "--d": 900 } as React.CSSProperties} />
             <span className="hero-in" style={{ "--d": 1000 } as React.CSSProperties}>
               {t.hero.tagline}
             </span>
           </p>
-          <ul className="hero-in mt-3 max-w-[60ch] space-y-1 pl-14 text-sm leading-snug text-white/80 md:text-[0.95rem]" style={{ "--d": 1100 } as React.CSSProperties}>
+          <ul className="hero-in mt-3 max-w-[60ch] space-y-1 pl-0 pr-14 text-sm leading-snug text-white/80 sm:pl-14 sm:pr-0 md:text-[0.95rem]" style={{ "--d": 1100 } as React.CSSProperties}>
             {t.hero.bullets.map((b) => (
               <li key={b} className="flex gap-2">
                 <span aria-hidden="true" className="mt-[0.55em] h-1.5 w-1.5 shrink-0 bg-signal" />
@@ -170,13 +170,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <h2 className="display mb-10 text-5xl md:mb-12 md:text-6xl" data-reveal="up">
             {t.homeProjects.title}
           </h2>
-          <ProjectGrid projects={t.projects.slice(0, 4)} categories={t.projectCategories} />
+          <ProjectGrid projects={t.projects.slice(0, 4)} categories={t.projectCategories} lang={lang} viewDetail={t.projectsPage.viewDetail} />
           <div className="mt-16 flex justify-center">
             <Link
               href={lp(routes.projects)}
               className="border border-bone/60 px-6 py-3 text-sm font-semibold transition-colors hover:bg-bone hover:text-night"
             >
-              {t.homeProjects.all} ({t.projects.length})
+              {t.homeProjects.all}
             </Link>
           </div>
         </div>

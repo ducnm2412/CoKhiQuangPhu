@@ -58,11 +58,15 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
           </SheetHead>
           <ol className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5" data-reveal-group="up">
             <span aria-hidden="true" data-reveal="line" className="absolute top-[5px] right-0 left-0 hidden h-px bg-signal lg:block" />
-            {c.ceremonies.map((cer) => (
-              <li key={cer.code} className="relative">
-                <span aria-hidden="true" className="block size-[11px] rounded-full bg-signal" />
-                <p className="mt-5 flex items-baseline gap-3">
-                  <span className="display text-5xl">{cer.code}</span>
+            {c.ceremonies.map((cer, i) => (
+              <li key={cer.code} className="relative pl-7 lg:pl-0">
+                {/* Mobile: chấm đỏ nằm ngang với mã đại lễ, đường kẻ dọc nối các mốc. Desktop: chấm trên đường kẻ ngang */}
+                <span aria-hidden="true" className="absolute top-[0.55em] left-0 size-[11px] rounded-full bg-signal lg:static lg:block" />
+                {i < c.ceremonies.length - 1 && (
+                  <span aria-hidden="true" className="absolute top-[1.4em] bottom-[-2rem] left-[5px] w-px bg-signal/40 lg:hidden" />
+                )}
+                <p className="flex items-baseline gap-3 lg:mt-5">
+                  <span className="display text-5xl leading-none">{cer.code}</span>
                   <span className="font-mono text-sm text-ash">{cer.year}</span>
                 </p>
                 <p className="mt-2 max-w-[28ch] text-sm leading-relaxed text-ash">{cer.name}</p>
@@ -78,7 +82,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
           <SheetHead lang={lang} sheet="02" topic={t.listTopic}>
             {t.listTitle}
           </SheetHead>
-          <ProjectBrowser projects={c.projects} categories={c.projectCategories} t={t} />
+          <ProjectBrowser projects={c.projects} categories={c.projectCategories} t={t} lang={lang} />
         </div>
       </section>
     </main>

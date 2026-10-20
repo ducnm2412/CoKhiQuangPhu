@@ -35,11 +35,6 @@ export function SiteFooter({ lang }: { lang: Locale }) {
             <li>
               <a href={contact.facebookHref} className="hover:text-bone">Facebook</a>
             </li>
-            <li>
-              <a href={contact.mapsHref} target="_blank" rel="noopener noreferrer" className="hover:text-bone">
-                {t.footer.maps}
-              </a>
-            </li>
           </ul>
         </div>
 

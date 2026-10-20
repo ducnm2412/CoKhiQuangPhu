@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import { BackToTop } from "@/components/BackToTop";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Header } from "@/components/Header";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -102,6 +103,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         {children}
         <SiteFooter lang={lang} />
         <FloatingContact callLabel={t.ui.callNow} zaloLabel={t.ui.zaloChat} />
+        <BackToTop label={t.ui.backToTop} />
         <ScrollReveal />
       </body>
     </html>
