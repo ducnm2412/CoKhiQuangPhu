@@ -47,8 +47,12 @@ export function alternatesFor(lang: Locale, path: string) {
 
 export const otherLocale = (lang: Locale): Locale => (lang === "vi" ? "en" : "vi");
 
-// Mã các loại dự án, cùng thứ tự với `projectCategories` trong content.ts (dùng cho /du-an#mã)
-export const projectCategorySlugs = ["xe-nghi-truong", "tuong-bac-ho", "tuong-dai-phu-dieu", "qua-tang-doi-ngoai"];
+// Mã các loại dự án theo ngôn ngữ, cùng thứ tự với `projectCategories` trong content.ts
+// (dùng cho /vi/du-an#mã, /en/projects#code); `all` là mã của bộ lọc "Tất cả".
+export const projectCategorySlugs: Record<Locale, { all: string; list: string[] }> = {
+  vi: { all: "tat-ca", list: ["xe-nghi-truong", "tuong-bac-ho", "tuong-dai-phu-dieu", "qua-tang-doi-ngoai"] },
+  en: { all: "all", list: ["ceremonial-floats", "ho-chi-minh-statues", "monuments-reliefs", "diplomatic-gifts"] },
+};
 
 // Đường dẫn gốc các trang (tiếng Việt); bản tiếng Anh do localePath() đổi tên
 export const routes = {

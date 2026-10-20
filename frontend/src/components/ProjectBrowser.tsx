@@ -7,7 +7,7 @@ import { ProjectGrid } from "./ProjectGrid";
 
 const ALL = -1;
 
-// Loại đang lọc nằm ở phần # của đường dẫn (vd. /du-an#tuong-bac-ho) để chia sẻ được
+// Loại đang lọc nằm ở phần # của đường dẫn (vd. /vi/du-an#tuong-bac-ho, /en/projects#ho-chi-minh-statues) để chia sẻ được
 // và để menu "Dự án" trên header mở thẳng đúng loại.
 const subscribe = (onChange: () => void) => {
   window.addEventListener("hashchange", onChange);
@@ -27,9 +27,14 @@ export function ProjectBrowser({
   lang: Locale;
 }) {
   const hash = useSyncExternalStore(subscribe, readHash, () => "");
-  const filter = projectCategorySlugs.indexOf(hash); // -1 = tất cả
+  const slugs = projectCategorySlugs[lang];
+  // Nhận cả mã của ngôn ngữ kia (link cũ /en/projects#tuong-bac-ho vẫn lọc đúng)
+  const filter =
+    Object.values(projectCategorySlugs)
+      .map((s) => s.list.indexOf(hash))
+      .find((i) => i !== -1) ?? ALL; // -1 = tất cả
   const shown = filter === ALL ? projects : projects.filter((p) => p.category === filter);
-  const options = [{ id: ALL, slug: "tat-ca", label: t.all }, ...categories.map((label, id) => ({ id, slug: projectCategorySlugs[id], label }))];
+  const options = [{ id: ALL, slug: slugs.all, label: t.all }, ...categories.map((label, id) => ({ id, slug: slugs.list[id], label }))];
 
   return (
     <>

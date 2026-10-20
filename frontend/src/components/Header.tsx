@@ -71,7 +71,7 @@ export function Header({ lang, nav, ui, services, projectCategories }: Props) {
       href: routes.projects,
       label: nav.projects,
       sub: projectCategories.map((label, i) => ({
-        href: `${routes.projects}#${projectCategorySlugs[i]}`,
+        href: `${routes.projects}#${projectCategorySlugs[lang].list[i]}`,
         label,
         plain: true,
       })),
