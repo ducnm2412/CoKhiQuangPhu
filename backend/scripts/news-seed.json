@@ -1,0 +1,124 @@
+[
+  {
+    "slug": "nang-cap-xuong-bac-ninh",
+    "order": 0,
+    "published": true,
+    "image": {
+      "url": "/images/lap-dat-la-co.webp",
+      "publicId": null,
+      "position": "50% 55%"
+    },
+    "vi": {
+      "tag": "Năng lực",
+      "title": "Nâng cấp xưởng cơ khí mỹ thuật tại Bắc Ninh",
+      "summary": "Xưởng mở rộng, có thêm cẩu trục tải trọng lớn, sẵn sàng làm song song nhiều khối xe đại lễ.",
+      "body": [
+        "Xưởng tại Thôn Quảng Bố, Xã Quảng Phú, Lương Tài, Bắc Ninh vừa hoàn thành nâng cấp: mở rộng nhà xưởng, bổ sung cẩu trục tải trọng lớn và thiết bị gia công cơ khí chính xác.",
+        "Nhờ đó, Quảng Phú có thể triển khai cùng lúc nhiều khối xe nghi trượng và công trình tượng đài khổ lớn, giữ tiến độ gấp mà vẫn đảm bảo an toàn kỹ thuật và thẩm mỹ."
+      ],
+      "imageAlt": "Cẩu trục đưa tác phẩm lá cờ khổ lớn vào vị trí"
+    },
+    "en": {
+      "tag": "Capability",
+      "title": "Our Bac Ninh workshop has been upgraded",
+      "summary": "A larger workshop with heavy-duty overhead cranes, ready to build several celebration floats at once.",
+      "body": [
+        "Our workshop in Quang Bo Village, Quang Phu Commune, Luong Tai, Bac Ninh has completed an upgrade: more floor space, heavy-duty overhead cranes and precision metalworking equipment.",
+        "Quang Phu can now run several ceremonial floats and large monuments in parallel, keeping tight schedules without compromising on engineering safety or artistry."
+      ],
+      "imageAlt": "An overhead crane lifting a large flag installation into place"
+    }
+  },
+  {
+    "slug": "ky-thuat-so-trong-tuong-truyen-than",
+    "order": 1,
+    "published": true,
+    "image": {
+      "url": "/images/tuong-bac-ho-dung.webp",
+      "publicId": null,
+      "position": "50% 20%"
+    },
+    "vi": {
+      "tag": "Kỹ thuật",
+      "title": "Kỹ thuật số và tay nghề thủ công trong tượng truyền thần",
+      "summary": "Dựng mẫu 3D từ ảnh cũ để gia đình duyệt trước, rồi nghệ nhân hoàn thiện từng nét bằng tay.",
+      "body": [
+        "Từ ảnh tư liệu của gia đình, đội thiết kế dựng mẫu 3D để khách xem trước và chỉnh tỷ lệ khuôn mặt trước khi đúc phôi.",
+        "Phần hồn của tượng nằm ở khâu cuối: nghệ nhân trực tiếp chạm từng nếp nhăn, khóe mắt trên bề mặt kim loại — việc máy móc không thay được."
+      ],
+      "imageAlt": "Bề mặt tượng được nghệ nhân hoàn thiện thủ công"
+    },
+    "en": {
+      "tag": "Technique",
+      "title": "Digital tools and handcraft in portrait statues",
+      "summary": "A 3D model from old photos lets the family approve first; then artisans finish every detail by hand.",
+      "body": [
+        "From a family's archive photos, our designers build a 3D model so the client can preview it and adjust facial proportions before casting.",
+        "The soul of a statue comes at the end: our artisans hand-chase every wrinkle and the corners of the eyes into the metal — something no machine can replace."
+      ],
+      "imageAlt": "A statue surface finished by hand"
+    }
+  },
+  {
+    "slug": "ban-giao-tuong-bac-ho-cap-tinh",
+    "order": 2,
+    "published": true,
+    "image": {
+      "url": "/images/tuong-ban-than-bac-hoi-truong.webp",
+      "publicId": null,
+      "position": null
+    },
+    "vi": {
+      "tag": "Dự án",
+      "title": "Bàn giao tượng Bác Hồ cho các cơ quan cấp tỉnh",
+      "summary": "Hoàn thành vận chuyển và lắp đặt loạt tượng Chủ tịch Hồ Chí Minh tại hội trường các cơ quan hành chính.",
+      "body": [
+        "Cuối năm, đội kỹ thuật Quảng Phú đã đóng gói, vận chuyển và lắp đặt an vị nhiều tượng Chủ tịch Hồ Chí Minh tại cơ quan hành chính và hội trường các tỉnh.",
+        "Tượng được chở bằng xe chuyên dụng với giá đỡ chống sốc. Đội thi công khảo sát bệ đặt, kiểm tra khả năng chịu lực và cố định chắc chắn trước khi bàn giao đúng tiến độ."
+      ],
+      "imageAlt": "Tượng bán thân Chủ tịch Hồ Chí Minh đặt tại hội trường"
+    },
+    "en": {
+      "tag": "Project",
+      "title": "Ho Chi Minh statues delivered to provincial agencies",
+      "summary": "A series of statues of President Ho Chi Minh transported and installed in provincial assembly halls.",
+      "body": [
+        "At year end, the Quang Phu crew packed, transported and installed a number of statues of President Ho Chi Minh in provincial agencies and assembly halls.",
+        "Statues travel in dedicated trucks on shock-absorbing frames. The crew surveys each plinth, checks its load capacity and secures the statue before handing over on schedule."
+      ],
+      "imageAlt": "Bust of President Ho Chi Minh in an assembly hall"
+    }
+  },
+  {
+    "slug": "do-ben-tuong-dai-ngoai-troi",
+    "order": 3,
+    "published": true,
+    "image": {
+      "url": "/images/dbp70-cum-tuong-chien-si.webp",
+      "publicId": null,
+      "position": null
+    },
+    "vi": {
+      "tag": "Kiến thức",
+      "title": "Điều gì giữ tượng đài ngoài trời bền với thời gian?",
+      "summary": "Ba yếu tố: hợp kim chuẩn, khung thép tính toán kỹ và lớp phủ chống oxy hóa.",
+      "body": [
+        "Tượng đài ngoài trời chịu nắng gắt, mưa axit và chênh lệch nhiệt độ lớn. Độ bền đến từ ba yếu tố:",
+        "Hợp kim chất lượng cao, đúng thành phần, hạn chế xốp rỗ trong lõi. Khung thép chịu lực do kỹ sư tính toán để chống gió và giãn nở nhiệt.",
+        "Lớp phủ chống oxy hóa ngoài cùng giữ màu, ngăn rỉ sét và giúp ban quản lý di tích giảm chi phí bảo trì hằng năm."
+      ],
+      "imageAlt": "Cụm tượng chiến sĩ giả đồng đặt ngoài trời"
+    },
+    "en": {
+      "tag": "Insight",
+      "title": "What keeps outdoor monuments lasting?",
+      "summary": "Three things: the right alloy, an engineered steel frame and an anti-oxidation finish.",
+      "body": [
+        "Outdoor monuments face harsh sun, acid rain and wide temperature swings. Their durability comes down to three things:",
+        "High-quality alloys of the right composition to avoid porosity in the core, and a load-bearing steel frame engineered against wind and thermal expansion.",
+        "An outer anti-oxidation coating that keeps the original colour, prevents rust and lowers annual maintenance costs for heritage site boards."
+      ],
+      "imageAlt": "Bronze-effect soldier sculptures outdoors"
+    }
+  }
+]

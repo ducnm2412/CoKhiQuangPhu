@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cơ khí Quảng Phú
 
-## Getting Started
+Repo gồm 2 phần (npm workspaces):
 
-First, run the development server:
+| Thư mục | Nội dung | Deploy |
+| --- | --- | --- |
+| `frontend/` | Next.js 16: site công khai (`/vi`, `/en`) và trang quản trị tin tức `/admin` | Vercel (Root Directory = `frontend`) |
+| `backend/` | API Express + TypeScript: tin tức (MongoDB), ảnh (Cloudinary), đăng nhập JWT | Render / Railway (Root Directory = `backend`) |
+
+Frontend chỉ gọi backend từ phía server (Server Components, Server Actions), nên token quản trị không lộ ra trình duyệt.
+
+## Chạy trên máy
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install                                   # cài cho cả hai phần
+cp backend/.env.example backend/.env          # điền MongoDB, Cloudinary, mật khẩu, JWT_SECRET
+cp frontend/.env.example frontend/.env.local  # API_URL=http://localhost:4000
+npm run seed:news -w backend                  # (một lần) nạp các tin ban đầu
+npm run dev:be                                # API: http://localhost:4000
+npm run dev:fe                                # Site: http://localhost:3000, quản trị: /admin
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Lưu ý: `npm run build:fe` cần backend đang chạy, vì lúc build sẽ dựng sẵn các trang tin.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Method | Đường dẫn | Ghi chú |
+| --- | --- | --- |
+| POST | `/api/auth/login` | `{ password }` → `{ token, expiresIn }` |
+| GET | `/api/news?lang=vi\|en` | Tin đang hiển thị |
+| GET | `/api/news/:slug?lang=vi\|en` | Một tin |
+| GET | `/api/admin/news` | Tất cả tin (cần `Authorization: Bearer <token>`) |
+| GET | `/api/admin/news/:id` | |
+| POST | `/api/admin/news` | multipart/form-data, ảnh ở field `image` (tối đa 4MB) |
+| PUT | `/api/admin/news/:id` | như POST; không gửi ảnh thì giữ ảnh cũ |
+| PATCH | `/api/admin/news/:id/publish` | Ẩn/hiện |
+| DELETE | `/api/admin/news/:id` | Xóa bài và ảnh trên Cloudinary |
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Backend (Render/Railway):** Build `npm install && npm run build`, Start `npm start`. Khai báo các biến trong `backend/.env.example`, đặt `CORS_ORIGIN` là domain frontend. Trên MongoDB Atlas, mở Network Access cho server.
+- **Frontend (Vercel):** Root Directory `frontend`, biến `API_URL` = URL backend.
