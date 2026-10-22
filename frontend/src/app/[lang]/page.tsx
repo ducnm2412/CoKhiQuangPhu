@@ -48,7 +48,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <h1 className="display">
             <span className="hero-in block text-[clamp(1.35rem,6.2vw,1.875rem)] font-semibold text-white/60 md:text-4xl xl:text-5xl">{t.hero.weAre}</span>
             {/* Tên công ty hiện từng chữ cái; trình đọc màn hình đọc bản chữ liền ở dưới */}
-            <span aria-hidden="true" className="mt-2 block text-[clamp(2.8rem,13.5vw,4.1rem)] leading-[0.92] whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
+            {/* mt theo em + leading 1: chừa chỗ cho dấu trên chữ hoa (Ả, Ú) không chạm dấu nặng của dòng trên (THUẬT) */}
+            <span aria-hidden="true" className="mt-[0.12em] block text-[clamp(2.8rem,13.5vw,4.1rem)] leading-none whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
               {[...brand].map((ch, i) => (
                 <span key={i} className="hero-in inline-block whitespace-pre" style={{ "--d": 200 + i * 55 } as React.CSSProperties}>
                   {ch}
