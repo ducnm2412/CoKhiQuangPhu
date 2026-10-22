@@ -13,6 +13,7 @@ type Props = {
   lang: Locale;
   nav: Content["nav"];
   ui: Content["ui"];
+  brand: string;
   services: { id: string; name: string }[];
   projectCategories: string[];
 };
@@ -48,7 +49,7 @@ function SubItem({
   );
 }
 
-export function Header({ lang, nav, ui, services, projectCategories }: Props) {
+export function Header({ lang, nav, ui, brand, services, projectCategories }: Props) {
   const [open, setOpen] = useState(false);
   // Mục đang mở danh sách con trong menu di động
   const [openSub, setOpenSub] = useState<string | null>(null);
@@ -111,7 +112,7 @@ export function Header({ lang, nav, ui, services, projectCategories }: Props) {
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-4 px-5 md:px-8">
         <Link href={lp("/")} onClick={onLogoClick} className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeAria}>
           <Logo />
-          <span className="display text-lg">Quảng Phú</span>
+          <span className="display text-lg">{brand}</span>
         </Link>
 
         <nav aria-label={ui.mainNav} className="hidden lg:block">

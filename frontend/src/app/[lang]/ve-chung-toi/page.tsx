@@ -48,7 +48,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
       {/* Năng lực */}
       <section className="py-16 md:py-24">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="01" topic={t.capabilityTopic}>
+          <SheetHead topic={t.capabilityTopic}>
             {t.capabilityTitle}
           </SheetHead>
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
@@ -113,7 +113,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
       {/* Ban lãnh đạo */}
       <section className="bg-night-3 py-14 md:py-20">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="02" topic={t.leadersTopic}>
+          <SheetHead topic={t.leadersTopic}>
             {t.leadersTitle}
           </SheetHead>
           <div className="space-y-12 md:space-y-14">
@@ -155,7 +155,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
       {/* Đội ngũ nhân lực */}
       <section className="blueprint border-y border-rule bg-night-2 py-16 md:py-24">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="03" topic={t.teamTopic}>
+          <SheetHead topic={t.teamTopic}>
             {t.teamTitle.replace("{n}", String(headcount))}
           </SheetHead>
           <p className="-mt-4 mb-10 max-w-[60ch] leading-relaxed text-ash md:mb-12" data-reveal="up">

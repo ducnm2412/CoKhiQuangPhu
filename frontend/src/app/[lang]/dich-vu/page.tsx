@@ -40,7 +40,7 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/dich-v
       {/* Quy trình */}
       <section className="blueprint border-y border-rule bg-night-2 py-16 md:py-24">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="01" topic={t.processTopic}>
+          <SheetHead topic={t.processTopic}>
             {t.processTitle}
           </SheetHead>
           <ol className="relative grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3 lg:grid-cols-6" data-reveal-group="up">
@@ -61,7 +61,7 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/dich-v
       {/* Câu hỏi thường gặp */}
       <section className="py-16 md:py-24">
         <div className={`${wrap} grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16`}>
-          <SheetHead lang={lang} sheet="02" topic={t.faqTopic}>
+          <SheetHead topic={t.faqTopic}>
             {t.faqTitle}
           </SheetHead>
           <div className="border-t border-rule" data-reveal-group="up">

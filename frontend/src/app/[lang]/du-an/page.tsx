@@ -53,7 +53,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
       {/* Dòng thời gian đại lễ */}
       <section className="blueprint border-b border-rule bg-night-2 py-16 md:py-20">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="01" topic={t.ceremoniesTopic}>
+          <SheetHead topic={t.ceremoniesTopic}>
             {t.ceremoniesTitle}
           </SheetHead>
           <ol className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5" data-reveal-group="up">
@@ -79,7 +79,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
       {/* Danh sách dự án */}
       <section className="py-16 md:py-24">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="02" topic={t.listTopic}>
+          <SheetHead topic={t.listTopic}>
             {t.listTitle}
           </SheetHead>
           <ProjectBrowser projects={c.projects} categories={c.projectCategories} t={t} lang={lang} />

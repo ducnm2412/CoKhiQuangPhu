@@ -12,12 +12,12 @@ import { getContent } from "@/lib/content";
 import { hasLocale, localePath, routes } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
-const brand = "Quảng Phú";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const t = getContent(lang);
+  const brand = t.company.brand;
   const lp = (p: string) => localePath(lang, p);
 
   return (
@@ -62,7 +62,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </h1>
           <p className="mt-5 flex max-w-[44ch] gap-4 text-base leading-snug font-medium sm:text-lg md:text-[1.25rem]">
             <span aria-hidden="true" className="hero-line mt-[0.7em] h-px w-10 shrink-0 bg-signal" style={{ "--d": 900 } as React.CSSProperties} />
-            <span className="hero-in" style={{ "--d": 1000 } as React.CSSProperties}>
+            <span className="hero-in text-balance" style={{ "--d": 1000 } as React.CSSProperties}>
               {t.hero.tagline}
             </span>
           </p>
@@ -115,7 +115,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div data-reveal-group="up">
             <p className="label flex items-center gap-3 text-bronze">
               <span aria-hidden="true" className="h-px w-8 bg-bronze" />
-              Quảng Phú
+              {brand}
             </p>
             <h2 className="display mt-4 text-5xl md:text-[4.2rem]">
               {t.homeAbout.title1}
@@ -124,12 +124,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </h2>
             <p className="mt-6 max-w-[46ch] leading-relaxed text-ash">{t.homeAbout.body}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#lien-he"
+              <Link
+                href={lp(routes.contact)}
                 className="bg-signal px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-signal-deep"
               >
                 {t.homeAbout.quote}
-              </a>
+              </Link>
               <Link
                 href={lp(routes.about)}
                 className="border border-bone/60 px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-bone hover:text-night"
@@ -185,7 +185,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       {/* Khách hàng */}
       <section className="bg-night-3 py-16 md:py-20">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="05" topic={t.homeClients.topic}>
+          <SheetHead topic={t.homeClients.topic}>
             {t.homeClients.title}
           </SheetHead>
           <ul className="-mt-4 flex flex-wrap gap-2" data-reveal="up">

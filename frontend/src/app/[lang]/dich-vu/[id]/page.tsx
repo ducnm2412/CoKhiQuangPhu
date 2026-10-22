@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/dich-vu/[i
   const p = getContent(lang).products.find((x) => x.id === id);
   if (!p) return {};
   return {
-    title: `${p.name} — Quảng Phú`,
+    title: `${p.name} — ${getContent(lang).company.brand}`,
     description: `${p.summary} ${p.body}`.slice(0, 160),
     alternates: alternatesFor(lang, `/dich-vu/${id}`),
   };
@@ -103,7 +103,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
       {/* Dịch vụ khác */}
       <section className="blueprint border-y border-rule bg-night-3 py-16 md:py-24">
         <div className={wrap}>
-          <SheetHead lang={lang} sheet="01" topic={t.otherTopic}>
+          <SheetHead topic={t.otherTopic}>
             {t.otherTitle}
           </SheetHead>
           <div className="grid gap-5 md:grid-cols-3" data-reveal-group="up">

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/du-an/[slu
   const p = getContent(lang).projects.find((x) => x.slug === slug);
   if (!p) return {};
   return {
-    title: `${p.title} — Quảng Phú`,
+    title: `${p.title} — ${getContent(lang).company.brand}`,
     description: p.body.slice(0, 160),
     alternates: alternatesFor(lang, `/du-an/${slug}`),
   };
@@ -109,7 +109,7 @@ export default async function ProjectDetailPage({ params }: PageProps<"/[lang]/d
       {related.length > 0 && (
         <section className="blueprint border-y border-rule bg-night-3 py-16 md:py-24">
           <div className={wrap}>
-            <SheetHead lang={lang} sheet="01" topic={t.otherTopic}>
+            <SheetHead topic={t.otherTopic}>
               {t.otherTitle}
             </SheetHead>
             <ProjectGrid projects={related} categories={c.projectCategories} lang={lang} viewDetail={t.viewDetail} />

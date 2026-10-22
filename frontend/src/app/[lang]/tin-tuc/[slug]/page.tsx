@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/tin-tuc/[s
   const vi = localePath("vi", `/tin-tuc/${item.slugs?.vi ?? item.slug}`);
   const en = localePath("en", `/tin-tuc/${item.slugs?.en ?? item.slug}`);
   return {
-    title: `${item.title} — Quảng Phú`,
+    title: `${item.title} — ${getContent(lang).company.brand}`,
     description: item.summary,
     alternates: { canonical: lang === "en" ? en : vi, languages: { vi, en, "x-default": vi } },
   };

@@ -102,10 +102,8 @@ body {
 .marquee-reverse {
   animation-direction: reverse;
 }
-.marquee-row:hover .marquee-track,
-.marquee-row:focus-within .marquee-track {
-  animation-play-state: paused;
-}
+/* Dải ảnh luôn chạy: không dừng khi rê chuột hay khi có focus (sau khi đóng xem ảnh, focus quay về ảnh vừa bấm
+   và trước đây làm dải ảnh đứng mãi). Chỉ dừng khi ra khỏi màn hình (.anim-paused, xem ScrollReveal). */
 @keyframes marquee {
   to {
     transform: translateX(-50%);

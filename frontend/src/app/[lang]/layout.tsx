@@ -93,7 +93,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
       <body className="min-h-full font-sans">
         <InlineScript html={themeScript} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <Header lang={lang} nav={t.nav} ui={t.ui} services={t.products.map((p) => ({ id: p.id, name: p.name }))}
+        <Header lang={lang} nav={t.nav} ui={t.ui} brand={t.company.brand} services={t.products.map((p) => ({ id: p.id, name: p.name }))}
           projectCategories={t.projectCategories}
         />
         {children}

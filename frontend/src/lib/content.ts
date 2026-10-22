@@ -79,9 +79,10 @@ const vi = {
   meta: {
     title: "Quảng Phú — Cơ khí mỹ thuật: xe nghi trượng, tượng Bác Hồ, tượng chân dung thờ",
     description:
-      "Công ty TNHH Cơ khí Mỹ thuật Quảng Phú (Bắc Ninh) thiết kế, chế tác và bàn giao trọn gói khối xe nghi trượng đại lễ A05–A80, tượng Chủ tịch Hồ Chí Minh, tượng chân dung thờ và quà tặng mỹ thuật.",
+      "Công ty TNHH Cơ khí Mỹ thuật Quảng Phú (Bắc Ninh) thiết kế, chế tác và bàn giao trọn gói khối xe nghi trượng đại lễ A50–A80, tượng Chủ tịch Hồ Chí Minh, tượng chân dung thờ và quà tặng mỹ thuật.",
   },
   company: {
+    brand: "Quảng Phú", // tên ngắn hiển thị ở logo, đầu trang chủ, tiêu đề tab
     name: "Công ty TNHH Cơ khí Mỹ thuật Quảng Phú",
     address: "Thôn Quảng Bố, Xã Quảng Phú, Huyện Lương Tài, Tỉnh Bắc Ninh",
   },
@@ -107,7 +108,6 @@ const vi = {
     switchLang: "English",
     switchLangShort: "EN",
     breadcrumb: "Đường dẫn",
-    sheet: "Bản vẽ số",
     detail: "Chi tiết",
     imagePending: "Ảnh đang cập nhật",
     portraitPending: "Ảnh chân dung · đang cập nhật",
@@ -117,7 +117,7 @@ const vi = {
   },
   hero: {
     weAre: "Công ty Cơ khí Mỹ thuật",
-    tagline: "Tinh hoa Cơ khí Mỹ thuật – Khẳng định tầm vóc Quốc gia",
+    tagline: "Tinh hoa Cơ khí Mỹ thuật – Khẳng định tầm vóc Quốc gia", // dấu cách giữa "Quốc" và "gia" là dấu không ngắt dòng
     bullets: [
       "Đơn vị cung cấp độc quyền tượng chân dung Chủ tịch Hồ Chí Minh cho các cơ quan, đơn vị trong Quân đội nhân dân Việt Nam",
       "Thiết kế & cải hoán các khối xe Nghi trượng phục vụ các dịp đại lễ lớn của dân tộc",
@@ -160,6 +160,22 @@ const vi = {
   ],
   footer: { sitemap: "Sơ đồ trang", maps: "Google Maps", mapTitle: "Bản đồ khu vực xưởng sản xuất Quảng Phú, Lương Tài, Bắc Ninh" },
 
+  // ——— Liên hệ ———
+  contactPage: {
+    metaTitle: "Liên hệ — Quảng Phú, xưởng cơ khí mỹ thuật Bắc Ninh",
+    metaDescription: "Liên hệ Công ty TNHH Cơ khí Mỹ thuật Quảng Phú: điện thoại, Zalo, email, địa chỉ xưởng tại Lương Tài, Bắc Ninh.",
+    title: "Liên hệ",
+    lead: "Gọi điện, nhắn Zalo hoặc ghé xưởng — chúng tôi tư vấn và báo giá miễn phí.",
+    infoTopic: "Thông tin liên hệ",
+    address: "Địa chỉ xưởng",
+    directions: "Chỉ đường",
+    phone: "Điện thoại",
+    email: "Email",
+    social: "Mạng xã hội",
+    taxCode: "Mã số thuế",
+    mapTopic: "Bản đồ",
+  },
+
   // ——— Dịch vụ ———
   servicesPage: {
     metaTitle: "Dịch vụ — Quảng Phú: xe nghi trượng, tượng Bác Hồ, tượng chân dung thờ",
@@ -188,7 +204,7 @@ const vi = {
       id: "xe-nghi-truong",
       name: "Xe nghi trượng đại lễ",
       summary: "Thiết kế, sản xuất khối xe nghi trượng cho diễu hành, diễu binh và sự kiện lớn.",
-      body: "Quảng Phú nhận trọn gói khối xe từ ý tưởng, bản vẽ phối cảnh, kết cấu khung đến tạo hình biểu tượng, hoàn thiện bề mặt và vận hành trong ngày lễ. Xưởng đã trực tiếp làm các khối xe cho những kỳ đại lễ quốc gia từ A05 đến A80.",
+      body: "Quảng Phú nhận trọn gói khối xe từ ý tưởng, bản vẽ phối cảnh, kết cấu khung đến tạo hình biểu tượng, hoàn thiện bề mặt và vận hành trong ngày lễ. Xưởng đã trực tiếp làm các khối xe cho những kỳ đại lễ quốc gia từ A50 đến A80.",
       audience: "Cơ quan Nhà nước, ban tổ chức sự kiện cấp quốc gia, tỉnh, thành phố",
       scope: [
         "Thiết kế ý tưởng, phối cảnh 3D và bản vẽ kỹ thuật",
@@ -617,7 +633,7 @@ const vi = {
   aboutPage: {
     metaTitle: "Về chúng tôi — Quảng Phú, xưởng cơ khí mỹ thuật Bắc Ninh",
     metaDescription:
-      "Giới thiệu Công ty TNHH Cơ khí Mỹ thuật Quảng Phú: năng lực sản xuất khối xe nghi trượng đại lễ A05–A80, ban lãnh đạo và đội ngũ nghệ nhân, kỹ thuật.",
+      "Giới thiệu Công ty TNHH Cơ khí Mỹ thuật Quảng Phú: năng lực sản xuất khối xe nghi trượng đại lễ A50–A80, ban lãnh đạo và đội ngũ nghệ nhân, kỹ thuật.",
     topic: "Giới thiệu",
     title: "Về Quảng Phú",
     lead: "Xưởng cơ khí mỹ thuật tại Lương Tài, Bắc Ninh — từ bản vẽ đến ngày bàn giao.",
@@ -652,12 +668,12 @@ const vi = {
     { term: "Năm thành lập", value: "2002" },
     { term: "Xưởng sản xuất", value: "Thôn Quảng Bố, Xã Lâm Thao, Thành phố Bắc Ninh" },
     { term: "Nhân sự", value: "65+ người" },
-    { term: "Đại lễ đã tham gia", value: "A05 – A80" },
+    { term: "Đại lễ đã tham gia", value: "A50 – A80" },
   ],
   strengths: [
     {
       title: "Kinh nghiệm thực chiến cấp quốc gia",
-      body: "Đã trực tiếp sản xuất, thi công thành công các khối xe nghi trượng cho các dịp đại lễ lớn, từ A05 đến A80.",
+      body: "Đã trực tiếp sản xuất, thi công thành công các khối xe nghi trượng cho các dịp đại lễ lớn, từ A50 đến A80.",
     },
     {
       title: "Độ chính xác và thần thái cao",
@@ -732,9 +748,10 @@ const en: Content = {
   meta: {
     title: "Quang Phu — Art metalwork: ceremonial floats, Ho Chi Minh statues, ancestral portrait statues",
     description:
-      "Quang Phu Art Mechanics Co., Ltd. (Bac Ninh, Vietnam) designs, fabricates and delivers ceremonial parade floats for national celebrations A05–A80, statues of President Ho Chi Minh, ancestral portrait statues and art gifts.",
+      "Quang Phu Art Mechanics Co., Ltd. (Bac Ninh, Vietnam) designs, fabricates and delivers ceremonial parade floats for national celebrations A50–A80, statues of President Ho Chi Minh, ancestral portrait statues and art gifts.",
   },
   company: {
+    brand: "Quang Phu",
     name: "Quang Phu Art Mechanics Co., Ltd.",
     address: "Quang Bo Village, Quang Phu Commune, Luong Tai District, Bac Ninh Province, Vietnam",
   },
@@ -760,7 +777,6 @@ const en: Content = {
     switchLang: "Tiếng Việt",
     switchLangShort: "VI",
     breadcrumb: "Breadcrumb",
-    sheet: "Drawing no.",
     detail: "Detail",
     imagePending: "Photo coming soon",
     portraitPending: "Portrait · coming soon",
@@ -770,7 +786,7 @@ const en: Content = {
   },
   hero: {
     weAre: "Art Metalwork Company",
-    tagline: "The finest in art metalwork – affirming national stature",
+    tagline: "The finest in art metalwork – affirming national stature",
     bullets: [
       "Exclusive supplier of portrait statues of President Ho Chi Minh to agencies and units of the Vietnam People's Army",
       "Design and refitting of ceremonial floats for the nation's major national celebrations",
@@ -812,6 +828,21 @@ const en: Content = {
   ],
   footer: { sitemap: "Site map", maps: "Google Maps", mapTitle: "Map of the Quang Phu workshop area, Luong Tai, Bac Ninh" },
 
+  contactPage: {
+    metaTitle: "Contact — Quang Phu, art metalwork workshop in Bac Ninh",
+    metaDescription: "Contact Quang Phu Art Mechanics Co., Ltd.: phone, Zalo, email and our workshop address in Luong Tai, Bac Ninh.",
+    title: "Contact",
+    lead: "Call, message us on Zalo or visit the workshop — free consultation and quotes.",
+    infoTopic: "Get in touch",
+    address: "Workshop address",
+    directions: "Get directions",
+    phone: "Phone",
+    email: "Email",
+    social: "Social",
+    taxCode: "Tax code",
+    mapTopic: "Map",
+  },
+
   servicesPage: {
     metaTitle: "Services — Quang Phu: ceremonial floats, Ho Chi Minh statues, portrait statues",
     metaDescription:
@@ -838,7 +869,7 @@ const en: Content = {
       id: "xe-nghi-truong",
       name: "Ceremonial parade floats",
       summary: "Design and fabrication of ceremonial floats for parades, military reviews and major events.",
-      body: "Quang Phu takes on floats end to end: concept, perspective drawings, frame structure, sculpted emblems, surface finishing and operation on the day. Our workshop has built floats for Vietnam's national celebrations from A05 to A80.",
+      body: "Quang Phu takes on floats end to end: concept, perspective drawings, frame structure, sculpted emblems, surface finishing and operation on the day. Our workshop has built floats for Vietnam's national celebrations from A50 to A80.",
       audience: "Government agencies and national, provincial and city event organisers",
       scope: [
         "Concept design, 3D renders and technical drawings",
@@ -1258,7 +1289,7 @@ const en: Content = {
   aboutPage: {
     metaTitle: "About us — Quang Phu, art metalwork studio in Bac Ninh",
     metaDescription:
-      "About Quang Phu Art Mechanics Co., Ltd.: our capacity for ceremonial floats for national celebrations A05–A80, our leadership and our team of artisans and engineers.",
+      "About Quang Phu Art Mechanics Co., Ltd.: our capacity for ceremonial floats for national celebrations A50–A80, our leadership and our team of artisans and engineers.",
     topic: "Introduction",
     title: "About Quang Phu",
     lead: "An art metalwork studio in Luong Tai, Bac Ninh — from first drawing to delivery.",
@@ -1292,12 +1323,12 @@ const en: Content = {
     { term: "Founded", value: "2002" },
     { term: "Workshop", value: "Quang Bo village, Lam Thao, Bac Ninh city" },
     { term: "Team", value: "65+ people" },
-    { term: "National celebrations", value: "A05 – A80" },
+    { term: "National celebrations", value: "A50 – A80" },
   ],
   strengths: [
     {
       title: "Proven at national scale",
-      body: "We have built and delivered ceremonial floats for major national celebrations, from A05 to A80.",
+      body: "We have built and delivered ceremonial floats for major national celebrations, from A50 to A80.",
     },
     {
       title: "Precision and true likeness",

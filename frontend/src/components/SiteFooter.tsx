@@ -14,7 +14,7 @@ export function SiteFooter({ lang }: { lang: Locale }) {
         <div className="flex flex-col">
           <Link href={localePath(lang, "/")} className="flex w-fit items-center gap-2.5" aria-label={t.ui.homeAria}>
             <Logo />
-            <span className="display text-lg">Quảng Phú</span>
+            <span className="display text-lg">{t.company.brand}</span>
           </Link>
           <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-ash">{t.company.address}</p>
 

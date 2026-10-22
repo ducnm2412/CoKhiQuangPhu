@@ -14,6 +14,7 @@ export const enSegments: Record<string, string> = {
   "dich-vu": "services",
   "du-an": "projects",
   "tin-tuc": "news",
+  "lien-he": "contact",
   "xem-truoc-tin": "news-preview",
 };
 
@@ -108,5 +109,5 @@ export const routes = {
   services: "/dich-vu",
   projects: "/du-an",
   news: "/tin-tuc",
-  contact: "#lien-he",
+  contact: "/lien-he",
 };
