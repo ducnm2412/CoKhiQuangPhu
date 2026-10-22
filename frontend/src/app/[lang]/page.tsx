@@ -60,13 +60,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </span>
             <span className="sr-only">{brand}.</span>
           </h1>
-          <p className="mt-5 flex max-w-[44ch] gap-4 text-base leading-snug font-medium sm:text-lg md:text-[1.25rem]">
-            <span aria-hidden="true" className="hero-line mt-[0.7em] h-px w-10 shrink-0 bg-signal" style={{ "--d": 900 } as React.CSSProperties} />
-            <span className="hero-in text-balance" style={{ "--d": 1000 } as React.CSSProperties}>
+          <p className="mt-5 flex gap-3 text-base leading-snug font-medium sm:text-lg md:text-[1.25rem]">
+            <span aria-hidden="true" className="hero-line mt-[0.7em] h-px w-5 shrink-0 bg-signal" style={{ "--d": 900 } as React.CSSProperties} />
+            <span className="hero-in text-balance md:whitespace-nowrap" style={{ "--d": 1000 } as React.CSSProperties}>
               {t.hero.tagline}
             </span>
           </p>
-          <ul className="hero-in mt-3 max-w-[60ch] space-y-1 pl-0 pr-14 text-sm leading-snug text-white/80 sm:pl-14 sm:pr-0 md:text-[0.95rem]" style={{ "--d": 1100 } as React.CSSProperties}>
+          <ul className="hero-in mt-3 max-w-[60ch] space-y-1 pl-0 pr-8 text-sm leading-snug text-white/80 sm:pl-8 sm:pr-0 md:text-[0.95rem]" style={{ "--d": 1100 } as React.CSSProperties}>
             {t.hero.bullets.map((b) => (
               <li key={b} className="flex gap-2">
                 <span aria-hidden="true" className="mt-[0.55em] h-1.5 w-1.5 shrink-0 bg-signal" />
