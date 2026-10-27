@@ -110,48 +110,6 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
         </div>
       </section>
 
-      {/* Ban lãnh đạo */}
-      <section className="bg-night-3 py-14 md:py-20">
-        <div className={wrap}>
-          <SheetHead topic={t.leadersTopic}>
-            {t.leadersTitle}
-          </SheetHead>
-          <div className="space-y-12 md:space-y-14">
-            {c.leaders.map((l, i) => (
-              <article
-                key={l.name}
-                className={`grid gap-6 md:items-center md:gap-12 ${
-                  i % 2 ? "md:grid-cols-[minmax(0,1fr)_300px]" : "md:grid-cols-[300px_minmax(0,1fr)]"
-                }`}
-              >
-                <div data-reveal="wipe" className={`max-w-[240px] md:max-w-none ${i % 2 ? "md:order-2" : ""}`}>
-                  {l.photo ? (
-                    <Photo image={l.photo} sizes="300px" className="aspect-[4/5]" />
-                  ) : (
-                    <PortraitPlaceholder label={c.ui.portraitPending} />
-                  )}
-                </div>
-                <div data-reveal="up">
-                  <header className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
-                    <h3 className="text-lg font-semibold uppercase">{l.name}</h3>
-                    <p className="text-xs font-semibold text-signal uppercase">{l.role}</p>
-                  </header>
-                  <ul className="mt-4 space-y-1.5 text-sm leading-relaxed text-bone/85">
-                    {l.credentials.map((cred) => (
-                      <li key={cred} className="flex gap-3">
-                        <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-signal" />
-                        {cred}
-                      </li>
-                    ))}
-                  </ul>
-                  <blockquote className="mt-5 max-w-[60ch] border-l-2 border-signal pl-4 text-sm leading-relaxed text-ash italic">{l.quote}</blockquote>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Đội ngũ nhân lực */}
       <section className="blueprint border-y border-rule bg-night-2 py-16 md:py-24">
         <div className={wrap}>
@@ -185,21 +143,5 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
         </div>
       </section>
     </main>
-  );
-}
-
-// Ô ảnh chờ cho chân dung lãnh đạo, vẽ như bản phác bằng nét.
-function PortraitPlaceholder({ label }: { label: string }) {
-  return (
-    <div className="blueprint relative grid aspect-[4/5] place-items-center border border-rule bg-night-2">
-      <svg viewBox="0 0 200 240" className="w-1/2 text-bone/30" aria-hidden="true">
-        <g fill="none" stroke="currentColor" strokeWidth="1.5">
-          <ellipse cx="100" cy="88" rx="40" ry="50" />
-          <path d="M84 134v14c-36 8-58 30-64 72M116 134v14c36 8 58 30 64 72" />
-          <path d="M100 30v190" strokeDasharray="4 4" className="text-signal" stroke="currentColor" opacity="0.6" />
-        </g>
-      </svg>
-      <p className="sheet-label absolute bottom-4 left-4 text-ash">{label}</p>
-    </div>
   );
 }
