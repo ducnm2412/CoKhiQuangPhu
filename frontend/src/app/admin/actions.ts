@@ -61,6 +61,40 @@ export async function togglePublish(id: string) {
   revalidateNews();
 }
 
+// ——— Dự án ———
+
+function revalidateProjects() {
+  revalidatePath("/[lang]/du-an", "layout");
+  revalidatePath("/[lang]", "page"); // trang chủ hiện 4 dự án đầu
+  revalidatePath("/admin", "layout");
+}
+
+export async function saveProject(id: string | null, _: FormState, form: FormData): Promise<FormState> {
+  const image = form.get("image");
+  if (image instanceof File && image.size === 0) form.delete("image");
+  const total = [...form.values()].reduce((n, v) => n + (v instanceof File ? v.size : 0), 0);
+  if (total > MAX_UPLOAD) return { error: "Ảnh quá nặng cho một lần lưu (tối đa 4MB). Hãy lưu bớt ảnh, rồi sửa dự án để thêm tiếp." };
+
+  try {
+    await adminApi(id ? `/projects/${id}` : "/projects", { method: id ? "PUT" : "POST", body: form });
+  } catch (e) {
+    if (e instanceof ApiError) return { error: e.message };
+    throw e;
+  }
+  revalidateProjects();
+  redirect("/admin/projects");
+}
+
+export async function deleteProject(id: string) {
+  await adminApi(`/projects/${id}`, { method: "DELETE" });
+  revalidateProjects();
+}
+
+export async function toggleProjectPublish(id: string) {
+  await adminApi(`/projects/${id}/publish`, { method: "PATCH" });
+  revalidateProjects();
+}
+
 // ——— Dịch tự động (Google Cloud Translation, gọi qua backend) ———
 
 export async function translateTexts(texts: string[]): Promise<{ texts?: string[]; error?: string }> {

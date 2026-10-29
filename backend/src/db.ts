@@ -17,12 +17,34 @@ export type NewsDoc = {
   updatedAt: Date;
 };
 
+// Dự án: mỗi dự án một document, chứa cả bản tiếng Việt và tiếng Anh.
+export type ProjectLangFields = { title: string; place: string; summary: string; body: string; highlights: string[]; imageAlt: string };
+export type ProjectImage = { url: string; publicId: string | null; position: string | null }; // publicId null = ảnh tĩnh của frontend
+export type ProjectDoc = {
+  _id: ObjectId;
+  slug: string; // đường dẫn bản tiếng Việt: /vi/du-an/[slug]
+  slugEn?: string; // đường dẫn bản tiếng Anh; dự án cũ không có thì dùng chung slug
+  order: number; // nhỏ hơn đứng trước
+  published: boolean;
+  category: number; // vị trí trong projectCategories của frontend
+  year: string;
+  image: ProjectImage;
+  gallery: (ProjectImage & { alt: { vi: string; en: string } })[];
+  vi: ProjectLangFields;
+  en: ProjectLangFields;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
 const client = new MongoClient(env.mongoUri);
 
 export async function connectDb() {
   await client.connect();
   await news().createIndex({ slug: 1 }, { unique: true });
   await news().createIndex({ slugEn: 1 }, { unique: true, sparse: true });
+  await projects().createIndex({ slug: 1 }, { unique: true });
+  await projects().createIndex({ slugEn: 1 }, { unique: true, sparse: true });
 }
 
 export const news = () => client.db(env.mongoDb).collection<NewsDoc>("news");
+export const projects = () => client.db(env.mongoDb).collection<ProjectDoc>("projects");

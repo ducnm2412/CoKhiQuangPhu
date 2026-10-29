@@ -18,6 +18,24 @@ export type NewsDoc = {
   updatedAt: string;
 };
 
+export type ProjectLangFields = { title: string; place: string; summary: string; body: string; highlights: string[]; imageAlt: string };
+export type ProjectImage = { url: string; publicId: string | null; position: string | null };
+export type ProjectDoc = {
+  _id: string;
+  slug: string;
+  slugEn?: string;
+  order: number;
+  published: boolean;
+  category: number;
+  year: string;
+  image: ProjectImage;
+  gallery: (ProjectImage & { alt: { vi: string; en: string } })[];
+  vi: ProjectLangFields;
+  en: ProjectLangFields;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export class ApiError extends Error {
   constructor(public status: number, message: string) {
     super(message);

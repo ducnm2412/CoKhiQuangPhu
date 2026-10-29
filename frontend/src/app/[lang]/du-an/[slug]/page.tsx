@@ -1,33 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { QuoteLink } from "@/components/QuoteLink";
 import { SheetHead } from "@/components/SheetHead";
 import { getContent } from "@/lib/content";
-import { alternatesFor, hasLocale, localePath, locales, routes } from "@/lib/i18n";
+import { hasLocale, localePath, locales, routes } from "@/lib/i18n";
+import { getProjectBySlug, getProjects } from "@/lib/projects";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
-export function generateStaticParams() {
-  // Slug dự án giống nhau ở mọi ngôn ngữ
-  return locales.flatMap((lang) => getContent(lang).projects.map((p) => ({ lang, slug: p.slug })));
+// Dựng sẵn các dự án đang có lúc build (mỗi ngôn ngữ một slug);
+// dự án thêm sau từ trang quản trị được dựng khi có người mở lần đầu.
+export async function generateStaticParams() {
+  const perLang = await Promise.all(locales.map(async (lang) => (await getProjects(lang)).map((p) => ({ lang, slug: p.slug }))));
+  return perLang.flat();
 }
-
-// Chỉ các dự án đã khai báo; đường dẫn khác trả về 404.
-export const dynamicParams = false;
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/du-an/[slug]">): Promise<Metadata> {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) return {};
-  const p = getContent(lang).projects.find((x) => x.slug === slug);
+  const p = await getProjectBySlug(lang, slug);
   if (!p) return {};
+  const vi = localePath("vi", `/du-an/${p.slugs?.vi ?? p.slug}`);
+  const en = localePath("en", `/du-an/${p.slugs?.en ?? p.slug}`);
   return {
     title: `${p.title} — ${getContent(lang).company.brand}`,
     description: p.body.slice(0, 160),
-    alternates: alternatesFor(lang, `/du-an/${slug}`),
+    alternates: { canonical: lang === "en" ? en : vi, languages: { vi, en, "x-default": vi } },
   };
 }
 
@@ -36,13 +38,16 @@ export default async function ProjectDetailPage({ params }: PageProps<"/[lang]/d
   if (!hasLocale(lang)) notFound();
   const c = getContent(lang);
   const t = c.projectsPage;
-  const p = c.projects.find((x) => x.slug === slug);
+  const p = await getProjectBySlug(lang, slug);
   if (!p) notFound();
+  // Mở bằng slug của ngôn ngữ kia (vd. bấm đổi ngôn ngữ) → chuyển về slug đúng của ngôn ngữ này
+  if (p.slug !== decodeURIComponent(slug)) permanentRedirect(localePath(lang, `/du-an/${p.slug}`));
+  const all = await getProjects(lang);
 
   const images = [p.image, ...(p.images ?? [])];
   // Dự án liên quan: cùng hạng mục trước, rồi bù bằng các dự án khác, tối đa 4
-  const sameCategory = c.projects.filter((x) => x.slug !== p.slug && x.category === p.category);
-  const rest = c.projects.filter((x) => x.slug !== p.slug && x.category !== p.category);
+  const sameCategory = all.filter((x) => x.slug !== p.slug && x.category === p.category);
+  const rest = all.filter((x) => x.slug !== p.slug && x.category !== p.category);
   const related = [...sameCategory, ...rest].slice(0, 4);
 
   return (

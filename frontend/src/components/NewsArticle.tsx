@@ -41,7 +41,7 @@ export function NewsArticle({ lang, c, item, others }: { lang: Locale; c: Conten
             </div>
           ) : (
             <div className="mt-10 max-w-[56rem]" data-reveal="wipe">
-              <Photo image={item.image} sizes="(min-width: 1024px) 900px, 100vw" className="aspect-[16/9]" eager />
+              <Photo image={item.image} sizes="(min-width: 1024px) 900px, 100vw" className="aspect-[16/9]" fit="contain" eager />
             </div>
           )}
 

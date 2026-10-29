@@ -5,6 +5,7 @@ import { TOKEN_TTL, checkCredentials, loginLimiter, signToken } from "./auth.js"
 import { connectDb } from "./db.js";
 import { env } from "./env.js";
 import { adminNews, backfillSlugEn, publicNews } from "./routes/news.js";
+import { adminProjects, publicProjects } from "./routes/projects.js";
 import { translate } from "./routes/translate.js";
 
 const app = express();
@@ -23,6 +24,8 @@ app.post("/api/auth/login", loginLimiter, async (req, res) => {
 
 app.use("/api/news", publicNews);
 app.use("/api/admin/news", adminNews);
+app.use("/api/projects", publicProjects);
+app.use("/api/admin/projects", adminProjects);
 app.use("/api/admin/translate", translate);
 
 app.use((_req, res) => void res.status(404).json({ error: "Không tìm thấy." }));

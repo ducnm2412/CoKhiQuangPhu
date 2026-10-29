@@ -27,6 +27,7 @@ export function ProductGallery({ images, t }: { images: Img[]; t: Content["works
             image={main}
             sizes="(min-width: 1024px) 620px, 100vw"
             className="aspect-[4/3] transition-opacity group-hover:opacity-90"
+            fit="contain"
             eager
           />
         </button>

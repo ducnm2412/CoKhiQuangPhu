@@ -9,6 +9,7 @@ import { ProjectGrid } from "@/components/ProjectGrid";
 import { SheetHead } from "@/components/SheetHead";
 import { Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
+import { getProjects } from "@/lib/projects";
 import { hasLocale, localePath, routes } from "@/lib/i18n";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
@@ -17,6 +18,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const t = getContent(lang);
+  const projects = await getProjects(lang);
   const brand = t.company.brand;
   const lp = (p: string) => localePath(lang, p);
 
@@ -171,7 +173,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <h2 className="display mb-10 text-5xl md:mb-12 md:text-6xl" data-reveal="up">
             {t.homeProjects.title}
           </h2>
-          <ProjectGrid projects={t.projects.slice(0, 4)} categories={t.projectCategories} lang={lang} viewDetail={t.projectsPage.viewDetail} />
+          <ProjectGrid projects={projects.slice(0, 4)} categories={t.projectCategories} lang={lang} viewDetail={t.projectsPage.viewDetail} />
           <div className="mt-16 flex justify-center">
             <Link
               href={lp(routes.projects)}

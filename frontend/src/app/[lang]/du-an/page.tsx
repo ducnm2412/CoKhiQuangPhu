@@ -5,6 +5,7 @@ import { ProjectBrowser } from "@/components/ProjectBrowser";
 import { SheetHead } from "@/components/SheetHead";
 import { getContent } from "@/lib/content";
 import { alternatesFor, hasLocale } from "@/lib/i18n";
+import { getProjects } from "@/lib/projects";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
@@ -24,6 +25,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
   if (!hasLocale(lang)) notFound();
   const c = getContent(lang);
   const t = c.projectsPage;
+  const projects = await getProjects(lang);
 
   return (
     <main>
@@ -36,7 +38,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
           <dl className="grid grid-cols-2 gap-px border border-rule bg-rule">
             <div className="bg-night px-5 py-4">
               <dt className="sheet-label text-ash">{t.statProjects}</dt>
-              <dd className="display mt-1.5 text-4xl">{c.projects.length}</dd>
+              <dd className="display mt-1.5 text-4xl">{projects.length}</dd>
             </div>
             <div className="bg-night px-5 py-4">
               <dt className="sheet-label text-ash">{t.statCeremonies}</dt>
@@ -82,7 +84,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/du-an"
           <SheetHead topic={t.listTopic}>
             {t.listTitle}
           </SheetHead>
-          <ProjectBrowser projects={c.projects} categories={c.projectCategories} t={t} lang={lang} />
+          <ProjectBrowser projects={projects} categories={c.projectCategories} t={t} lang={lang} />
         </div>
       </section>
     </main>

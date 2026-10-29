@@ -59,7 +59,7 @@ type Body = Record<string, unknown>;
 const str = (body: Body, key: string) => String(body[key] ?? "").trim();
 
 // Mô tả ảnh (alt) lấy từ tên file: "tuong-bac-ho_dung.webp" → "tuong bac ho dung"
-const altFromName = (name: string) => name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
+export const altFromName = (name: string) => name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
 
 function langFields(body: Body, lang: Lang): Omit<NewsLangFields, "imageAlt"> | string {
   const label = lang === "vi" ? "tiếng Việt" : "tiếng Anh";
@@ -78,7 +78,7 @@ const parseId = (id: unknown) => (typeof id === "string" && ObjectId.isValid(id)
 const notFound = { error: "Không tìm thấy bài." };
 
 // "Nâng cấp xưởng Bắc Ninh" → "nang-cap-xuong-bac-ninh"
-const slugify = (s: string) =>
+export const slugify = (s: string) =>
   s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/gi, "d").toLowerCase()
     .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80).replace(/-+$/, "") || "tin";
 

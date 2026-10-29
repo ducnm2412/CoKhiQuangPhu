@@ -30,6 +30,15 @@ const NAV = [
       </svg>
     ),
   },
+  {
+    href: "/admin/projects",
+    label: "Dự án",
+    icon: (
+      <svg {...icon}>
+        <rect x="3" y="5" width="18" height="14" /><path d="M3 15l5-5 4 4 3-3 6 6" /><circle cx="16" cy="9" r="1.5" />
+      </svg>
+    ),
+  },
 ];
 
 // Menu bên trái. Trên điện thoại thu thành thanh trên cùng, bấm nút ☰ để mở.
@@ -78,14 +87,6 @@ export function AdminSidebar() {
               </Link>
             );
           })}
-          <Link
-            href="/vi/tin-tuc"
-            target="_blank"
-            className="flex items-center gap-3 px-3 py-2.5 text-sm text-bone/80 transition-colors hover:bg-tile hover:text-bone"
-          >
-            <svg {...icon}><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></svg>
-            Xem trang web
-          </Link>
         </nav>
 
         <div className="flex items-center gap-2 border-t border-rule p-3">
