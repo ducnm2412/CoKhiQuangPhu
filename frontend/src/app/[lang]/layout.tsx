@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { BackToTop } from "@/components/BackToTop";
-import { FloatingContact } from "@/components/FloatingContact";
 import { Header } from "@/components/Header";
 import { InlineScript } from "@/components/InlineScript";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -72,11 +71,11 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: t.company.name,
-    telephone: "+842223867318",
+    telephone: "+84913201697",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Thôn Quảng Bố, Xã Quảng Phú",
-      addressLocality: "Huyện Lương Tài",
+      streetAddress: "Thôn Quảng Bố, Xã Lâm Thao",
+      addressLocality: "Thành phố Bắc Ninh",
       addressRegion: "Bắc Ninh",
       addressCountry: "VN",
     },
@@ -98,7 +97,6 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         />
         {children}
         <SiteFooter lang={lang} />
-        <FloatingContact callLabel={t.ui.callNow} zaloLabel={t.ui.zaloChat} />
         <BackToTop label={t.ui.backToTop} />
         <ScrollReveal />
       </body>

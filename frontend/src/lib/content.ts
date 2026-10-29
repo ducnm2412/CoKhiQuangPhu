@@ -9,9 +9,9 @@ export type Img = { src: string; alt: string; position?: string };
 // Thông tin không phụ thuộc ngôn ngữ
 export const contact = {
   taxCode: "2300233337",
-  email: "contact@gmail.com", // TODO: thay bằng email thật của công ty
-  phone: "0222 3867 318",
-  phoneHref: "tel:02223867318",
+  email: "cokhimythuatquangphu@gmail.com",
+  phone: "0913.201.697",
+  phoneHref: "tel:0913201697",
   zaloHref: "https://zalo.me/0961031318",
   facebookHref: "#", // TODO: thay bằng link Fanpage
   mapsHref: "https://maps.app.goo.gl/3jSzaGFSzLRdym8LA",
@@ -74,6 +74,17 @@ const partnerLogos = [
   "/logo-doitac/Petro-Vietnam.png",
   "/logo-doitac/TW-doan-272x300.webp",
   "/logo-doitac/lien-hiep-thanh-nien-300x300.webp",
+  "/logo-doitac/Cuctuyenhuan.png",
+  "/logo-doitac/OIP.png",
+  "/logo-doitac/Biểu_trưng_Quân_khu_4.svg.webp",
+  "/logo-doitac/Biểu_trưng_Quân_khu_7.svg.webp",
+  "/logo-doitac/Biểu_trưng_Quân_khu_9.png",
+  "/logo-doitac/Logo_MTA_new.png",
+  "/logo-doitac/Vietnam_Naval_Academy_logo_square_2.png",
+  "/logo-doitac/logo-hem.png",
+  "/logo-doitac/benh-vien-108.png",
+  "/logo-doitac/benh-vien-354.png",
+  "/logo-doitac/Vietnam_Border_Guard_insignia.png",
 ];
 
 const vi = {
@@ -85,7 +96,7 @@ const vi = {
   company: {
     brand: "Quảng Phú", // tên ngắn hiển thị ở logo, đầu trang chủ, tiêu đề tab
     name: "Công ty TNHH Cơ khí Mỹ thuật Quảng Phú",
-    address: "Thôn Quảng Bố, Xã Quảng Phú, Huyện Lương Tài, Tỉnh Bắc Ninh",
+    address: "Thôn Quảng Bố, Xã Lâm Thao, Thành phố Bắc Ninh",
   },
   nav: {
     home: "Trang chủ",
@@ -120,9 +131,9 @@ const vi = {
     weAre: "Công ty Cơ khí Mỹ thuật",
     tagline: "Tinh hoa Cơ khí Mỹ thuật – Khẳng định tầm vóc Quốc gia", // dấu cách giữa "Quốc" và "gia" là dấu không ngắt dòng
     bullets: [
-      "Đơn vị cung cấp độc quyền tượng chân dung Chủ tịch Hồ Chí Minh cho các cơ quan, đơn vị trong Quân đội nhân dân Việt Nam",
-      "Thiết kế & cải hoán các khối xe Nghi trượng phục vụ các dịp đại lễ lớn của dân tộc",
-      "Thi công tượng đài và sản xuất quà tặng đối nội, đối ngoại cao cấp cho các bộ ban ngành",
+      "Đơn vị sản xuất và cung cấp tượng chân dung Chủ tịch Hồ Chí Minh chuẩn quy cách cho các cơ quan, đơn vị thuộc Quân đội nhân dân Việt Nam.",
+      "Thiết kế mỹ thuật, cải hoán kỹ thuật và chế tác các khối xe nghi trượng phục vụ các đại lễ quốc gia.",
+      "Thi công tượng đài và chế tác quà tặng đối nội, đối ngoại cao cấp cho các bộ, ban, ngành.",
     ],
     photoLabel: "Khối xe đại lễ A80 · Hà Nội 2025",
     photo: img("a80Hero", "Khối xe số 80 tiến trên đại lộ trong buổi tổng duyệt đêm"),
@@ -158,15 +169,26 @@ const vi = {
     "Tập đoàn Dầu khí Việt Nam",
     "Trung ương Đoàn TNCS Hồ Chí Minh",
     "Hội Liên hiệp Thanh niên Việt Nam",
+    "Cục Tuyên huấn",
+    "Quân khu 2",
+    "Quân khu 4",
+    "Quân khu 7",
+    "Quân khu 9",
+    "Học viện Kỹ thuật Quân sự",
+    "Học viện Hải quân",
+    "Công ty CP Chế tạo Điện cơ Hà Nội (HEM)",
+    "Bệnh viện Trung ương Quân đội 108",
+    "Bệnh viện Quân y 354",
+    "Bộ đội Biên phòng",
   ],
-  footer: { sitemap: "Sơ đồ trang", maps: "Google Maps", mapTitle: "Bản đồ khu vực xưởng sản xuất Quảng Phú, Lương Tài, Bắc Ninh" },
+  footer: { sitemap: "Sơ đồ trang", maps: "Google Maps", mapTitle: "Bản đồ khu vực xưởng sản xuất Quảng Phú, Lâm Thao, Bắc Ninh" },
 
   // ——— Liên hệ ———
   contactPage: {
     metaTitle: "Liên hệ — Quảng Phú, xưởng cơ khí mỹ thuật Bắc Ninh",
-    metaDescription: "Liên hệ Công ty TNHH Cơ khí Mỹ thuật Quảng Phú: điện thoại, Zalo, email, địa chỉ xưởng tại Lương Tài, Bắc Ninh.",
+    metaDescription: "Liên hệ Công ty TNHH Cơ khí Mỹ thuật Quảng Phú: điện thoại, Zalo, email, địa chỉ xưởng tại Lâm Thao, Bắc Ninh.",
     title: "Liên hệ",
-    lead: "Gọi điện, nhắn Zalo hoặc ghé xưởng — chúng tôi tư vấn và báo giá miễn phí.",
+    lead: "QUẢNG PHÚ trân trọng kính mời Quý khách hàng liên hệ qua Hotline, Zalo hoặc ghé thăm xưởng để nhận tư vấn chuyên sâu và báo giá chi tiết hoàn toàn miễn phí.",
     infoTopic: "Thông tin liên hệ",
     address: "Địa chỉ xưởng",
     directions: "Chỉ đường",
@@ -290,12 +312,12 @@ const vi = {
     },
   ],
   process: [
-    { title: "Tiếp nhận", body: "Trao đổi mục đích, kích thước, chất liệu, thời hạn." },
-    { title: "Thiết kế", body: "Bản vẽ, phối cảnh và phương án kết cấu." },
-    { title: "Duyệt mẫu", body: "Khách hàng duyệt mẫu trước khi chế tác." },
-    { title: "Chế tác", body: "Đúc và chế tác cơ khí tại xưởng." },
-    { title: "Hoàn thiện", body: "Xử lý bề mặt, kiểm tra chất lượng." },
-    { title: "Bàn giao", body: "Vận chuyển, lắp đặt tận nơi đúng tiến độ." },
+    { title: "Thu thập thông tin" },
+    { title: "Phân tích thông tin & hình thành ý tưởng" },
+    { title: "Xây dựng hồ sơ dự án" },
+    { title: "Xây dựng nội dung & kế hoạch chi tiết" },
+    { title: "Triển khai chính thức" },
+    { title: "Kết thúc & tổng kết dự án" },
   ],
   // TODO: xác minh các mốc thời gian và chính sách với công ty
   faqs: [
@@ -398,9 +420,9 @@ const vi = {
       "Giới thiệu Công ty TNHH Cơ khí Mỹ thuật Quảng Phú: năng lực sản xuất khối xe nghi trượng đại lễ A50–A80, ban lãnh đạo và đội ngũ nghệ nhân, kỹ thuật.",
     topic: "Giới thiệu",
     title: "Về Quảng Phú",
-    lead: "Xưởng cơ khí mỹ thuật tại Lương Tài, Bắc Ninh — từ bản vẽ đến ngày bàn giao.",
+    lead: "Là đơn vị sản xuất kế thừa kỹ nghệ kim khí Quảng Bố, chúng tôi tự hào kiến tạo nên những công trình mỹ thuật quy mô cùng các tác phẩm chế tác tinh xảo mang giá trị biểu tượng vượt thời gian.",
     capabilityTopic: "Năng lực",
-    capabilityTitle: "Xưởng cơ khí mỹ thuật đã qua thử thách cấp quốc gia",
+    capabilityTitle: "Cơ khí Mỹ thuật Quảng Phú – Bản lĩnh chế tác qua những dự án cấp quốc gia",
     founded: "Công ty TNHH Cơ khí Mỹ thuật Quảng Phú thành lập ngày 06 tháng 12 năm 2002, hoạt động trong đa lĩnh vực:",
     fields: [
       { title: "Sản phẩm kim loại", body: "Sản xuất sản phẩm và cấu kiện bằng kim loại" },
@@ -415,27 +437,30 @@ const vi = {
       "Đây là phương châm hoạt động sáng tạo và sản xuất kinh doanh của Công ty. Sự hài lòng của khách hàng chính là một trong những động lực mạnh mẽ thúc đẩy cho guồng máy hoạt động của công ty ngày càng hiệu quả.",
       "Hướng tới mục tiêu phát triển bền vững, Công ty Cơ khí Mỹ thuật Quảng Phú tự hào là cầu nối giữa quá khứ và tương lai, nơi khơi nguồn từ nghệ thuật đúc đồng truyền thống và cất cánh bằng công nghệ tiên tiến. Bằng việc hòa quyện kinh nghiệm đúc kết qua nhiều thế hệ với xu hướng công nghệ mới, chúng tôi khát vọng tạo nên những sản phẩm văn hóa đỉnh cao — những tác phẩm không chỉ đạt chất lượng mỹ nghệ thượng thừa mà còn kết tinh sâu sắc bản sắc và linh hồn Việt.",
     ],
-    capabilityImage: img("relief", "Cán bộ ban tổ chức nghiệm thu khối xe phù điêu và cụm tượng chiến sĩ"),
-    capabilityCaption: "Nghiệm thu khối xe phù điêu cùng ban tổ chức trước ngày diễu hành.",
+    capabilityImages: [
+      img("qtQuyetTuHandover", "Lễ trao tặng biểu tượng Quyết tử để Tổ quốc quyết sinh"),
+      img("qtQuyetTuRows", "Loạt tượng Quyết tử để Tổ quốc quyết sinh trong hộp kính"),
+    ],
+    capabilityCaption: "Quà tặng đối ngoại nhân Kỷ niệm 80 năm Ngày truyền thống Lực lượng Vũ trang Thủ Đô (19/10/1946 - 19/10/2026)",
     leadersTopic: "Ban lãnh đạo",
     leadersTitle: "Ban lãnh đạo",
     teamTopic: "Đội ngũ nhân lực",
-    teamTitle: "{n}+ người, bốn tổ chuyên môn",
+    teamTitle: "{n}+ nhân lực, bốn tổ chuyên môn",
     teamBody:
-      "Mỗi sản phẩm đi qua đủ bốn tổ trong cùng một xưởng, nên bản vẽ, mẫu tượng và kết cấu luôn khớp nhau và tiến độ do một đầu mối kiểm soát.",
+      "Quy trình phối hợp khép kín giữa các bộ phận giúp đảm bảo tính đồng bộ hoàn hảo từ bản vẽ đến sản phẩm hoàn thiện, được kiểm soát chặt chẽ theo một quy chuẩn thống nhất.",
     people: "người",
   },
   // TODO: xác minh
   companyFacts: [
     { term: "Năm thành lập", value: "2002" },
     { term: "Xưởng sản xuất", value: "Thôn Quảng Bố, Xã Lâm Thao, Thành phố Bắc Ninh" },
-    { term: "Nhân sự", value: "65+ người" },
-    { term: "Đại lễ đã tham gia", value: "A50 – A80" },
+    { term: "Đội ngũ nhân sự", value: "65+ nghệ nhân & thợ bậc cao" },
+    { term: "Sự kiện nổi bật", value: "Các đại lễ cấp quốc gia (A05 – A80)" },
   ],
   strengths: [
     {
       title: "Kinh nghiệm thực chiến cấp quốc gia",
-      body: "Đã trực tiếp sản xuất, thi công thành công các khối xe nghi trượng cho các dịp đại lễ lớn, từ A50 đến A80.",
+      body: "Đã trực tiếp sản xuất, thi công thành công các khối xe nghi trượng cho các dịp đại lễ lớn, từ A05 đến A80.",
     },
     {
       title: "Độ chính xác và thần thái cao",
@@ -515,7 +540,7 @@ const en: Content = {
   company: {
     brand: "Quang Phu",
     name: "Quang Phu Art Mechanics Co., Ltd.",
-    address: "Quang Bo Village, Quang Phu Commune, Luong Tai District, Bac Ninh Province, Vietnam",
+    address: "Quang Bo Village, Lam Thao Commune, Bac Ninh City, Vietnam",
   },
   nav: {
     home: "Home",
@@ -550,9 +575,9 @@ const en: Content = {
     weAre: "Art Metalwork Company",
     tagline: "The finest in art metalwork – affirming national stature",
     bullets: [
-      "Exclusive supplier of portrait statues of President Ho Chi Minh to agencies and units of the Vietnam People's Army",
-      "Design and refitting of ceremonial floats for the nation's major national celebrations",
-      "Construction of monuments and production of premium gifts for ministries and government bodies",
+      "Producer and supplier of standard-specification portrait statues of President Ho Chi Minh for agencies and units of the Vietnam People's Army.",
+      "Artistic design, technical refitting and fabrication of ceremonial floats for national celebrations.",
+      "Construction of monuments and crafting of premium domestic and diplomatic gifts for ministries, departments and agencies.",
     ],
     photoLabel: "A80 parade float · Hanoi 2025",
     photo: img("a80Hero", "The number-80 float advancing along the boulevard at a night rehearsal"),
@@ -587,14 +612,25 @@ const en: Content = {
     "PetroVietnam",
     "Ho Chi Minh Communist Youth Union",
     "Vietnam Youth Federation",
+    "Department of Propaganda and Training",
+    "Military Region 2",
+    "Military Region 4",
+    "Military Region 7",
+    "Military Region 9",
+    "Military Technical Academy",
+    "Vietnam Naval Academy",
+    "Hanoi Electromechanical Manufacturing JSC (HEM)",
+    "108 Military Central Hospital",
+    "Military Hospital 354",
+    "Vietnam Border Guard",
   ],
-  footer: { sitemap: "Site map", maps: "Google Maps", mapTitle: "Map of the Quang Phu workshop area, Luong Tai, Bac Ninh" },
+  footer: { sitemap: "Site map", maps: "Google Maps", mapTitle: "Map of the Quang Phu workshop area, Lam Thao, Bac Ninh" },
 
   contactPage: {
     metaTitle: "Contact — Quang Phu, art metalwork workshop in Bac Ninh",
-    metaDescription: "Contact Quang Phu Art Mechanics Co., Ltd.: phone, Zalo, email and our workshop address in Luong Tai, Bac Ninh.",
+    metaDescription: "Contact Quang Phu Art Mechanics Co., Ltd.: phone, Zalo, email and our workshop address in Lam Thao, Bac Ninh.",
     title: "Contact",
-    lead: "Call, message us on Zalo or visit the workshop — free consultation and quotes.",
+    lead: "QUANG PHU cordially invites you to reach us via our Hotline, Zalo or a visit to the workshop for in-depth consultation and a detailed quote, completely free of charge.",
     infoTopic: "Get in touch",
     address: "Workshop address",
     directions: "Get directions",
@@ -715,12 +751,12 @@ const en: Content = {
     },
   ],
   process: [
-    { title: "Brief", body: "Purpose, size, materials and deadline." },
-    { title: "Design", body: "Drawings, renders and structural plan." },
-    { title: "Approval", body: "You approve the model before fabrication." },
-    { title: "Fabrication", body: "Casting and metalwork in our workshop." },
-    { title: "Finishing", body: "Surface treatment and quality checks." },
-    { title: "Delivery", body: "Transport and on-site installation, on schedule." },
+    { title: "Information gathering" },
+    { title: "Analysis & concept development" },
+    { title: "Project dossier" },
+    { title: "Detailed content & planning" },
+    { title: "Full-scale execution" },
+    { title: "Completion & project review" },
   ],
   faqs: [
     {
@@ -815,9 +851,9 @@ const en: Content = {
       "About Quang Phu Art Mechanics Co., Ltd.: our capacity for ceremonial floats for national celebrations A50–A80, our leadership and our team of artisans and engineers.",
     topic: "Introduction",
     title: "About Quang Phu",
-    lead: "An art metalwork studio in Luong Tai, Bac Ninh — from first drawing to delivery.",
+    lead: "Heirs to the metalcraft tradition of Quang Bo, we take pride in creating large-scale artworks and finely crafted pieces of timeless symbolic value.",
     capabilityTopic: "Capability",
-    capabilityTitle: "An art metalwork studio proven at national scale",
+    capabilityTitle: "Quang Phu Art Mechanics – Craftsmanship proven through national-level projects",
     founded: "Quang Phu Art Mechanics Co., Ltd. was founded on 6 December 2002 and works across several fields:",
     fields: [
       { title: "Metal products", body: "Metal products and metal structures" },
@@ -832,26 +868,29 @@ const en: Content = {
       "This guides everything we create and produce. Customer satisfaction is one of the strongest forces driving the company to work ever more effectively.",
       "Aiming for sustainable growth, Quang Phu Art Mechanics is proud to bridge past and future: rooted in traditional bronze casting and taking flight with advanced technology. By blending experience accumulated over generations with new technology, we aspire to create cultural works of the highest order — pieces of supreme craftsmanship that also embody the identity and soul of Vietnam.",
     ],
-    capabilityImage: img("relief", "Organising committee members inspecting a relief float and soldier sculptures"),
-    capabilityCaption: "Inspecting a relief float with the organisers before parade day.",
+    capabilityImages: [
+      img("qtQuyetTuHandover", "Presentation ceremony of the \"Determined to Die for the Fatherland\" sculpture"),
+      img("qtQuyetTuRows", "Rows of \"Determined to Die for the Fatherland\" sculptures in glass cases"),
+    ],
+    capabilityCaption: "Diplomatic gifts for the 80th anniversary of the Capital Armed Forces Traditional Day (19/10/1946 - 19/10/2026)",
     leadersTopic: "Leadership",
     leadersTitle: "Leadership",
     teamTopic: "Our team",
-    teamTitle: "{n}+ people, four specialist crews",
+    teamTitle: "{n}+ staff, four specialist crews",
     teamBody:
-      "Every piece passes through all four crews under one roof, so drawings, sculpted models and structure always fit together, with one point of contact owning the schedule.",
+      "A closed-loop workflow across departments ensures complete consistency from drawing to finished product, tightly controlled under a single unified standard.",
     people: "people",
   },
   companyFacts: [
     { term: "Founded", value: "2002" },
     { term: "Workshop", value: "Quang Bo village, Lam Thao, Bac Ninh city" },
-    { term: "Team", value: "65+ people" },
-    { term: "National celebrations", value: "A50 – A80" },
+    { term: "Our team", value: "65+ artisans & senior craftsmen" },
+    { term: "Highlights", value: "National-level celebrations (A05 – A80)" },
   ],
   strengths: [
     {
       title: "Proven at national scale",
-      body: "We have built and delivered ceremonial floats for major national celebrations, from A50 to A80.",
+      body: "We have built and delivered ceremonial floats for major national celebrations, from A05 to A80.",
     },
     {
       title: "Precision and true likeness",

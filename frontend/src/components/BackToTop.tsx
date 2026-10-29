@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// Nút cuộn lên đầu trang, xếp phía trên cụm nút Zalo/gọi điện ở góc phải dưới
+// Nút cuộn lên đầu trang ở góc phải dưới
 // (góc trái dưới bị biểu tượng dev tools của Next.js che khi chạy `next dev`).
 // Chỉ hiện sau khi người dùng đã cuộn xuống một đoạn.
 export function BackToTop({ label }: { label: string }) {
@@ -27,7 +27,7 @@ export function BackToTop({ label }: { label: string }) {
       aria-label={label}
       title={label}
       tabIndex={visible ? 0 : -1}
-      className={`fixed right-5 bottom-[8.75rem] z-30 grid size-11 place-items-center rounded-full border border-bone/30 bg-night/90 text-bone shadow-lg shadow-black/30 backdrop-blur transition-all duration-300 hover:bg-signal hover:text-white print:hidden ${
+      className={`fixed right-5 bottom-5 z-30 grid size-11 place-items-center rounded-full border border-bone/30 bg-night/90 text-bone shadow-lg shadow-black/30 backdrop-blur transition-all duration-300 hover:bg-signal hover:text-white print:hidden ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >

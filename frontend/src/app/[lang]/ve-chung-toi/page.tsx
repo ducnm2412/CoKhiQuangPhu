@@ -68,8 +68,14 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/ve-chung-
                 {t.team}
               </p>
               <figure className="mt-8">
-                <div data-reveal="wipe">
-                  <Photo image={t.capabilityImage} sizes="(min-width: 1024px) 520px, 100vw" className="aspect-[4/3] border border-rule" />
+                <div className="flex flex-col gap-3 lg:flex-row" data-reveal="wipe">
+                  {/* Giữ đúng tỷ lệ gốc để không bị cắt: điện thoại xếp dọc, máy tính xếp ngang
+                      (độ rộng mỗi ảnh tỷ lệ với tỷ lệ khung nên hai ảnh cao bằng nhau) */}
+                  {t.capabilityImages.map((im, i) => (
+                    <div key={im.src} className="lg:min-w-0 lg:basis-0" style={{ flexGrow: i === 0 ? 1600 / 1149 : 3 / 4 }}>
+                      <Photo image={im} sizes="(min-width: 1024px) 340px, 100vw" className={`${i === 0 ? "aspect-[1600/1149]" : "aspect-[3/4]"} border border-rule`} />
+                    </div>
+                  ))}
                 </div>
                 <figcaption className="mt-3 text-sm text-ash">{t.capabilityCaption}</figcaption>
               </figure>

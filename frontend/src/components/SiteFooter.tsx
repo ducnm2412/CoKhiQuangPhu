@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { contact, getContent } from "@/lib/content";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -9,8 +10,17 @@ export function SiteFooter({ lang }: { lang: Locale }) {
   const t = getContent(lang);
 
   return (
-    <footer id="lien-he" className="border-t border-rule bg-night">
-      <div className={`${wrap} grid gap-8 py-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] md:items-stretch md:gap-14`}>
+    <footer id="lien-he" className="relative overflow-hidden border-t border-rule bg-night">
+      {/* Logo mờ làm nền */}
+      <Image
+        src="/images/logo.png"
+        alt=""
+        aria-hidden
+        width={312}
+        height={320}
+        className="pointer-events-none absolute top-1/2 left-1/2 w-[min(70vw,420px)] -translate-x-1/2 -translate-y-1/2 opacity-[0.12] select-none"
+      />
+      <div className={`${wrap} relative grid gap-8 py-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] md:items-stretch md:gap-14`}>
         <div className="flex flex-col">
           <Link href={localePath(lang, "/")} className="flex w-fit items-center gap-2.5" aria-label={t.ui.homeAria}>
             <Logo />
@@ -20,7 +30,7 @@ export function SiteFooter({ lang }: { lang: Locale }) {
 
           <a
             href={`mailto:${contact.email}`}
-            className="mt-7 w-fit border-b-2 border-signal pb-1 text-[clamp(1.6rem,3.4vw,2.6rem)] leading-tight font-semibold tracking-tight break-all transition-colors hover:text-signal"
+            className="mt-7 w-fit border-b-2 border-signal pb-1 text-[clamp(1.05rem,4.9vw,2rem)] md:text-[clamp(1.05rem,2.5vw,2rem)] leading-tight font-semibold tracking-tight whitespace-nowrap transition-colors hover:text-signal"
           >
             {contact.email}
           </a>
@@ -48,7 +58,7 @@ export function SiteFooter({ lang }: { lang: Locale }) {
         />
       </div>
 
-      <div className="border-t border-rule">
+      <div className="relative border-t border-rule">
         <p className={`${wrap} py-4 text-xs text-ash`}>
           © {t.company.name} · MST {contact.taxCode}
         </p>
