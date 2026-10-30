@@ -610,5 +610,82 @@
       ],
       "imageAlt": "Craning the red-flag installation into place"
     }
+  },
+  {
+    "slug": "tuong-chan-dung-tho-gia-tien",
+    "order": 14,
+    "published": true,
+    "category": 4,
+    "year": "2025",
+    "image": {
+      "url": "/images/chan-dung-tho-cu-ong.webp",
+      "publicId": null,
+      "position": "50% 40%"
+    },
+    "gallery": [
+      {
+        "url": "/images/chan-dung-tho-cu-ba-anh-mau.webp",
+        "publicId": null,
+        "position": "50% 55%",
+        "alt": {
+          "vi": "Phôi tượng cụ bà đặt cạnh ảnh mẫu của gia đình",
+          "en": "Clay model of the grandmother beside the family's reference photo"
+        }
+      },
+      {
+        "url": "/images/chan-dung-tho-cu-ba-nghieng.webp",
+        "publicId": null,
+        "position": "50% 45%",
+        "alt": {
+          "vi": "Phôi tượng cụ bà nhìn nghiêng, chít khăn truyền thống",
+          "en": "Side view of the grandmother's model in a traditional head wrap"
+        }
+      },
+      {
+        "url": "/images/chan-dung-tho-nghe-nhan-nan-tuong.webp",
+        "publicId": null,
+        "position": "50% 45%",
+        "alt": {
+          "vi": "Nghệ nhân nắn tượng theo ảnh chân dung gốc",
+          "en": "Sculptor modelling the portrait from the original photograph"
+        }
+      },
+      {
+        "url": "/images/chan-dung-tho-quan-phuc.webp",
+        "publicId": null,
+        "position": "50% 45%",
+        "alt": {
+          "vi": "Tượng chân dung bán thân mặc quân phục",
+          "en": "Bust portrait in military uniform"
+        }
+      }
+    ],
+    "vi": {
+      "title": "Tượng chân dung thờ ông bà gia tiên",
+      "place": "Bắc Ninh",
+      "summary": "Bộ tượng chân dung bán thân cụ ông, cụ bà đặt tại gian thờ gia đình, nắn mẫu theo ảnh tư liệu và duyệt cùng con cháu.",
+      "body": "Gia đình gửi Quảng Phú những tấm ảnh chân dung còn lưu giữ của ông bà, mong có bộ tượng đặt trên ban thờ để con cháu tưởng nhớ. Nghệ nhân nắn phôi đất theo từng bức ảnh, chỉnh nét mặt, nếp nhăn, dáng vai và trang phục truyền thống như mũ len của cụ ông, khăn vấn của cụ bà. Gia đình đến xưởng xem mẫu và góp ý trực tiếp; sau khi duyệt, tượng được đúc, hoàn thiện bề mặt và đặt lên bệ gỗ trong gian thờ.",
+      "highlights": [
+        "Nắn mẫu theo ảnh tư liệu của gia đình, đối chiếu từng chi tiết khuôn mặt và thần thái.",
+        "Gia đình xem và duyệt phôi đất ngay tại xưởng trước khi đúc.",
+        "Giữ trang phục truyền thống: mũ len của cụ ông, khăn vấn của cụ bà.",
+        "Tỉ lệ bán thân vừa ban thờ gia đình, đặt trên bệ gỗ đồng bộ với không gian thờ."
+      ],
+      "imageAlt": "Tượng chân dung thờ cụ ông đặt trên bệ gỗ trong gian thờ"
+    },
+    "en": {
+      "title": "Ancestral portrait statues of the grandparents",
+      "place": "Bac Ninh",
+      "summary": "Bust portraits of a grandfather and grandmother for the family shrine, modelled from archive photos and approved with the family.",
+      "body": "The family brought Quang Phu the portrait photographs they had kept of their grandparents, hoping for a pair of statues on the altar for the generations to remember them by. Our sculptors modelled the clay from each photo, refining the face, wrinkles, shoulders and traditional dress, from the grandfather's knitted cap to the grandmother's head wrap. The family visited the workshop to see the models and give feedback in person; once approved, the statues were cast, finished and set on wooden plinths in the shrine.",
+      "highlights": [
+        "Modelled from the family's archive photos, checking every facial detail and expression.",
+        "The family reviewed and approved the clay models at the workshop before casting.",
+        "Traditional dress preserved: the grandfather's knitted cap and the grandmother's head wrap.",
+        "Bust proportions to suit a family altar, on wooden plinths matching the shrine."
+      ],
+      "imageAlt": "Ancestral portrait statue of an elderly man on a wooden plinth in a shrine"
+    },
+    "slugEn": "ancestral-portrait-statues-of-the-grandparents"
   }
 ]

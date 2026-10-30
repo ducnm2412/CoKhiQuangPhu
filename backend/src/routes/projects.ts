@@ -9,7 +9,7 @@ import { MAX_GALLERY, altFromName, slugify } from "./news.js";
 
 type Lang = "vi" | "en";
 const MAX_IMAGE = 4 * 1024 * 1024; // 4MB
-export const CATEGORY_COUNT = 4; // khớp projectCategories của frontend
+export const CATEGORY_COUNT = 5; // khớp projectCategories của frontend
 
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: MAX_IMAGE }, defParamCharset: "utf8" }).fields([
   { name: "image", maxCount: 1 },

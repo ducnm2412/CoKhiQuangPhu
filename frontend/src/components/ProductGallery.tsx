@@ -25,9 +25,10 @@ export function ProductGallery({ images, t }: { images: Img[]; t: Content["works
           <Photo
             key={main.src}
             image={main}
-            sizes="(min-width: 1024px) 620px, 100vw"
+            sizes="(min-width: 1024px) 720px, 100vw"
             className="aspect-[4/3] transition-opacity group-hover:opacity-90"
             fit="contain"
+            quality={90}
             eager
           />
         </button>

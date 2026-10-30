@@ -9,6 +9,7 @@ import { ProjectGrid } from "@/components/ProjectGrid";
 import { SheetHead } from "@/components/SheetHead";
 import { Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
+import { getNewsList } from "@/lib/news";
 import { getProjects } from "@/lib/projects";
 import { hasLocale, localePath, routes } from "@/lib/i18n";
 
@@ -18,7 +19,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const t = getContent(lang);
-  const projects = await getProjects(lang);
+  const [projects, news] = await Promise.all([getProjects(lang), getNewsList(lang)]);
   const brand = t.company.brand;
   const lp = (p: string) => localePath(lang, p);
 
@@ -201,6 +202,37 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <PartnerLogos lang={lang} />
         </div>
       </section>
+
+      {/* Tin tức: chỉ ảnh và tiêu đề, rê chuột vào thì tiêu đề đổi màu, gạch chân */}
+      {news.length > 0 && (
+        <section className="bg-night-2 py-16 md:py-24">
+          <div className={wrap}>
+            <h2 className="display mb-10 text-5xl md:mb-12 md:text-6xl" data-reveal="up">
+              {t.homeNews.title}
+            </h2>
+            <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {news.slice(0, 3).map((n) => (
+                <li key={n.slug} data-reveal="up">
+                  <Link href={lp(`${routes.news}/${n.slug}`)} className="group block">
+                    <div className="overflow-hidden">
+                      <Photo image={n.image} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="aspect-[3/2] transition-transform duration-500 group-hover:scale-[1.03]" />
+                    </div>
+                    <h3 className="mt-4 text-lg leading-snug font-semibold underline-offset-4 transition-colors group-hover:text-signal group-hover:underline">{n.title}</h3>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-14 flex justify-center">
+              <Link
+                href={lp(routes.news)}
+                className="border border-bone/60 px-6 py-3 text-sm font-semibold transition-colors hover:bg-bone hover:text-night"
+              >
+                {t.homeNews.all}
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

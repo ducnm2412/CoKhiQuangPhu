@@ -44,14 +44,20 @@ export function ScrollReveal() {
           el.style.setProperty("--i", String(i));
         });
       });
+      const onScreen: HTMLElement[] = [];
       scope.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)").forEach((el) => {
-        // Phần đang nằm trong màn hình lúc tải trang thì hiện luôn, tránh nháy.
+        // Phần đang nằm trong màn hình lúc tải trang: chạy hiệu ứng ngay sau khung hình đầu
         if (initial && el.getBoundingClientRect().top < window.innerHeight * 0.9) {
-          el.classList.add("is-visible");
+          onScreen.push(el);
         } else {
           watch(el);
         }
       });
+      // Chờ 2 khung hình để trạng thái ẩn (.reveal-ready) kịp áp dụng, rồi mới hiện cho có chuyển động
+      if (onScreen.length)
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => onScreen.forEach((el) => el.classList.add("is-visible"))),
+        );
     };
 
     prepare(document, true);

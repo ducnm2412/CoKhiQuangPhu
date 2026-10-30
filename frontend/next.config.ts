@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    // 90: ảnh lớn ở trang chi tiết (xem ảnh to, cần nét); còn lại mặc định 75
+    qualities: [75, 90],
     // Ảnh tin tức upload từ trang quản trị
     remotePatterns: [new URL("https://res.cloudinary.com/**")],
   },

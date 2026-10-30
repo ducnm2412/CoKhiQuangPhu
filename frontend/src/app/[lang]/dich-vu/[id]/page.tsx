@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
+import { ProcessSection } from "@/components/ProcessSection";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductGallery } from "@/components/ProductGallery";
 import { QuoteLink } from "@/components/QuoteLink";
 import { SheetHead } from "@/components/SheetHead";
-import { ImagePlaceholder } from "@/components/ui";
+import { ImagePlaceholder, Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
-import { alternatesFor, hasLocale, localePath, locales, routes } from "@/lib/i18n";
+import { alternatesFor, hasLocale, localePath, locales, projectCategorySlugs, routes } from "@/lib/i18n";
+import { getProjects } from "@/lib/projects";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
@@ -42,6 +44,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
   const p = c.products[index];
 
   const others = c.products.filter((x) => x.id !== p.id);
+  const projects = (await getProjects(lang)).filter((x) => x.category === p.projectCategory).slice(0, 3);
 
   return (
     <main>
@@ -100,6 +103,62 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
         </div>
       </section>
 
+      {/* Giới thiệu năng lực + điểm nổi bật: đoạn giới thiệu ở trên, 3 điểm nổi bật xếp ngang bên dưới */}
+      <section className="border-t border-rule bg-night-2 py-16 md:py-20">
+        <div className={wrap}>
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16" data-reveal="up">
+            <div>
+              <p className="sheet-label text-signal">{p.tagline}</p>
+              <h2 className="display mt-3 text-3xl md:text-4xl">{t.highlightsTitle}</h2>
+            </div>
+            <p className="text-lg leading-relaxed text-bone/90">
+              {/* **chữ đậm** trong nội dung */}
+              {p.intro.split("**").map((part, i) => (i % 2 ? <strong key={i} className="font-semibold text-bone">{part}</strong> : part))}
+            </p>
+          </div>
+          <ol className="mt-10 grid gap-4 md:grid-cols-3" data-reveal-group="up">
+            {p.highlights.map((h, i) => (
+              <li key={h.title} className="border-t-2 border-signal bg-night p-5 md:p-6">
+                <span className="font-mono text-xs text-signal">0{i + 1}</span>
+                <p className="mt-2 font-semibold uppercase leading-snug">{h.title}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-ash">{h.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Dự án tiêu biểu: dự án cùng loại với dịch vụ (p.projectCategory) */}
+      {projects.length > 0 && (
+        <section className="py-16 md:py-24">
+          <div className={wrap}>
+            <SheetHead topic={t.projectsTopic}>{t.projectsTitle}</SheetHead>
+            <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group="up">
+              {projects.map((pr) => (
+                <li key={pr.slug}>
+                  <Link href={localePath(lang, `${routes.projects}/${pr.slug}`)} className="group block">
+                    <div className="overflow-hidden">
+                      <Photo image={pr.image} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="aspect-[3/2] transition-transform duration-500 group-hover:scale-[1.03]" />
+                    </div>
+                    <h3 className="mt-4 text-lg leading-snug font-semibold uppercase decoration-2 underline-offset-[0.2em] transition-colors group-hover:text-signal group-hover:underline">{pr.title}</h3>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-14 flex justify-center">
+              <Link
+                href={localePath(lang, `${routes.projects}#${projectCategorySlugs[lang].list[p.projectCategory]}`)}
+                className="border border-bone/60 px-6 py-3 text-sm font-semibold transition-colors hover:bg-bone hover:text-night"
+              >
+                {t.allProjects}
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <ProcessSection lang={lang} />
+
       {/* Dịch vụ khác */}
       <section className="blueprint border-y border-rule bg-night-3 py-16 md:py-24">
         <div className={wrap}>
@@ -108,7 +167,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/[lang]/d
           </SheetHead>
           <div className="grid gap-5 md:grid-cols-3" data-reveal-group="up">
             {others.map((o) => (
-              <ProductCard key={o.id} lang={lang} product={o} index={c.products.indexOf(o)} compact />
+              <ProductCard key={o.id} lang={lang} product={o} compact />
             ))}
           </div>
         </div>

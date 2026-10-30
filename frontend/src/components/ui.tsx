@@ -8,12 +8,14 @@ export function Photo({
   className = "",
   eager = false,
   fit = "cover",
+  quality,
 }: {
   image: Img;
   sizes: string;
   className?: string;
   eager?: boolean; // ảnh lớn ở màn hình đầu: tải ngay thay vì tải lười
   fit?: "cover" | "contain"; // contain: giữ trọn ảnh (ảnh ngang/dọc lệch tỉ lệ khung) thay vì cắt
+  quality?: 75 | 90; // phải nằm trong images.qualities ở next.config.ts
 }) {
   return (
     <div className={`relative overflow-hidden bg-tile ${className}`}>
@@ -22,6 +24,7 @@ export function Photo({
         alt={image.alt}
         fill
         sizes={sizes}
+        quality={quality}
         loading={eager ? "eager" : undefined}
         className={fit === "contain" ? "object-contain" : "object-cover"}
         style={{ objectPosition: image.position ?? "50% 50%" }}

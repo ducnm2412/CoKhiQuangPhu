@@ -50,6 +50,12 @@ const P = {
   qtBaoChi: { src: "/images/qt-bao-chi-tuong.webp", position: "50% 45%" },
   qtBaoChiPair: { src: "/images/qt-bao-chi-cap-tuong.webp", position: "50% 45%" },
   qtBaoChiBox: { src: "/images/qt-bao-chi-hop-qua.webp", position: "50% 50%" },
+  cdtOng: { src: "/images/chan-dung-tho-cu-ong.webp", position: "50% 40%" },
+  cdtQuanPhuc: { src: "/images/chan-dung-tho-quan-phuc.webp", position: "50% 45%" },
+  cdtNanTuong: { src: "/images/chan-dung-tho-nghe-nhan-nan-tuong.webp", position: "50% 45%" },
+  cdtBaNghieng: { src: "/images/chan-dung-tho-cu-ba-nghieng.webp", position: "50% 45%" },
+  cdtBaAnhMau: { src: "/images/chan-dung-tho-cu-ba-anh-mau.webp", position: "50% 55%" },
+  cdtBacPhongTho: { src: "/images/chan-dung-tho-tuong-bac-phong-tho.webp", position: "50% 40%" },
 };
 const img = (key: keyof typeof P, alt: string): Img => ({ ...P[key], alt });
 
@@ -161,6 +167,7 @@ const vi = {
     close: "Đóng",
   },
   homeProjects: { title: "Các dự án của chúng tôi", all: "Tất cả dự án" },
+  homeNews: { title: "Tin tức", all: "Tất cả tin tức" },
   homeClients: { topic: "Khách hàng", title: "Khách hàng của chúng tôi" },
   clientTypes: ["Cơ quan Nhà nước", "Ban tổ chức sự kiện", "Di tích, đền chùa, dòng họ", "Gia đình", "Doanh nghiệp"],
   partnerNames: [
@@ -181,7 +188,7 @@ const vi = {
     "Bệnh viện Quân y 354",
     "Bộ đội Biên phòng",
   ],
-  footer: { sitemap: "Sơ đồ trang", maps: "Google Maps", mapTitle: "Bản đồ khu vực xưởng sản xuất Quảng Phú, Lâm Thao, Bắc Ninh" },
+  footer: { sitemap: "Sitemap", office: "Văn phòng", social: "Mạng xã hội", maps: "Google Maps", mapTitle: "Bản đồ khu vực xưởng sản xuất Quảng Phú, Lâm Thao, Bắc Ninh" },
 
   // ——— Liên hệ ———
   contactPage: {
@@ -216,15 +223,22 @@ const vi = {
     materials: "Chất liệu",
     sizes: "Kích thước tham khảo",
     whatWeDo: "Chúng tôi làm gì",
+    highlightsTitle: "Điểm nổi bật năng lực",
     scope: "Hạng mục nhận làm",
     all: "Tất cả dịch vụ",
     otherTopic: "Dịch vụ khác",
+    galleryTopic: "Hình ảnh",
+    galleryTitle: "Sản phẩm đã chế tác",
+    projectsTopic: "Dự án tiêu biểu",
+    projectsTitle: "Công trình đã thực hiện",
+    allProjects: "Xem tất cả dự án",
     otherTitle: "Các dòng chế tác khác",
   },
   // TODO: xác minh chất liệu và kích thước tham khảo với xưởng
   products: [
     {
       id: "xe-nghi-truong",
+      projectCategory: 0, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Xe nghi trượng đại lễ",
       summary: "Thiết kế, sản xuất khối xe nghi trượng cho diễu hành, diễu binh và sự kiện lớn.",
       body: "Quảng Phú nhận trọn gói khối xe từ ý tưởng, bản vẽ phối cảnh, kết cấu khung đến tạo hình biểu tượng, hoàn thiện bề mặt và vận hành trong ngày lễ. Xưởng đã trực tiếp làm các khối xe cho những kỳ đại lễ quốc gia từ A50 đến A80.",
@@ -238,6 +252,13 @@ const vi = {
       ],
       materials: ["Thép hộp", "Composite", "Xốp EPS bọc composite", "Sơn nhũ vàng", "Đèn LED"],
       sizes: "Dài 8–14 m, cao 4–7 m tùy sát xi và lộ trình",
+      tagline: "Tinh hoa nghệ thuật tạo hình & kỹ thuật cơ khí chế tác biểu tượng Quốc gia",
+      intro: "Mỗi đại lễ lớn và khoảnh khắc lịch sử đều cần những biểu tượng dẫn đầu kiêu hãnh. Chúng tôi tự hào là đơn vị chuyên thiết kế, chế tác trọn gói các dòng **Xe nghi trượng, Xe rước Quốc huy & Xe diễu hành nghệ thuật** phục vụ cho các sự kiện, lễ kỷ niệm và đại lễ quy mô lớn cấp Quốc gia.",
+      highlights: [
+        { title: "Chuẩn mực & tinh xảo mỹ thuật", body: "Tạo hình chi tiết, chính xác tuyệt đối theo đúng quy chuẩn mỹ thuật, biểu tượng lịch sử và tinh thần trang nghiêm của sự kiện." },
+        { title: "Kết cấu & vận hành hoàn hảo", body: "Tối ưu hóa khung gầm cơ khí chịu lực, đảm bảo xe di chuyển mượt mà, êm ái ở tốc độ diễu hành và an toàn tuyệt đối trong suốt đại lễ." },
+        { title: "Trọn gói & đúng tiến độ", body: "Quy trình khép kín từ ý tưởng thiết kế 3D đến chế tác hoàn thiện, đáp ứng nghiêm ngặt thời hạn tổng duyệt và bảo mật thông tin." },
+      ],
       images: [
         img("a80NewEra", "Khối xe Việt Nam kỷ nguyên phát triển mới trong Đại lễ A80"),
         img("a50", "Khối xe biểu trưng 50 năm giữa rừng cờ"),
@@ -248,6 +269,7 @@ const vi = {
     },
     {
       id: "tuong-bac-ho",
+      projectCategory: 1, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Tượng Chủ tịch Hồ Chí Minh",
       summary: "Tượng Bác toàn thân, bán thân cho hội trường, cơ quan, di tích và sự kiện.",
       body: "Mẫu tượng được nghệ nhân đắp và chỉnh thần thái theo tư liệu ảnh chuẩn, duyệt mẫu với khách hàng trước khi đúc. Kích thước từ tượng bán thân đặt bục hội trường đến tượng toàn thân nhiều mét cho quảng trường, sân khấu đại lễ.",
@@ -260,6 +282,13 @@ const vi = {
       ],
       materials: ["Đồng đúc", "Composite giả đồng", "Composite phủ nhũ vàng", "Thạch cao (mẫu)"],
       sizes: "Bán thân 60–120 cm; toàn thân 1,5–4,5 m",
+      tagline: "Nghệ thuật đúc & tạc tượng chân dung Bác Hồ – Trang nghiêm, thần thái & tinh xảo",
+      intro: "Tượng Bác Hồ là biểu tượng tâm linh, lịch sử và văn hóa thiêng liêng tại các hội trường, quảng trường, công trình kỷ niệm và các sự kiện đại lễ. Chúng tôi tự hào đồng hành cùng các đơn vị trong việc chế tác **Tượng Bác Hồ bán thân, Tượng Bác Hồ đứng / vẫy tay chào & Tượng đài nghệ thuật** đạt chuẩn mực cao nhất về thẩm mỹ và ý nghĩa lịch sử.",
+      highlights: [
+        { title: "Thần thái chuẩn xác & trang nghiêm", body: "Chế tác dựa trên quy chuẩn tạo hình mỹ thuật Quốc gia, thể hiện chân thực, hiền hòa và đầy khí chất thần thái của Lãnh tụ." },
+        { title: "Tạo hình tinh xảo & đa dạng quy mô", body: "Đáp ứng linh hoạt mọi kích thước và kiểu dáng theo yêu cầu không gian, từ tượng hội trường, tượng diễu hành đến các công trình tượng đài ngoài trời." },
+        { title: "Độ bền cao & thi công trọn gói", body: "Đảm bảo tính bền vững theo thời gian, quy trình thực hiện chuyên nghiệp, đáp ứng chính xác tiến độ và yêu cầu của đại lễ." },
+      ],
       images: [
         img("hoStanding", "Tượng Bác Hồ toàn thân phủ nhũ vàng"),
         img("hoBust", "Tượng bán thân Bác Hồ trong hội trường"),
@@ -270,6 +299,7 @@ const vi = {
     },
     {
       id: "tuong-chan-dung-tho",
+      projectCategory: 4, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Tượng chân dung thờ",
       summary: "Tượng thờ ông bà, cha mẹ, tổ tiên, chuẩn thần thái theo ảnh gia đình cung cấp.",
       body: "Từ ảnh chân dung gia đình gửi, nghệ nhân dựng mẫu đất và chỉnh từng nét mặt cùng gia đình cho đến khi giống người thật, rồi mới đúc và hoàn thiện. Phù hợp đặt tại bàn thờ gia tiên, nhà thờ họ, từ đường.",
@@ -282,15 +312,29 @@ const vi = {
       ],
       materials: ["Đồng đúc", "Composite giả đồng", "Đá"],
       sizes: "Bán thân 30–60 cm; toàn thân ngồi 50–90 cm",
+      tagline: "Nghệ thuật điêu khắc & đúc tượng chân dung truyền thống – Chân thực, thành kính & bền vững",
+      intro: "Tượng chân dung thờ mang ý nghĩa tâm linh và văn hóa sâu sắc, thể hiện lòng hiếu kính, tri ân đối với ông bà, tổ tiên và những người đã khuất. Chúng tôi chuyên nhận chế tác **Tượng chân dung thờ gia tiên, Tượng anh hùng liệt sĩ & Danh nhân lịch sử** với sự chỉn chu, tâm huyết và tinh xảo trong từng đường nét.",
+      highlights: [
+        { title: "Giống thực & truyền tải thần thái", body: "Chế tác dựa trên ảnh chụp hoặc tư liệu lịch sử, tạo hình tỉ mỉ giúp tái hiện chân thực diện mạo, nét mặt và sự ấm áp, trang nghiêm." },
+        { title: "Tận tâm & chuẩn mực tâm linh", body: "Thực hiện với sự cẩn trọng và tôn kính cao nhất, đảm bảo tính thẩm mỹ, tỉ lệ hài hòa và sự tôn nghiêm cho không gian thờ tự." },
+        { title: "Đa dạng kích thước & quy trình chuyên nghiệp", body: "Đáp ứng linh hoạt các tỉ lệ kích thước theo yêu cầu từ gia đường đến nhà thờ họ, đảm bảo độ hoàn thiện cao và lưu giữ lâu bền qua nhiều thế hệ." },
+      ],
       // Ảnh tạm: tượng bán thân Bác Hồ. TODO: thay bằng ảnh tượng chân dung thờ đã làm
       images: [
         img("hoBust", "Tượng chân dung bán thân Chủ tịch Hồ Chí Minh"),
         img("hoStanding", "Tượng chân dung toàn thân phủ nhũ vàng"),
         img("hoStage", "Tượng chân dung đặt trên sân khấu lễ kỷ niệm"),
+        img("cdtOng", "Tượng chân dung thờ cụ ông đặt trên bệ gỗ trong gian thờ"),
+        img("cdtBaAnhMau", "Phôi tượng chân dung cụ bà bên cạnh ảnh mẫu của gia đình"),
+        img("cdtQuanPhuc", "Tượng chân dung bán thân người mặc quân phục"),
+        img("cdtNanTuong", "Nghệ nhân nắn tượng chân dung theo ảnh chân dung gốc"),
+        img("cdtBaNghieng", "Phôi tượng chân dung cụ bà nhìn nghiêng, chít khăn truyền thống"),
+        img("cdtBacPhongTho", "Tượng bán thân Chủ tịch Hồ Chí Minh trong phòng thờ"),
       ],
     },
     {
       id: "qua-tang-my-thuat",
+      projectCategory: 3, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Quà tặng & mỹ thuật trang trí",
       summary: "Tượng lưu niệm, quà tặng độc bản và tác phẩm mỹ thuật cho không gian, sự kiện.",
       body: "Thiết kế riêng theo câu chuyện của đơn vị đặt hàng: biểu tượng kỷ niệm, phù điêu, tác phẩm sắp đặt khổ lớn cho sân khấu và khuôn viên, hay quà tặng đối ngoại số lượng nhỏ, mỗi chiếc một số hiệu.",
@@ -303,6 +347,13 @@ const vi = {
       ],
       materials: ["Đồng", "Composite", "Thép", "Gỗ", "Mica"],
       sizes: "Từ quà tặng để bàn 20 cm đến tác phẩm sắp đặt trên 10 m",
+      tagline: "Quà tặng ngoại giao, biểu trưng đối nội đối ngoại & chế tác mỹ thuật không gian",
+      intro: "Tượng quà tặng ngoại giao và biểu trưng nghệ thuật là cầu nối văn hóa, thể hiện vị thế và đẳng cấp của doanh nghiệp, tổ chức. Chúng tôi chuyên thiết kế và chế tác các sản phẩm **Quà tặng đối ngoại cao cấp, Biểu trưng biểu tượng văn hóa & Mô hình mỹ thuật trang trí** cho các sự kiện, hội nghị và không gian kiến trúc.",
+      highlights: [
+        { title: "Đậm đà bản sắc & đẳng cấp ngoại giao", body: "Thiết kế độc bản mang dấu ấn bản sắc văn hóa Việt Nam và giá trị biểu tượng riêng của từng tổ chức, doanh nghiệp." },
+        { title: "Mỹ thuật tinh xảo & sang trọng", body: "Chế tác tỉ mỉ từng chi tiết nhỏ, kết hợp nghệ thuật tạo hình hiện đại với đường nét truyền thống, đạt chuẩn mực thẩm mỹ cao nhất." },
+        { title: "Sản xuất theo yêu cầu & đa dạng quy mô", body: "Chế tác linh hoạt từ quà tặng để bàn nhỏ gọn, biểu trưng vinh danh đến các cụm mô hình mỹ thuật trang trí đại sảnh, cảnh quan." },
+      ],
       images: [
         img("flag", "Tác phẩm lá cờ đỏ sao vàng được cẩu lắp đặt"),
         img("relief", "Phù điêu và cụm tượng chiến sĩ trên khối xe"),
@@ -312,12 +363,12 @@ const vi = {
     },
   ],
   process: [
-    { title: "Thu thập thông tin" },
-    { title: "Phân tích thông tin & hình thành ý tưởng" },
-    { title: "Xây dựng hồ sơ dự án" },
+    { title: "Khảo sát & lấy ý tưởng" },
+    { title: "Thiết kế phác thảo" },
+    { title: "Duyệt mẫu" },
     { title: "Xây dựng nội dung & kế hoạch chi tiết" },
-    { title: "Triển khai chính thức" },
-    { title: "Kết thúc & tổng kết dự án" },
+    { title: "Triển khai sản xuất" },
+    { title: "Lắp đặt, bàn giao" },
   ],
   // TODO: xác minh các mốc thời gian và chính sách với công ty
   faqs: [
@@ -394,7 +445,7 @@ const vi = {
   },
   // Dự án lấy từ backend (quản trị ở /admin/projects). Trường `category` là vị trí trong danh sách này;
   // thêm/bớt hạng mục thì sửa cả CATEGORY_COUNT ở backend/src/routes/projects.ts.
-  projectCategories: ["Xe nghi trượng", "Tượng Bác Hồ", "Tượng đài & phù điêu", "Quà tặng đối ngoại"],
+  projectCategories: ["Xe nghi trượng", "Tượng Bác Hồ", "Tượng đài & phù điêu", "Quà tặng đối ngoại", "Tượng chân dung thờ"],
   ceremonies: [
     { code: "ĐBP60", year: "2014", name: "60 năm Chiến thắng Điện Biên Phủ" },
     { code: "ĐBP70", year: "2024", name: "70 năm Chiến thắng Điện Biên Phủ" },
@@ -604,6 +655,7 @@ const en: Content = {
     close: "Close",
   },
   homeProjects: { title: "Our projects", all: "All projects" },
+  homeNews: { title: "News", all: "All news" },
   homeClients: { topic: "Clients", title: "Our clients" },
   clientTypes: ["Government agencies", "Event organisers", "Heritage sites, temples, clans", "Families", "Businesses"],
   partnerNames: [
@@ -624,7 +676,7 @@ const en: Content = {
     "Military Hospital 354",
     "Vietnam Border Guard",
   ],
-  footer: { sitemap: "Site map", maps: "Google Maps", mapTitle: "Map of the Quang Phu workshop area, Lam Thao, Bac Ninh" },
+  footer: { sitemap: "Sitemap", office: "Office", social: "Social", maps: "Google Maps", mapTitle: "Map of the Quang Phu workshop area, Lam Thao, Bac Ninh" },
 
   contactPage: {
     metaTitle: "Contact — Quang Phu, art metalwork workshop in Bac Ninh",
@@ -657,14 +709,21 @@ const en: Content = {
     materials: "Materials",
     sizes: "Typical sizes",
     whatWeDo: "What we do",
+    highlightsTitle: "Key strengths",
     scope: "Scope of work",
     all: "All services",
     otherTopic: "Other services",
+    galleryTopic: "Gallery",
+    galleryTitle: "Pieces we have crafted",
+    projectsTopic: "Featured projects",
+    projectsTitle: "Work we have delivered",
+    allProjects: "View all projects",
     otherTitle: "Our other lines of work",
   },
   products: [
     {
       id: "xe-nghi-truong",
+      projectCategory: 0, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Ceremonial parade floats",
       summary: "Design and fabrication of ceremonial floats for parades, military reviews and major events.",
       body: "Quang Phu takes on floats end to end: concept, perspective drawings, frame structure, sculpted emblems, surface finishing and operation on the day. Our workshop has built floats for Vietnam's national celebrations from A50 to A80.",
@@ -678,6 +737,13 @@ const en: Content = {
       ],
       materials: ["Steel box section", "Composite", "Composite-clad EPS foam", "Gold-effect paint", "LED lighting"],
       sizes: "8–14 m long, 4–7 m tall depending on chassis and route",
+      tagline: "The art of sculpture and the craft of engineering for national symbols",
+      intro: "Every great ceremony and historic moment needs symbols that lead with pride. We design and build, end to end, **ceremonial floats, national-emblem carriers and artistic parade floats** for national-scale events, anniversaries and grand ceremonies.",
+      highlights: [
+        { title: "Artistic precision", body: "Detailed, exact modelling that follows artistic standards, historical symbolism and the solemn spirit of each event." },
+        { title: "Flawless structure and operation", body: "Load-bearing chassis frames optimised so floats move smoothly at parade speed and stay completely safe throughout the ceremony." },
+        { title: "Turnkey and on schedule", body: "A closed process from 3D concept to finished piece, meeting strict rehearsal deadlines and confidentiality requirements." },
+      ],
       images: [
         img("a80NewEra", "The 'Vietnam, a new era of development' float at the A80 celebration"),
         img("a50", "The 50th-anniversary float among a sea of flags"),
@@ -688,6 +754,7 @@ const en: Content = {
     },
     {
       id: "tuong-bac-ho",
+      projectCategory: 1, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Statues of President Ho Chi Minh",
       summary: "Full-length and bust statues for halls, offices, heritage sites and events.",
       body: "Our artisans sculpt each model from reference photographs and refine the likeness, and the client approves the model before casting. Sizes range from busts for assembly halls to multi-metre full-length statues for squares and celebration stages.",
@@ -700,6 +767,13 @@ const en: Content = {
       ],
       materials: ["Cast bronze", "Bronze-effect composite", "Gilded composite", "Plaster (models)"],
       sizes: "Busts 60–120 cm; full-length 1.5–4.5 m",
+      tagline: "Casting and sculpting portraits of President Ho Chi Minh – solemn, lifelike and refined",
+      intro: "Statues of President Ho Chi Minh are sacred spiritual, historical and cultural symbols in halls, squares, memorials and grand ceremonies. We are proud to work with organisations to create **busts, standing and waving statues, and artistic monuments** of the highest aesthetic and historical standard.",
+      highlights: [
+        { title: "True and dignified likeness", body: "Made to national artistic modelling standards, conveying the Leader's genuine, gentle and spirited presence." },
+        { title: "Refined modelling at any scale", body: "Any size or pose to suit the space, from hall statues and parade statues to outdoor monuments." },
+        { title: "Durable and turnkey", body: "Built to last, delivered through a professional process that meets the ceremony's schedule and requirements precisely." },
+      ],
       images: [
         img("hoStanding", "Gilded full-length statue of Ho Chi Minh"),
         img("hoBust", "Bust of Ho Chi Minh in an assembly hall"),
@@ -710,6 +784,7 @@ const en: Content = {
     },
     {
       id: "tuong-chan-dung-tho",
+      projectCategory: 4, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Ancestral portrait statues",
       summary: "Statues of grandparents, parents and ancestors for worship, true to the family's photographs.",
       body: "From the portraits a family sends us, our artisans build a clay model and refine every facial detail together with the family until it truly resembles their loved one, and only then cast and finish it. Suited to family altars, clan halls and ancestral houses.",
@@ -722,14 +797,28 @@ const en: Content = {
       ],
       materials: ["Cast bronze", "Bronze-effect composite", "Stone"],
       sizes: "Busts 30–60 cm; seated full-length 50–90 cm",
+      tagline: "Traditional portrait sculpture and casting – lifelike, reverent and lasting",
+      intro: "Ancestral portrait statues carry deep spiritual and cultural meaning, expressing filial respect and gratitude to grandparents, ancestors and those who have passed. We create **ancestral portrait statues, statues of fallen heroes and historical figures** with care, dedication and refinement in every line.",
+      highlights: [
+        { title: "Lifelike, with true character", body: "Made from photographs or historical records, carefully modelled to recreate the face, expression and warm, dignified presence." },
+        { title: "Devoted and spiritually appropriate", body: "Carried out with the utmost care and reverence, ensuring beauty, harmonious proportions and dignity for the place of worship." },
+        { title: "Any size, professional process", body: "Flexible proportions for family altars and clan temples alike, with a high finish that lasts for generations." },
+      ],
       images: [
         img("hoBust", "Bust portrait statue of President Ho Chi Minh"),
         img("hoStanding", "Gilded full-length portrait statue"),
         img("hoStage", "Portrait statue on an anniversary stage"),
+        img("cdtOng", "Ancestral portrait statue of an elderly man on a wooden plinth in a shrine"),
+        img("cdtBaAnhMau", "Clay model of an elderly woman's portrait beside the family's reference photo"),
+        img("cdtQuanPhuc", "Bust portrait of a man in military uniform"),
+        img("cdtNanTuong", "Sculptor modelling a portrait from the original photograph"),
+        img("cdtBaNghieng", "Side view of an elderly woman's portrait in a traditional head wrap"),
+        img("cdtBacPhongTho", "Bust of President Ho Chi Minh in a memorial room"),
       ],
     },
     {
       id: "qua-tang-my-thuat",
+      projectCategory: 3, // vị trí trong projectCategories: dự án cùng loại hiện ở trang dịch vụ này
       name: "Gifts & decorative art",
       summary: "Commemorative statues, one-of-a-kind gifts and art installations for spaces and events.",
       body: "Designed around each client's story: commemorative emblems, reliefs, large installations for stages and grounds, or small runs of diplomatic gifts, each individually numbered.",
@@ -742,6 +831,13 @@ const en: Content = {
       ],
       materials: ["Bronze", "Composite", "Steel", "Wood", "Acrylic"],
       sizes: "From 20 cm desk gifts to installations over 10 m",
+      tagline: "Diplomatic gifts, institutional emblems and decorative art for spaces",
+      intro: "Diplomatic gift statues and artistic emblems are cultural bridges that express the standing of a company or organisation. We design and make **premium diplomatic gifts, cultural emblems and decorative art models** for events, conferences and architectural spaces.",
+      highlights: [
+        { title: "Rich identity, diplomatic class", body: "One-of-a-kind designs carrying Vietnamese cultural identity and each organisation's own symbolism." },
+        { title: "Refined, elegant craftsmanship", body: "Every small detail carefully made, combining modern modelling with traditional lines to the highest aesthetic standard." },
+        { title: "Made to order, at any scale", body: "From compact desk gifts and honour emblems to decorative installations for lobbies and landscapes." },
+      ],
       images: [
         img("flag", "A red-flag installation being lifted into place by crane"),
         img("relief", "Relief and soldier sculptures on a float"),
@@ -751,12 +847,12 @@ const en: Content = {
     },
   ],
   process: [
-    { title: "Information gathering" },
-    { title: "Analysis & concept development" },
-    { title: "Project dossier" },
+    { title: "Survey & ideas" },
+    { title: "Concept sketches" },
+    { title: "Model approval" },
     { title: "Detailed content & planning" },
-    { title: "Full-scale execution" },
-    { title: "Completion & project review" },
+    { title: "Production" },
+    { title: "Installation & handover" },
   ],
   faqs: [
     {
@@ -827,7 +923,7 @@ const en: Content = {
     otherTitle: "Related projects",
     backAll: "All projects",
   },
-  projectCategories: ["Ceremonial floats", "Ho Chi Minh statues", "Monuments & reliefs", "Diplomatic gifts"],
+  projectCategories: ["Ceremonial floats", "Ho Chi Minh statues", "Monuments & reliefs", "Diplomatic gifts", "Ancestral portraits"],
   ceremonies: [
     { code: "ĐBP60", year: "2014", name: "60th anniversary of the Dien Bien Phu victory" },
     { code: "ĐBP70", year: "2024", name: "70th anniversary of the Dien Bien Phu victory" },
