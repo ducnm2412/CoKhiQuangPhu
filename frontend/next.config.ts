@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    // Tự thu nhỏ ảnh bằng Cloudinary thay vì bộ tối ưu ảnh của Vercel (xem src/lib/image-loader.ts)
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
     // 90: ảnh lớn ở trang chi tiết (xem ảnh to, cần nét); còn lại mặc định 75
     qualities: [75, 90],
     // Ảnh tin tức upload từ trang quản trị
