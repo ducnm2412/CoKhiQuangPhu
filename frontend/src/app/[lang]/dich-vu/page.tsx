@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ProcessSection } from "@/components/ProcessSection";
 import { SheetHead } from "@/components/SheetHead";
 import { Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
@@ -64,7 +63,6 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/dich-v
         </div>
       </section>
 
-      <ProcessSection lang={lang} />
 
       {/* Sản phẩm đã chế tác: lưới ảnh dự án, cứ 6 ảnh thì ảnh đầu to gấp đôi; rê chuột hiện thông tin, bấm mở dự án */}
       {projects.length > 0 && (
