@@ -53,14 +53,19 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             {/* Tên công ty hiện từng chữ cái; trình đọc màn hình đọc bản chữ liền ở dưới */}
             {/* mt theo em + leading 1: chừa chỗ cho dấu trên chữ hoa (Ả, Ú) không chạm dấu nặng của dòng trên (THUẬT) */}
             <span aria-hidden="true" className="mt-[0.12em] block text-[clamp(2.8rem,13.5vw,4.1rem)] leading-none whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
+              {/* Gõ từng chữ như bàn phím: con trỏ đỏ chạy theo chữ vừa gõ, gõ xong nhấp nháy ở cuối rồi tắt */}
               {[...brand].map((ch, i) => (
-                <span key={i} className="hero-in inline-block whitespace-pre" style={{ "--d": 200 + i * 55 } as React.CSSProperties}>
+                <span key={i} className="type-in inline-block whitespace-pre" style={{ "--d": 300 + i * 110 } as React.CSSProperties}>
                   {ch}
                 </span>
               ))}
-              <span className="hero-dot inline-block text-signal" style={{ "--d": 200 + brand.length * 55 + 150 } as React.CSSProperties}>
+              <span className="hero-dot inline-block text-signal" style={{ "--d": 300 + brand.length * 110 + 150 } as React.CSSProperties}>
                 .
               </span>
+              <span
+                className="type-caret ml-[0.05em] inline-block h-[0.8em] w-[0.06em] bg-signal align-baseline"
+                style={{ "--on": 300 + brand.length * 110, "--d": 300 + brand.length * 110 + 1200 } as React.CSSProperties}
+              />
             </span>
             <span className="sr-only">{brand}.</span>
           </h1>
@@ -85,7 +90,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 <div key={s.label} className="flex flex-col-reverse">
                   <dt className="mt-1.5 text-sm text-white/65">{s.label}</dt>
                   <dd className="display text-5xl md:text-[3.4rem]">
-                    <CountUp value={s.value} />
+                    <CountUp value={s.value} delay={1300} duration={2000} />
                   </dd>
                 </div>
               ))}

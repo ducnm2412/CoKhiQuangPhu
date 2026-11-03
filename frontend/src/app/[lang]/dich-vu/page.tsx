@@ -106,31 +106,6 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/dich-v
           </div>
         </section>
       )}
-
-      {/* Câu hỏi thường gặp */}
-      <section className="py-16 md:py-24">
-        <div className={`${wrap} grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16`}>
-          <SheetHead topic={t.faqTopic}>
-            {t.faqTitle}
-          </SheetHead>
-          <div className="border-t border-rule" data-reveal-group="up">
-            {c.faqs.map((f) => (
-              <details key={f.q} className="group border-b border-rule">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 font-semibold [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <span
-                    aria-hidden="true"
-                    className="grid size-7 shrink-0 place-items-center border border-rule text-ash transition-transform group-open:rotate-45"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="max-w-[62ch] pb-6 leading-relaxed text-ash">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

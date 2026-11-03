@@ -112,7 +112,7 @@ export function Header({ lang, nav, ui, brand, services, projectCategories }: Pr
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-4 px-5 md:px-8">
         <Link href={lp("/")} onClick={onLogoClick} className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeAria}>
           <Logo />
-          <span className="display text-lg">{brand}</span>
+          <span className="display text-lg text-[#f91508]">{brand}</span>
         </Link>
 
         <nav aria-label={ui.mainNav} className="hidden lg:block">
