@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { contact, getContent } from "@/lib/content";
 import { localePath, routes, type Locale } from "@/lib/i18n";
-import { Logo } from "./Logo";
 
 const wrap = "mx-auto max-w-[1200px] px-5 md:px-8";
 
@@ -21,12 +20,12 @@ export function SiteFooter({ lang }: { lang: Locale }) {
     <footer id="lien-he" className="relative overflow-hidden border-t border-rule bg-night">
       {/* Logo mờ làm nền */}
       <Image
-        src="/images/logo.png"
+        src="/images/logo-mark.png" // chỉ phần chữ CP, không có dòng "QUẢNG PHÚ"
         alt=""
         aria-hidden
-        width={312}
-        height={320}
-        className="pointer-events-none absolute z-0 md:z-10 top-[22%] md:top-1/2 left-1/2 md:left-[30%] w-[min(70vw,420px)] -translate-x-1/2 -translate-y-1/2 opacity-[0.12] select-none"
+        width={251}
+        height={242}
+        className="pointer-events-none absolute z-0 md:z-10 top-[22%] md:top-1/2 left-1/2 md:left-[30%] w-[min(56vw,340px)] -translate-x-1/2 -translate-y-1/2 opacity-[0.12] select-none"
       />
       <div className={`${wrap} relative grid grid-cols-2 gap-8 pt-10 md:gap-14`}>
         <div>
@@ -61,12 +60,9 @@ export function SiteFooter({ lang }: { lang: Locale }) {
 
       <div className={`${wrap} relative grid gap-8 py-10 md:grid-cols-2 md:items-stretch md:gap-14`}>
         <div className="flex flex-col">
-          <Link href={localePath(lang, "/")} className="flex w-fit items-center gap-2.5" aria-label={t.ui.homeAria}>
-            <Logo />
-          </Link>
           <a
             href={`mailto:${contact.email}`}
-            className="mt-7 w-fit border-b-2 border-signal pb-1 text-[clamp(1.05rem,4.9vw,2rem)] md:text-[clamp(1.05rem,2.5vw,2rem)] leading-tight font-semibold tracking-tight whitespace-nowrap transition-colors hover:text-signal"
+            className="w-fit border-b-2 border-signal pb-1 text-[clamp(1.05rem,4.9vw,2rem)] md:text-[clamp(1.05rem,2.5vw,2rem)] leading-tight font-semibold tracking-tight whitespace-nowrap transition-colors hover:text-signal"
           >
             {contact.email}
           </a>

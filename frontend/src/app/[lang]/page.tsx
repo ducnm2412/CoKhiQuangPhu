@@ -6,6 +6,7 @@ import { BirdsAroundPhoto } from "@/components/FlyingBirds";
 import { Gallery } from "@/components/Gallery";
 import { PartnerLogos } from "@/components/PartnerLogos";
 import { ProjectGrid } from "@/components/ProjectGrid";
+import { TypeLoop } from "@/components/TypeLoop";
 import { SheetHead } from "@/components/SheetHead";
 import { Photo } from "@/components/ui";
 import { getContent } from "@/lib/content";
@@ -52,20 +53,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <span className="hero-in block text-[clamp(1.35rem,6.2vw,1.875rem)] font-semibold text-white/60 md:text-4xl xl:text-5xl">{t.hero.weAre}</span>
             {/* Tên công ty hiện từng chữ cái; trình đọc màn hình đọc bản chữ liền ở dưới */}
             {/* mt theo em + leading 1: chừa chỗ cho dấu trên chữ hoa (Ả, Ú) không chạm dấu nặng của dòng trên (THUẬT) */}
-            <span aria-hidden="true" className="mt-[0.12em] block text-[clamp(2.8rem,13.5vw,4.1rem)] leading-none whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
-              {/* Gõ từng chữ như bàn phím: con trỏ đỏ chạy theo chữ vừa gõ, gõ xong nhấp nháy ở cuối rồi tắt */}
-              {[...brand].map((ch, i) => (
-                <span key={i} className="type-in inline-block whitespace-pre" style={{ "--d": 300 + i * 110 } as React.CSSProperties}>
-                  {ch}
-                </span>
-              ))}
-              <span className="hero-dot inline-block text-signal" style={{ "--d": 300 + brand.length * 110 + 150 } as React.CSSProperties}>
-                .
-              </span>
-              <span
-                className="type-caret ml-[0.05em] inline-block h-[0.8em] w-[0.06em] bg-signal align-baseline"
-                style={{ "--on": 300 + brand.length * 110, "--d": 300 + brand.length * 110 + 1200 } as React.CSSProperties}
-              />
+            <span aria-hidden="true" className="relative mt-[0.12em] block text-[clamp(2.8rem,13.5vw,4.1rem)] leading-none whitespace-nowrap sm:text-[7rem] lg:text-[5.2rem] xl:text-[6.4rem]">
+              {/* Gõ từng chữ như bàn phím, xoá rồi gõ lại liên tục; con trỏ đỏ chạy theo chữ */}
+              <TypeLoop text={brand} suffix="." />
             </span>
             <span className="sr-only">{brand}.</span>
           </h1>

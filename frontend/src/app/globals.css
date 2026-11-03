@@ -216,44 +216,12 @@ body {
   animation: hero-dot 0.5s cubic-bezier(0.3, 1.7, 0.5, 1) forwards;
   animation-delay: calc(var(--d, 0) * 1ms);
 }
-/* Hiệu ứng gõ phím: chữ bật hiện ngay (không trượt) theo --d.
-   Con trỏ chạy theo chữ: mỗi chữ có con trỏ riêng ở bên phải, chỉ sáng trong lúc chữ đó vừa gõ (--step ms),
-   chữ sau hiện thì con trỏ nhảy sang. Gõ xong, con trỏ cuối (.type-caret) nhấp nháy từ --on rồi tắt ở --d. */
-.type-in {
-  position: relative;
-  opacity: 0;
-  animation: type-in 0s linear forwards;
-  animation-delay: calc(var(--d, 0) * 1ms);
-}
-.type-in::after {
-  content: "";
-  position: absolute;
-  top: 0.1em;
-  right: -0.08em;
-  width: 0.06em;
-  height: 0.8em;
-  background: var(--color-signal);
-  opacity: 0;
-  animation: caret-step calc(var(--step, 110) * 1ms) steps(1) forwards;
-  animation-delay: calc(var(--d, 0) * 1ms);
-}
-.type-caret {
-  opacity: 0;
-  animation: type-in 0s linear forwards, caret-blink 0.9s steps(1) infinite, caret-off 0.3s linear forwards;
-  animation-delay: calc(var(--on, 0) * 1ms), calc(var(--on, 0) * 1ms), calc(var(--d, 0) * 1ms);
-}
-@keyframes type-in {
-  to { opacity: 1; }
-}
-@keyframes caret-step {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+/* Con trỏ nhấp nháy của hiệu ứng gõ chữ (components/TypeLoop.tsx) */
+.type-cursor {
+  animation: caret-blink 0.9s steps(1) infinite;
 }
 @keyframes caret-blink {
   50% { visibility: hidden; }
-}
-@keyframes caret-off {
-  to { opacity: 0; }
 }
 .hero-line {
   transform: scaleX(0);
