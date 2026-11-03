@@ -324,11 +324,6 @@ const vi = {
         img("hoBust", "Tượng chân dung bán thân Chủ tịch Hồ Chí Minh"),
         img("hoStanding", "Tượng chân dung toàn thân phủ nhũ vàng"),
         img("hoStage", "Tượng chân dung đặt trên sân khấu lễ kỷ niệm"),
-        img("cdtBaAnhMau", "Phôi tượng chân dung cụ bà bên cạnh ảnh mẫu của gia đình"),
-        img("cdtQuanPhuc", "Tượng chân dung bán thân người mặc quân phục"),
-        img("cdtNanTuong", "Nghệ nhân nắn tượng chân dung theo ảnh chân dung gốc"),
-        img("cdtBaNghieng", "Phôi tượng chân dung cụ bà nhìn nghiêng, chít khăn truyền thống"),
-        img("cdtBacPhongTho", "Tượng bán thân Chủ tịch Hồ Chí Minh trong phòng thờ"),
       ],
     },
     {
@@ -807,11 +802,6 @@ const en: Content = {
         img("hoBust", "Bust portrait statue of President Ho Chi Minh"),
         img("hoStanding", "Gilded full-length portrait statue"),
         img("hoStage", "Portrait statue on an anniversary stage"),
-        img("cdtBaAnhMau", "Clay model of an elderly woman's portrait beside the family's reference photo"),
-        img("cdtQuanPhuc", "Bust portrait of a man in military uniform"),
-        img("cdtNanTuong", "Sculptor modelling a portrait from the original photograph"),
-        img("cdtBaNghieng", "Side view of an elderly woman's portrait in a traditional head wrap"),
-        img("cdtBacPhongTho", "Bust of President Ho Chi Minh in a memorial room"),
       ],
     },
     {
